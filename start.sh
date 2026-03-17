@@ -103,13 +103,13 @@ ensure_xverse_checkpoints() {
       "$py" -m pip install -U "huggingface_hub[cli]<1.0" || { echo "failed to install huggingface-cli"; exit 1; }
     fi
     if ! command -v huggingface-cli &> /dev/null; then
-      export HUGGINGFACE_CLI="$py -m huggingface_hub.cli"
+      export HUGGINGFACE_CLI="$py -m huggingface_hub.commands.huggingface_cli"
     fi
     (cd "$ckpt_dir" && bash ./download_ckpts.sh)
   fi
   if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
     log "downloading model_ir_se50.pth..."
-    local face_url="https://github.com/TreB1eN/InsightFace_Pytorch/raw/master/model_ir_se50.pth"
+    local face_url="https://huggingface.co/lithiumice/insightface/resolve/main/InsightFace_Pytorch%2Bmodel_ir_se50.pth"
     if command -v wget &> /dev/null; then
       wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
     elif command -v curl &> /dev/null; then

@@ -1,3 +1,5 @@
+set -euo pipefail
+
 if command -v wget &> /dev/null; then
     CMD="wget"
 elif command -v curl &> /dev/null; then
@@ -10,7 +12,7 @@ fi
 if command -v huggingface-cli &> /dev/null; then
     HF_CMD="huggingface-cli"
 else
-    HF_CMD="${HUGGINGFACE_CLI:-python -m huggingface_hub.cli}"
+    HF_CMD="${HUGGINGFACE_CLI:-python -m huggingface_hub.commands.huggingface_cli}"
 fi
 
 # Define the URLs for SAM 2.1 checkpoints
