@@ -9,11 +9,44 @@ else
     exit 1
 fi
 
-if command -v huggingface-cli &> /dev/null; then
-    HF_CMD="huggingface-cli"
-else
-    HF_CMD="${HUGGINGFACE_CLI:-python -m huggingface_hub.commands.huggingface_cli}"
-fi
+hf_download() {
+    local repo="$1"
+    local out_dir="$2"
+    if command -v huggingface-cli &> /dev/null; then
+        if huggingface-cli download "$repo" --local-dir "$out_dir"; then
+            return 0
+        fi
+    fi
+    if [[ -n "${HUGGINGFACE_CLI:-}" ]]; then
+        if $HUGGINGFACE_CLI download "$repo" --local-dir "$out_dir"; then
+            return 0
+        fi
+    fi
+    if python - <<'PY'
+import importlib.util
+import sys
+ok = importlib.util.find_spec("huggingface_hub.commands.huggingface_cli") is not None
+sys.exit(0 if ok else 1)
+PY
+    then
+        if python -m huggingface_hub.commands.huggingface_cli download "$repo" --local-dir "$out_dir"; then
+            return 0
+        fi
+    fi
+    if python - <<'PY'
+import importlib.util
+import sys
+ok = importlib.util.find_spec("huggingface_hub.cli") is not None
+sys.exit(0 if ok else 1)
+PY
+    then
+        if python -m huggingface_hub.cli download "$repo" --local-dir "$out_dir"; then
+            return 0
+        fi
+    fi
+    echo "Failed to download $repo. Ensure huggingface-cli or huggingface_hub CLI is available."
+    exit 1
+}
 
 # Define the URLs for SAM 2.1 checkpoints
 SAM2p1_BASE_URL="https://dl.fbaipublicfiles.com/segment_anything_2/092824"
@@ -23,21 +56,21 @@ echo "Downloading sam2.1_hiera_large.pt checkpoint..."
 $CMD $sam2p1_hiera_l_url || { echo "Failed to download checkpoint from $sam2p1_hiera_l_url"; exit 1; }
 
 echo "Downloading FLUX.1-dev checkpoint..."
-$HF_CMD download black-forest-labs/FLUX.1-dev --local-dir ./FLUX.1-dev
+hf_download black-forest-labs/FLUX.1-dev ./FLUX.1-dev
 
 echo "Downloading Florence-2-large checkpoint..."
-$HF_CMD download microsoft/Florence-2-large --local-dir ./Florence-2-large
+hf_download microsoft/Florence-2-large ./Florence-2-large
 
 echo "Downloading clip-vit-large-patch14 checkpoint..."
-$HF_CMD download openai/clip-vit-large-patch14 --local-dir ./clip-vit-large-patch14
+hf_download openai/clip-vit-large-patch14 ./clip-vit-large-patch14
 
 echo "Downloading DINO checkpoint..."
-$HF_CMD download facebook/dino-vits16 --local-dir ./dino-vits16
+hf_download facebook/dino-vits16 ./dino-vits16
 
 echo "Downloading DPG VQA checkpoint..."
-$HF_CMD download xingjianleng/mplug_visual-question-answering_coco_large_en --local-dir ./mplug_visual-question-answering_coco_large_en
+hf_download xingjianleng/mplug_visual-question-answering_coco_large_en ./mplug_visual-question-answering_coco_large_en
 
 echo "Downloading XVerse checkpoint..."
-$HF_CMD download ByteDance/XVerse --local-dir ./XVerse
+hf_download ByteDance/XVerse ./XVerse
 
 echo "All checkpoints are downloaded successfully."
