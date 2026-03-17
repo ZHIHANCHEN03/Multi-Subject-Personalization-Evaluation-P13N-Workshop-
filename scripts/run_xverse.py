@@ -103,7 +103,7 @@ def run_job(args, job):
 
     cmd = [
         sys.executable,
-        str(Path(args.xverse_dir) / "inference_single_sample.py"),
+        "inference_single_sample.py",
         "--prompt",
         prompt,
         "--seed",
