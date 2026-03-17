@@ -100,11 +100,10 @@ ensure_xverse_checkpoints() {
       log "installing huggingface-cli..."
       local py
       py=$(model_python "xverse")
-      "$py" -m pip install -U "huggingface_hub[cli]" || { echo "failed to install huggingface-cli"; exit 1; }
+      "$py" -m pip install -U "huggingface_hub[cli]<1.0" || { echo "failed to install huggingface-cli"; exit 1; }
     fi
     if ! command -v huggingface-cli &> /dev/null; then
-      echo "huggingface-cli not found after install."
-      exit 1
+      export HUGGINGFACE_CLI="$py -m huggingface_hub.cli"
     fi
     (cd "$ckpt_dir" && bash ./download_ckpts.sh)
   fi
