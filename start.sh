@@ -105,7 +105,9 @@ ensure_xverse_checkpoints() {
     if ! command -v huggingface-cli &> /dev/null; then
       export HUGGINGFACE_CLI="$py -m huggingface_hub.commands.huggingface_cli"
     fi
+    export HUGGINGFACE_PY="$py"
     (cd "$ckpt_dir" && bash ./download_ckpts.sh)
+    unset HUGGINGFACE_PY
   fi
   if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
     log "downloading model_ir_se50.pth..."

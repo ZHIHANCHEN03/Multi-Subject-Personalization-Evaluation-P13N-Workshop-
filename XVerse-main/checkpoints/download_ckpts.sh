@@ -1,6 +1,8 @@
 set -euo pipefail
 
-if command -v python3 &> /dev/null; then
+if [[ -n "${HUGGINGFACE_PY:-}" ]]; then
+    PY="$HUGGINGFACE_PY"
+elif command -v python3 &> /dev/null; then
     PY="python3"
 else
     PY="python"
@@ -28,7 +30,7 @@ hf_download() {
             return 0
         fi
     fi
-    if python - <<'PY'
+    if $PY - <<'PY'
 import importlib.util
 import sys
 ok = importlib.util.find_spec("huggingface_hub.commands.huggingface_cli") is not None
@@ -39,7 +41,7 @@ PY
             return 0
         fi
     fi
-    if python - <<'PY'
+    if $PY - <<'PY'
 import importlib.util
 import sys
 ok = importlib.util.find_spec("huggingface_hub.cli") is not None
