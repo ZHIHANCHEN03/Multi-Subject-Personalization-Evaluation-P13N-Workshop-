@@ -40,13 +40,4 @@ $HF_CMD download xingjianleng/mplug_visual-question-answering_coco_large_en --lo
 echo "Downloading XVerse checkpoint..."
 $HF_CMD download ByteDance/XVerse --local-dir ./XVerse
 
-echo "Downloading FLUX.1-schnell checkpoint..."
-$HF_CMD download black-forest-labs/FLUX.1-schnell --local-dir ./FLUX.1-schnell
-
-echo "Downloading diffusers/FLUX.1-dev-bnb-4bit checkpoint..."
-$HF_CMD download diffusers/FLUX.1-dev-bnb-4bit --local-dir ./FLUX.1-dev-bnb-4bit
-
-echo "Downloading city96/FLUX.1-dev-gguf checkpoint..."
-$HF_CMD download city96/FLUX.1-dev-gguf --local-dir ./FLUX.1-dev-gguf
-
 echo "All checkpoints are downloaded successfully."
