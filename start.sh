@@ -97,15 +97,28 @@ ensure_xverse_checkpoints() {
   if [[ "$missing" -eq 1 ]]; then
     log "downloading XVerse checkpoints..."
     if ! command -v huggingface-cli &> /dev/null; then
-      echo "huggingface-cli not found. Please install it before downloading checkpoints."
+      log "installing huggingface-cli..."
+      local py
+      py=$(model_python "xverse")
+      "$py" -m pip install -U "huggingface_hub[cli]" || { echo "failed to install huggingface-cli"; exit 1; }
+    fi
+    if ! command -v huggingface-cli &> /dev/null; then
+      echo "huggingface-cli not found after install."
       exit 1
     fi
     (cd "$ckpt_dir" && bash ./download_ckpts.sh)
   fi
   if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
-    echo "missing model_ir_se50.pth in $ckpt_dir"
-    echo "download it from InsightFace_Pytorch and place it into $ckpt_dir"
-    exit 1
+    log "downloading model_ir_se50.pth..."
+    local face_url="https://github.com/TreB1eN/InsightFace_Pytorch/raw/master/model_ir_se50.pth"
+    if command -v wget &> /dev/null; then
+      wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+    elif command -v curl &> /dev/null; then
+      curl -L "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
+    else
+      echo "Please install wget or curl to download model_ir_se50.pth"
+      exit 1
+    fi
   fi
   if [[ -z "${FLORENCE2_MODEL_PATH:-}" ]]; then export FLORENCE2_MODEL_PATH="$ckpt_dir/Florence-2-large"; fi
   if [[ -z "${SAM2_MODEL_PATH:-}" ]]; then export SAM2_MODEL_PATH="$ckpt_dir/sam2.1_hiera_large.pt"; fi
