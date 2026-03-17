@@ -85,7 +85,9 @@ log() {
 }
 
 ensure_xverse_checkpoints() {
-  local ckpt_dir="XVerse-main/checkpoints"
+  local repo_root
+  repo_root="$(pwd -P)"
+  local ckpt_dir="$repo_root/XVerse-main/checkpoints"
   local missing=0
   if [[ ! -f "$ckpt_dir/sam2.1_hiera_large.pt" ]]; then missing=1; fi
   if [[ ! -d "$ckpt_dir/FLUX.1-dev" ]]; then missing=1; fi
