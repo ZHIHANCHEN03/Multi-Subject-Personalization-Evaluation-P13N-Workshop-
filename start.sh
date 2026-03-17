@@ -84,6 +84,38 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
+ensure_xverse_checkpoints() {
+  local ckpt_dir="XVerse-main/checkpoints"
+  local missing=0
+  if [[ ! -f "$ckpt_dir/sam2.1_hiera_large.pt" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/FLUX.1-dev" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/Florence-2-large" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/clip-vit-large-patch14" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/dino-vits16" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/mplug_visual-question-answering_coco_large_en" ]]; then missing=1; fi
+  if [[ ! -d "$ckpt_dir/XVerse" ]]; then missing=1; fi
+  if [[ "$missing" -eq 1 ]]; then
+    log "downloading XVerse checkpoints..."
+    if ! command -v huggingface-cli &> /dev/null; then
+      echo "huggingface-cli not found. Please install it before downloading checkpoints."
+      exit 1
+    fi
+    (cd "$ckpt_dir" && bash ./download_ckpts.sh)
+  fi
+  if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
+    echo "missing model_ir_se50.pth in $ckpt_dir"
+    echo "download it from InsightFace_Pytorch and place it into $ckpt_dir"
+    exit 1
+  fi
+  if [[ -z "${FLORENCE2_MODEL_PATH:-}" ]]; then export FLORENCE2_MODEL_PATH="$ckpt_dir/Florence-2-large"; fi
+  if [[ -z "${SAM2_MODEL_PATH:-}" ]]; then export SAM2_MODEL_PATH="$ckpt_dir/sam2.1_hiera_large.pt"; fi
+  if [[ -z "${FACE_ID_MODEL_PATH:-}" ]]; then export FACE_ID_MODEL_PATH="$ckpt_dir/model_ir_se50.pth"; fi
+  if [[ -z "${CLIP_MODEL_PATH:-}" ]]; then export CLIP_MODEL_PATH="$ckpt_dir/clip-vit-large-patch14"; fi
+  if [[ -z "${FLUX_MODEL_PATH:-}" ]]; then export FLUX_MODEL_PATH="$ckpt_dir/FLUX.1-dev"; fi
+  if [[ -z "${DPG_VQA_MODEL_PATH:-}" ]]; then export DPG_VQA_MODEL_PATH="$ckpt_dir/mplug_visual-question-answering_coco_large_en"; fi
+  if [[ -z "${DINO_MODEL_PATH:-}" ]]; then export DINO_MODEL_PATH="$ckpt_dir/dino-vits16"; fi
+}
+
 install_requirements() {
   local model="$1"
   local dir="$2"
@@ -138,6 +170,9 @@ mkdir -p results eval_outputs
 
 if [[ "$MODE" == "gen" ]]; then
   log "mode=gen"
+  if [[ " $MODELS " == *"xverse"* ]]; then
+    ensure_xverse_checkpoints
+  fi
   if [[ -z "$JOBS" ]]; then
     if [[ -f "jobs.jsonl" ]]; then
       JOBS="jobs.jsonl"
@@ -158,6 +193,9 @@ elif [[ "$MODE" == "eval" ]]; then
   "$eval_py" scripts/eval.py --models "$MODELS"
 elif [[ "$MODE" == "all" ]]; then
   log "mode=all"
+  if [[ " $MODELS " == *"xverse"* ]]; then
+    ensure_xverse_checkpoints
+  fi
   if [[ -z "$JOBS" ]]; then
     if [[ -f "jobs.jsonl" ]]; then
       JOBS="jobs.jsonl"
