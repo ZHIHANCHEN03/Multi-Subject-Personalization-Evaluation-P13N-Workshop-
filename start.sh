@@ -113,9 +113,17 @@ ensure_xverse_checkpoints() {
     log "downloading model_ir_se50.pth..."
     local face_url="https://huggingface.co/lithiumice/insightface/resolve/main/InsightFace_Pytorch%2Bmodel_ir_se50.pth"
     if command -v wget &> /dev/null; then
-      wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+      if [[ -n "${HF_TOKEN:-}" ]]; then
+        wget --header="Authorization: Bearer $HF_TOKEN" -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+      else
+        wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+      fi
     elif command -v curl &> /dev/null; then
-      curl -L "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
+      if [[ -n "${HF_TOKEN:-}" ]]; then
+        curl -L -H "Authorization: Bearer $HF_TOKEN" "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
+      else
+        curl -L "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
+      fi
     else
       echo "Please install wget or curl to download model_ir_se50.pth"
       exit 1
