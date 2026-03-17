@@ -80,12 +80,17 @@ model_python() {
   fi
 }
 
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+}
+
 install_requirements() {
   local model="$1"
   local dir="$2"
   if [[ -f "$dir/requirements.txt" ]]; then
     local py
     py=$(model_python "$model")
+    log "installing requirements for $model from $dir/requirements.txt"
     "$py" -m pip install -r "$dir/requirements.txt"
   fi
 }
@@ -95,6 +100,7 @@ run_model() {
   local args=()
   local py
   py=$(model_python "$model")
+  log "running model: $model"
   args+=(--jobs "$JOBS")
   if [[ "$model" == "xverse" ]]; then
     "$py" scripts/run_xverse.py "${args[@]}"
@@ -111,6 +117,7 @@ run_model() {
     fi
     "$py" scripts/run_psr.py "${args[@]}" "${psr_args[@]}"
   fi
+  log "finished model: $model"
 }
 
 IFS=',' read -r -a model_arr <<< "$MODELS"
@@ -130,35 +137,46 @@ fi
 mkdir -p results eval_outputs
 
 if [[ "$MODE" == "gen" ]]; then
+  log "mode=gen"
   if [[ -z "$JOBS" ]]; then
     if [[ -f "jobs.jsonl" ]]; then
       JOBS="jobs.jsonl"
     else
+      log "generating jobs.jsonl from val_dataset/prompts_50.txt"
       python scripts/generate_jobs.py --prompts val_dataset/prompts_50.txt --images_dir val_dataset --out jobs.jsonl
       JOBS="jobs.jsonl"
     fi
   fi
+  log "using jobs file: $JOBS"
   for m in "${model_arr[@]}"; do
     run_model "$m"
   done
 elif [[ "$MODE" == "eval" ]]; then
+  log "mode=eval"
   eval_py=$(model_python "${model_arr[0]}")
+  log "running eval.py"
   "$eval_py" scripts/eval.py --models "$MODELS"
 elif [[ "$MODE" == "all" ]]; then
+  log "mode=all"
   if [[ -z "$JOBS" ]]; then
     if [[ -f "jobs.jsonl" ]]; then
       JOBS="jobs.jsonl"
     else
+      log "generating jobs.jsonl from val_dataset/prompts_50.txt"
       python scripts/generate_jobs.py --prompts val_dataset/prompts_50.txt --images_dir val_dataset --out jobs.jsonl
       JOBS="jobs.jsonl"
     fi
   fi
+  log "using jobs file: $JOBS"
   for m in "${model_arr[@]}"; do
     run_model "$m"
   done
   eval_py=$(model_python "${model_arr[0]}")
+  log "running eval.py"
   "$eval_py" scripts/eval.py --models "$MODELS"
+  log "running eval_merge.py"
   "$eval_py" scripts/eval_merge.py --models "$MODELS"
+  log "all done"
 else
   usage
   exit 1
