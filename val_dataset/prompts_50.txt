@@ -1,0 +1,191 @@
+MOSAIC Multi-Subject Generation Prompts
+========================================
+50 prompts | 2 / 4 / 6 / 8 / 10 subjects
+All subjects strictly from 30 reference images.
+Subject counts in brackets match exactly the number in the prompt text.
+No scene prop words — only reference subjects appear as nameable objects.
+
+Reference subjects
+  People  (7):  black woman, middle eastern man, black man, western woman, asian woman, old man, girl
+  Animals (5):  dog, panda, woodpecker, Siamese cat, hamster
+  Objects (18): cup, t-shirt, puzzle cube, stuffed bear, painting, cactus, motor(cycle), can, vase,
+                bowl, berry bowl, leather handbag, clock, guitar, backpack, vintage camera, armchair, hat
+
+================================================================================
+2-SUBJECT PROMPTS  (#01 – #10)
+================================================================================
+
+#01  [dog · panda]
+A dog and a panda sitting together on a grassy hill, the dog leaning its head against the panda's arm while the panda rests a paw on the dog's back.
+
+#02  [Siamese cat · bowl]
+A Siamese cat curled up asleep inside a large ceramic bowl on a wooden floor, its tail draped over the rim and its nose tucked under its front paw.
+
+#03  [woodpecker · guitar]
+A woodpecker perched on the neck of an acoustic guitar leaning against a brick wall, pecking curiously at the tuning pegs as if trying to tune it.
+
+#04  [black woman · hat]
+A black woman wearing a wide-brimmed hat, tilting the brim with one hand and smiling directly at the camera in a sunlit park.
+
+#05  [hamster · cactus]
+A hamster standing on its hind legs beside a small cactus on a white desk, sniffing the spines cautiously with its nose almost touching one.
+
+#06  [girl · backpack]
+A girl wearing a large backpack, one strap slipping off her shoulder, pausing on a mountain trail to look back at the view behind her.
+
+#07  [vintage camera · leather handbag]
+A vintage camera placed open on top of a closed leather handbag on a marble surface, the lens pointing upward toward the window light.
+
+#08  [old man · armchair]
+An old man asleep in a deep armchair by the window, his chin resting on his chest, the afternoon light falling across his face.
+
+#09  [stuffed bear · vase]
+A stuffed bear propped against a tall vase on a windowsill, the bear's glass eyes reflecting the garden outside.
+
+#10  [middle eastern man · motor]
+A middle eastern man crouching beside a vintage motorcycle, one hand resting on the engine block as he inspects it closely.
+
+================================================================================
+4-SUBJECT PROMPTS  (#11 – #20)
+================================================================================
+
+#11  [dog · panda · Siamese cat · hamster]
+An open garden at noon: a panda sitting upright with its arms resting on its knees, a dog sitting beside the panda and staring at it, a Siamese cat lying stretched out behind them in the sun, and a hamster standing frozen at the edge of the grass sniffing the air.
+
+#12  [black woman · western woman · asian woman · girl]
+Four people around a small café table: a black woman leaning forward mid-story, a western woman laughing with her head tilted back, an asian woman listening with her chin resting on one hand, and a girl at the corner of the table watching the others with a quiet smile.
+
+#13  [leather handbag · vintage camera · clock · hat]
+A wooden market stall: a leather handbag hanging from a hook on the left post, a vintage camera on a small stand at the center, a clock mounted on the back wall of the stall, and a hat perched on the stall's corner post casting a shadow down over everything.
+
+#14  [cactus · vase · stuffed bear · puzzle cube]
+A bedroom windowsill: a cactus in a pot at the far left, a vase beside it, a stuffed bear slumped against the vase with its arms stretched forward, and a half-solved puzzle cube resting between the bear's legs.
+
+#15  [old man · guitar · armchair · clock]
+A living room in the evening: an old man sitting in an armchair strumming a guitar softly, and a clock on the mantelpiece behind him showing nine o'clock.
+
+#16  [woodpecker · panda · hamster · cactus]
+A desert clearing at midday: a tall cactus at the center, a woodpecker clinging to its upper section, a panda sitting in the narrow shade at the base, and a hamster digging at the dry earth between the panda's feet.
+
+#17  [middle eastern man · hat · vintage camera · motor]
+A dusty roadside: a middle eastern man straddling a parked motorcycle, a hat pushed back on his head, a vintage camera hanging from his neck as he squints into the distance deciding which way to go.
+
+#18  [berry bowl · cup · can · vase]
+A kitchen counter after breakfast: a bowl of berries pushed to one side, a half-empty cup with a ring stain beneath it, an open can beside the cup, and a vase at the far end catching the morning light through the window.
+
+#19  [black man · old man · Siamese cat · dog]
+A quiet evening on a front porch: a black man and an old man sitting in chairs across from each other, a Siamese cat sitting on the table between them, and a dog lying at the old man's feet with its chin on his shoe.
+
+#20  [girl · stuffed bear · armchair · backpack]
+A girl sinking into an oversized armchair with a stuffed bear tucked under her arm, and a backpack open on the floor beside the chair.
+
+================================================================================
+6-SUBJECT PROMPTS  (#21 – #30)
+================================================================================
+
+#21  [black woman · western woman · asian woman · girl · old man · middle eastern man]
+A campfire at the edge of a forest at night: a black woman and a western woman sitting side by side, an asian woman cross-legged on the ground across from them, a girl lying on her stomach close to the fire, an old man leaning back in his seat at the edge of the firelight, and a middle eastern man standing just behind the group with arms crossed, looking up at the stars.
+
+#22  [dog · panda · woodpecker · Siamese cat · hamster · stuffed bear]
+A treehouse interior: a dog sitting by the ladder entrance looking down, a panda slumped against the far wall, a woodpecker tapping at a knothole in the ceiling beam, a Siamese cat balanced on the windowsill looking outside, a hamster inside a small open container in the corner, and a stuffed bear propped upright in the center as if presiding over the room.
+
+#23  [leather handbag · backpack · hat · vintage camera · guitar · clock]
+A dressing room before a performance: a guitar leaning against the mirror on the left, a leather handbag open on the dressing table, a vintage camera resting beside it, a hat hung on the top corner of the mirror, a backpack dropped against the chair leg, and a clock on the wall above the mirror showing five minutes to showtime.
+
+#24  [cactus · vase · bowl · cup · can · puzzle cube]
+A sunlit kitchen table after lunch: a cactus in a small pot at the far corner, a vase with a single stem in the center, a bowl at the near edge, a cup beside it, a can on its side near the bowl, and a solved puzzle cube sitting beside the cactus.
+
+#25  [asian woman · armchair · Siamese cat · guitar · vintage camera · cactus]
+A bright apartment living room: an asian woman sitting sideways in an armchair with her legs over one arm, a Siamese cat asleep on her lap, a guitar propped between the armchair and the wall beside her, a vintage camera on the low table aimed in her direction, and a cactus on the windowsill behind her silhouetted by afternoon light.
+
+#26  [black man · old man · middle eastern man · dog · hamster · berry bowl]
+A garden table outdoors: a black man and a middle eastern man flanking the old man, all three leaning over a bowl of berries, a dog with its front paws raised trying to sniff the bowl, and a hamster that has already climbed in and is eating from the far side.
+
+#27  [woodpecker · cactus · panda · dog · Siamese cat · hamster]
+A surreal desert garden at dusk: a tall cactus at the center with a woodpecker standing on top of it, a panda sitting at the base looking up at the woodpecker, a dog digging at the sandy ground to the left, a Siamese cat perched on a raised surface watching the dog, and a hamster sitting upright to the right — everything bathed in deep orange light.
+
+#28  [girl · backpack · western woman · leather handbag · vintage camera · motor]
+A parking lot at dawn: a motorcycle parked at the center, a western woman sitting on the seat with a leather handbag across her body and a vintage camera raised to her eye, and a girl beside the bike with a backpack on both shoulders watching the western woman frame the shot.
+
+#29  [painting · vase · stuffed bear · puzzle cube · can · berry bowl]
+An artist's studio in use: a large painting propped against the wall still wet, a vase on the table in front of it, a stuffed bear positioned on a raised surface as a still-life model, a puzzle cube on the corner of the table half-disassembled, a can open beside the vase, and a bowl of berries on the windowsill.
+
+#30  [black woman · painting · asian woman · vintage camera · dog · Siamese cat]
+A sunlit studio: a black woman standing in front of a large painting propped against the wall adding a final brushstroke, an asian woman kneeling a few feet away looking through a vintage camera pointed at the painting, a dog sitting between them watching the black woman's hand move, and a Siamese cat perched above the painting looking down at the dog.
+
+================================================================================
+8-SUBJECT PROMPTS  (#31 – #40)
+================================================================================
+
+#31  [black woman · western woman · asian woman · girl · middle eastern man · old man · black man · dog]
+A neighborhood street party: a black woman and a western woman setting up a long table together, an asian woman carrying a dish toward it, a girl weaving between the adults, a middle eastern man adjusting a string of lights overhead, an old man sitting in a chair directing everyone with a raised finger, a black man at the far end arranging seats, and a dog trotting down the center of the street among all of them.
+
+#32  [dog · panda · woodpecker · Siamese cat · hamster · stuffed bear · guitar · vintage camera]
+A music rehearsal in a barn: a panda sitting on a raised surface holding a guitar across its lap, a dog sitting beside the panda watching attentively, a woodpecker on a wooden post in the corner tapping in rhythm, a Siamese cat stretched out on an elevated surface above, a hamster running along the base of the wall, a stuffed bear propped in a seat facing the panda, and a vintage camera on a stand at the back of the barn recording the whole scene.
+
+#33  [leather handbag · backpack · hat · vintage camera · clock · guitar · can · vase]
+A van interior: a guitar wedged between the front seats with a hat balanced on its neck, a leather handbag on the passenger seat with a vintage camera resting on top, a backpack stuffed under the dashboard, a clock fixed to the windshield, a vase jammed into the cupholder, and an empty can rolling on the floor mat every time the van turns a corner.
+
+#34  [cactus · vase · bowl · cup · can · clock · puzzle cube · painting]
+A market stall: a painting leaning against the back wall, a cactus in a chipped pot beside it, a vase in front of the painting, a bowl stacked upside down on the vase, a cup with a missing handle beside the bowl, a clock with one hand stopped next to the cup, a puzzle cube beside the clock, and a can repurposed as a holder at the front edge of the table.
+
+#35  [old man · armchair · black woman · dog · Siamese cat · clock · guitar · stuffed bear]
+A warm sitting room on a rainy afternoon: an old man in an armchair reading, a black woman on the sofa across from him, a dog lying on the floor between them, a Siamese cat on the back of the sofa above the black woman, a guitar against the wall beside the armchair, a clock above the fireplace, and a stuffed bear on the mantelpiece leaning against the wall below the clock.
+
+#36  [middle eastern man · motor · western woman · girl · old man · dog · Siamese cat · vintage camera]
+A roadside stop at dusk: a motorcycle on its kickstand, a middle eastern man wiping the headlight, a western woman beside him with a vintage camera raised to her eye photographing the sunset, a girl sitting on the ground behind them, an old man at the edge of the road watching the horizon, a dog sniffing the ground near the motorcycle, and a Siamese cat sitting on the motorcycle seat watching the middle eastern man work.
+
+#37  [panda · berry bowl · hamster · woodpecker · dog · Siamese cat · stuffed bear · clock]
+A conservatory at midday: a panda in a chair eating from a bowl of berries, a hamster climbing up the back of the chair beside it, a woodpecker on the window frame above pecking at the wood, a dog lying across the doorway, a Siamese cat on a shelf above eyeing the hamster, a stuffed bear on the other chair facing the panda, and a clock on the wall behind them showing noon.
+
+#38  [black man · asian woman · dog · Siamese cat · berry bowl · cup · cactus · clock]
+A Sunday morning kitchen: a black man at the stove, an asian woman at the counter pouring into two cups, a dog sitting between them watching the stove, a Siamese cat on the counter beside the asian woman nudging one of the cups with its paw, a bowl of berries set on the kitchen table in the background, a cactus on the windowsill above the sink, and a clock on the wall showing half past nine.
+
+#39  [girl · vintage camera · leather handbag · backpack · hamster · stuffed bear · vase · painting]
+A teenager's bedroom: a girl sitting cross-legged on her bed looking through a vintage camera aimed at her hamster, the hamster sitting on the desk across from her beside a vase, a stuffed bear propped against the pillow behind her, a leather handbag hanging from the desk chair, a backpack open on the floor, and a painting hanging slightly crooked above the desk.
+
+#40  [woodpecker · panda · dog · hamster · Siamese cat · old man · hat · backpack]
+A city park at midday: a woodpecker on the upper branch of a large oak tree, a panda sitting against the base of the tree below, a dog running in circles around the panda, a hamster sitting frozen on a root nearby, a Siamese cat crouched in the bushes watching the hamster, and an old man on a nearby seat wearing a hat with a backpack between his feet — watching the cat watching the hamster.
+
+================================================================================
+10-SUBJECT PROMPTS  (#41 – #50)
+================================================================================
+
+#41  [black woman · western woman · asian woman · girl · middle eastern man · old man · black man · dog · Siamese cat · panda]
+A street festival at dusk: a black woman and a western woman dancing together at the center, an asian woman clapping beside them, a girl sitting on a curb watching with wide eyes, a middle eastern man leaning against a lamppost smiling, an old man and a black man sharing a seat in the background, a dog weaving through the crowd at their feet, a Siamese cat perched on a nearby stall, and a panda standing at the entrance watching everyone.
+
+#42  [dog · panda · woodpecker · Siamese cat · hamster · stuffed bear · guitar · vintage camera · leather handbag · cactus]
+A sunlit attic: a dog sitting upright on the floor, a panda slumped in the corner holding a stuffed bear, a woodpecker tapping at the wooden beam above, a Siamese cat stretching across a guitar lying flat on the floor, a hamster running along the windowsill beside a leather handbag, a vintage camera resting open on a raised surface, and a cactus in a cracked pot catching the light from the skylight.
+
+#43  [leather handbag · backpack · hat · vintage camera · clock · guitar · can · vase · bowl · puzzle cube]
+A bedroom floor mid-packing: a backpack open at the center with a clock tucked into the side pocket and a hat resting on the open flap, a leather handbag beside it with a vintage camera peeking out of the top, a guitar leaning against the wall, a can on the nightstand, a vase on the dresser, a bowl on the desk, and a puzzle cube balanced on the windowsill.
+
+#44  [black woman · asian woman · girl · western woman · middle eastern man · old man · black man · Siamese cat · dog · hamster]
+A wide stone staircase outside a building: a black woman and an asian woman talking at the top step, a girl two steps below sitting and drawing, a western woman halfway down checking her phone, a middle eastern man at the bottom holding the door open, an old man descending slowly gripping the railing, a black man sitting on the side railing, a Siamese cat weaving between legs on the third step, a dog sitting obediently at the bottom, and a hamster in a small cage hanging from the girl's bag.
+
+#45  [cactus · vase · bowl · cup · can · clock · puzzle cube · stuffed bear · painting · t-shirt]
+A museum display room: a cactus in a glass case on the left, a vase on a tall stand beside it, a bowl on a low stand at the center, a cup on a shelf, a can mounted on the wall, a clock inside a lit case, a puzzle cube displayed under glass, a stuffed bear on a raised platform, a painting on the back wall with a spotlight, and a t-shirt pinned flat inside a frame — each object labelled with a small white card.
+
+#46  [woodpecker · hamster · panda · dog · Siamese cat · girl · old man · western woman · backpack · berry bowl]
+A busy park on a summer afternoon: a woodpecker drilling into an oak tree at the upper left, a hamster foraging near the tree roots below it, a panda resting against the base of the tree, a dog running across the open field, a Siamese cat crouched in the long grass watching the dog, a girl running after the dog with arms outstretched, an old man seated nearby with a backpack beside him watching everything, a western woman on the grass sketching the scene, and a bowl of berries open in front of her.
+
+#47  [armchair · old man · Siamese cat · guitar · clock · vintage camera · leather handbag · hat · cactus · stuffed bear]
+A cluttered study in warm lamplight: an old man asleep in an armchair, a Siamese cat curled on his lap, a guitar leaning against the armchair beside him, a clock on the mantelpiece showing late evening, a vintage camera on the writing desk, a leather handbag hanging from the desk chair, a hat on the coat hook by the door, a cactus on the windowsill silhouetted against the night sky, and a stuffed bear sitting upright on a high shelf looking down at the sleeping man.
+
+#48  [motor · black man · middle eastern man · dog · panda · woodpecker · western woman · girl · Siamese cat · vintage camera]
+A gas station at golden hour: a motorcycle parked at the pump, a black man leaning against it, a middle eastern man crouching beside the front wheel inspecting the tire, a dog sitting obediently next to the pump, a panda standing near the entrance, a woodpecker pecking at the wooden signpost above, a western woman sitting on the curb with a vintage camera raised to her eye, a girl standing beside her pointing at something in the distance, and a Siamese cat perched on the motorcycle seat.
+
+#49  [black woman · girl · panda · dog · Siamese cat · woodpecker · hamster · stuffed bear · puzzle cube · cactus]
+A photographer's studio with a plain backdrop: a black woman standing at center holding a puzzle cube, a girl kneeling in front of her cradling a stuffed bear, a panda sitting cross-legged to the left, a dog lying flat at the panda's feet, a Siamese cat sitting tall to the right of the black woman, a woodpecker on a perch stand at the far right, a hamster seated at the front, and a cactus in a pot placed symmetrically at the far left — all facing the camera as if posing for a formal portrait.
+
+#50  [motor · western woman · old man · dog · Siamese cat · guitar · backpack · leather handbag · vintage camera · clock]
+A roadside motel at golden hour: a western woman sitting on the hood of a parked motorcycle with a vintage camera hanging from her shoulder, an old man beside her leaning on the handlebar holding a clock in his hand, a dog lying in the long shadow of the motorcycle, a Siamese cat on the motel window ledge above them, a guitar propped against the motel wall to the right, a backpack slumped at the base of the wall, and a leather handbag resting on the motorcycle seat.
+
+================================================================================
+END — 50 prompts total
+2-subject:  #01 – #10  (exactly 2 subjects each)
+4-subject:  #11 – #20  (exactly 4 subjects each)
+6-subject:  #21 – #30  (exactly 6 subjects each)
+8-subject:  #31 – #40  (exactly 8 subjects each)
+10-subject: #41 – #50  (exactly 10 subjects each)
+================================================================================

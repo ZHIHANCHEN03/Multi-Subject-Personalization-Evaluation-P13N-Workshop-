@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODELS="xverse,mosaic,psr"
+INSTALL=1
+USE_VENV=1
+JOBS=""
+PSR_RUNNER="psr_infer.py"
+PSR_RUNNER_CWD=""
+
+MODE="${1:-}"
+if [[ -n "$MODE" ]]; then
+  shift 1
+fi
+
+usage() {
+  cat <<'EOF'
+Usage:
+  bash start.sh gen  --jobs jobs.jsonl
+  bash start.sh eval --models xverse,mosaic,psr
+  bash start.sh all  --jobs jobs.jsonl
+  bash start.sh all
+
+Options:
+  --models         Comma-separated model list (default: xverse,mosaic,psr)
+  --jobs           Job file (jsonl or json array)
+  --psr-runner     PSR inference entry script
+  --psr-runner-cwd Runner working directory
+  --no-install     Skip installing requirements
+  --no-venv        Use current environment
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --models)
+      MODELS="$2"
+      shift 2
+      ;;
+    --no-install)
+      INSTALL=0
+      shift 1
+      ;;
+    --no-venv)
+      USE_VENV=0
+      shift 1
+      ;;
+    --jobs)
+      JOBS="$2"
+      shift 2
+      ;;
+    --psr-runner)
+      PSR_RUNNER="$2"
+      shift 2
+      ;;
+    --psr-runner-cwd)
+      PSR_RUNNER_CWD="$2"
+      shift 2
+      ;;
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    *)
+      shift 1
+      ;;
+  esac
+done
+
+model_python() {
+  local model="$1"
+  if [[ "$USE_VENV" -eq 1 ]]; then
+    local vdir=".venv_${model}"
+    if [[ ! -d "$vdir" ]]; then
+      python -m venv "$vdir"
+    fi
+    echo "$PWD/$vdir/bin/python"
+  else
+    echo "python"
+  fi
+}
+
+install_requirements() {
+  local model="$1"
+  local dir="$2"
+  if [[ -f "$dir/requirements.txt" ]]; then
+    local py
+    py=$(model_python "$model")
+    "$py" -m pip install -r "$dir/requirements.txt"
+  fi
+}
+
+run_model() {
+  local model="$1"
+  local args=()
+  local py
+  py=$(model_python "$model")
+  args+=(--jobs "$JOBS")
+  if [[ "$model" == "xverse" ]]; then
+    "$py" scripts/run_xverse.py "${args[@]}"
+  elif [[ "$model" == "mosaic" ]]; then
+    "$py" scripts/run_mosaic.py "${args[@]}"
+  elif [[ "$model" == "psr" ]]; then
+    if [[ -z "$PSR_RUNNER" ]]; then
+      echo "psr needs --psr-runner"
+      exit 1
+    fi
+    local psr_args=(--runner "$PSR_RUNNER")
+    if [[ -n "$PSR_RUNNER_CWD" ]]; then
+      psr_args+=(--runner_cwd "$PSR_RUNNER_CWD")
+    fi
+    "$py" scripts/run_psr.py "${args[@]}" "${psr_args[@]}"
+  fi
+}
+
+IFS=',' read -r -a model_arr <<< "$MODELS"
+
+if [[ "$INSTALL" -eq 1 && "$MODE" != "eval" ]]; then
+  for m in "${model_arr[@]}"; do
+    if [[ "$m" == "xverse" ]]; then
+      install_requirements "xverse" "XVerse-main"
+    elif [[ "$m" == "mosaic" ]]; then
+      install_requirements "mosaic" "MOSAIC-main"
+    elif [[ "$m" == "psr" ]]; then
+      install_requirements "psr" "PSR-main"
+    fi
+  done
+fi
+
+mkdir -p results eval_outputs
+
+if [[ "$MODE" == "gen" ]]; then
+  if [[ -z "$JOBS" ]]; then
+    if [[ -f "jobs.jsonl" ]]; then
+      JOBS="jobs.jsonl"
+    else
+      python scripts/generate_jobs.py --prompts val_dataset/prompts_50.txt --images_dir val_dataset --out jobs.jsonl
+      JOBS="jobs.jsonl"
+    fi
+  fi
+  for m in "${model_arr[@]}"; do
+    run_model "$m"
+  done
+elif [[ "$MODE" == "eval" ]]; then
+  eval_py=$(model_python "${model_arr[0]}")
+  "$eval_py" scripts/eval.py --models "$MODELS"
+elif [[ "$MODE" == "all" ]]; then
+  if [[ -z "$JOBS" ]]; then
+    if [[ -f "jobs.jsonl" ]]; then
+      JOBS="jobs.jsonl"
+    else
+      python scripts/generate_jobs.py --prompts val_dataset/prompts_50.txt --images_dir val_dataset --out jobs.jsonl
+      JOBS="jobs.jsonl"
+    fi
+  fi
+  for m in "${model_arr[@]}"; do
+    run_model "$m"
+  done
+  eval_py=$(model_python "${model_arr[0]}")
+  "$eval_py" scripts/eval.py --models "$MODELS"
+  "$eval_py" scripts/eval_merge.py --models "$MODELS"
+else
+  usage
+  exit 1
+fi
