@@ -219,6 +219,7 @@ def main():
     # detector = ObjectDetector(init_device)
 
     config = get_train_config(config_path)
+    config["model"]["use_dit_lora"] = False
     model.config = config
 
     run_mode = "mod_only" # orig_only, mod_only, both
@@ -228,7 +229,7 @@ def main():
     model.clear_modulation_adapters()
     model.pipe.unload_lora_weights()
     if not os.path.exists(ckpt_root):
-        print("Checkpoint root does not exist.")
+        raise FileNotFoundError("XVerse checkpoints missing. Run: cd checkpoints && bash ./download_ckpts.sh")
     modulation_adapter = load_modulation_adapter(model, config, dtype, init_device, f"{ckpt_root}/modulation_adapter", is_training=False)
     model.add_modulation_adapter(modulation_adapter)
     if config["model"]["use_dit_lora"]:
