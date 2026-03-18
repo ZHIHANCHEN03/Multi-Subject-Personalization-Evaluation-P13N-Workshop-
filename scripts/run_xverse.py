@@ -173,11 +173,14 @@ def run_job(args, job):
     return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
 def run_jobs_batch(args):
+    jobs_path = Path(args.jobs)
+    if not jobs_path.is_absolute():
+        jobs_path = PROJECT_ROOT / jobs_path
     cmd = [
         sys.executable,
         "inference_single_sample.py",
         "--jobs",
-        args.jobs,
+        str(jobs_path),
         "--out_root",
         args.out_root,
         "--cond_size",

@@ -44,7 +44,10 @@ store_attn_map = False
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def load_jobs(job_path):
-    text = Path(job_path).read_text(encoding="utf-8").strip()
+    p = Path(job_path)
+    if not p.is_absolute():
+        p = (Path(PROJECT_ROOT) / p).resolve()
+    text = p.read_text(encoding="utf-8").strip()
     if not text:
         return []
     if text[0] == "[":
