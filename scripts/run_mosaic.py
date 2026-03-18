@@ -132,7 +132,7 @@ def run_job(args, job, pipe, Condition, generate, process_image):
         raise ValueError(f"empty result for {prompt_id}")
     result_img = result[0]
     result_img.save(str(output_path))
-    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path), "subjects": normalized_subjects}
+    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
 
 def main():
@@ -188,7 +188,7 @@ def main():
                 "prompt_id": result["prompt_id"],
                 "seed": result["seed"],
                 "prompt": job.get("prompt"),
-                "subjects": result.get("subjects") or job.get("subjects"),
+                "subjects": job.get("subjects"),
                 "output_path": result["output_path"],
                 "skipped": result["skipped"],
                 "time": int(time.time()),
@@ -200,7 +200,7 @@ def main():
                 "prompt_id": job.get("prompt_id"),
                 "seed": job.get("seed", args.seed),
                 "prompt": job.get("prompt"),
-                "subjects": result.get("subjects") if "result" in locals() else job.get("subjects"),
+                "subjects": job.get("subjects"),
                 "error": str(e),
                 "time": int(time.time()),
             }

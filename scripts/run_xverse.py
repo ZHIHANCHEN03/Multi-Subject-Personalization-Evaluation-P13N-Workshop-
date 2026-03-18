@@ -167,7 +167,7 @@ def run_job(args, job):
         env[k] = v
 
     subprocess.run(cmd, cwd=args.xverse_dir, env=env, check=True)
-    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path), "subjects": normalized_subjects}
+    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
 
 def main():
@@ -221,7 +221,7 @@ def main():
                 "prompt_id": result["prompt_id"],
                 "seed": result["seed"],
                 "prompt": job.get("prompt"),
-                "subjects": result.get("subjects") or job.get("subjects"),
+                "subjects": job.get("subjects"),
                 "output_path": result["output_path"],
                 "skipped": result["skipped"],
                 "time": int(time.time()),
