@@ -37,8 +37,21 @@ def parse_prompts(prompts_path):
     lines = [l.rstrip("\n") for l in Path(prompts_path).read_text(encoding="utf-8").splitlines()]
     items = []
     i = 0
+    current_type = None
     while i < len(lines):
         line = lines[i].strip()
+        if line.lower() == "no interaction":
+            current_type = "no_interaction"
+            i += 1
+            continue
+        if line.lower() == "occlusion":
+            current_type = "occlusion"
+            i += 1
+            continue
+        if line.lower() == "interaction":
+            current_type = "interaction"
+            i += 1
+            continue
         m = re.match(r"#(\d+)\s+\[(.+?)\]", line)
         if m:
             prompt_id = m.group(1).zfill(2)
@@ -53,7 +66,7 @@ def parse_prompts(prompts_path):
                     break
                 j += 1
             if prompt:
-                items.append((prompt_id, prompt, subjects))
+                items.append((prompt_id, prompt, subjects, current_type))
             i = j + 1
             continue
         i += 1
@@ -76,8 +89,8 @@ def main():
     seeds = [int(x.strip()) for x in args.seeds.split(",") if x.strip()]
     image_map = build_image_map(args.images_dir)
     alias_map = {
-        "motor(cycle)": image_map.get(normalize_name("motor")),
-        "motorcycle": image_map.get(normalize_name("motor")),
+        "motor(cycle)": image_map.get(normalize_name("motorcycle")),
+        "motorcycle": image_map.get(normalize_name("motorcycle")),
         "stuffed bear": image_map.get(normalize_name("stuff bear")),
         "t-shirt": image_map.get(normalize_name("tshirt")),
         "black woman": image_map.get(normalize_name("black women")),
@@ -95,7 +108,7 @@ def main():
 
     items = parse_prompts(args.prompts)
     lines = []
-    for prompt_id, prompt, subjects in items:
+    for prompt_id, prompt, subjects, scene_type in items:
         subject_objs = []
         for s in subjects:
             img_path = resolve_subject_image(s, image_map, alias_map)
@@ -109,11 +122,16 @@ def main():
                     "idip": True,
                 }
             )
+        if scene_type:
+            labeled_prompt_id = f"{prompt_id}_{scene_type}"
+        else:
+            labeled_prompt_id = prompt_id
         for seed in seeds:
             job = {
-                "prompt_id": prompt_id,
+                "prompt_id": labeled_prompt_id,
                 "prompt": prompt,
                 "seed": seed,
+                "scene_type": scene_type,
                 "subjects": subject_objs,
             }
             lines.append(json.dumps(job, ensure_ascii=False))
