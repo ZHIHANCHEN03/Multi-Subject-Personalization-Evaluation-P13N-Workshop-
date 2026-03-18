@@ -125,15 +125,18 @@ log() {
 
 ensure_pip() {
   local py="$1"
+  local tmp_dir="${HF_HOME:-/workspace}/tmp"
+  mkdir -p "$tmp_dir"
+  local pip_installer="$tmp_dir/get-pip.py"
   "$py" -m ensurepip --upgrade >/dev/null 2>&1 && return 0
   if command -v curl &> /dev/null; then
-    curl -sSL https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py || return 1
+    curl -sSL https://bootstrap.pypa.io/get-pip.py -o "$pip_installer" || return 1
   elif command -v wget &> /dev/null; then
-    wget -q -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py || return 1
+    wget -q -O "$pip_installer" https://bootstrap.pypa.io/get-pip.py || return 1
   else
     return 1
   fi
-  "$py" /tmp/get-pip.py >/dev/null 2>&1 || return 1
+  "$py" "$pip_installer" >/dev/null 2>&1 || return 1
 }
 
 set_hf_cache() {
