@@ -155,9 +155,13 @@ def main():
     ensure_repo(args.psr_dir, args.repo_url)
     runner_path = Path(args.runner)
     if not runner_path.is_absolute():
-        runner_path = Path(args.psr_dir) / runner_path
-    if runner_path.parts[-2:] == ("PSR-main", "psr_infer.py"):
-        runner_path = Path(args.psr_dir) / "psr_infer.py"
+        psr_dir = Path(args.psr_dir)
+        if runner_path.parts and runner_path.parts[0] == psr_dir.name:
+            runner_path = (PROJECT_ROOT / runner_path).resolve()
+        else:
+            runner_path = (psr_dir / runner_path).resolve()
+    else:
+        runner_path = runner_path.resolve()
     args.runner_path = runner_path
     if args.runner_cwd is None:
         args.runner_cwd = str(Path(args.psr_dir))
