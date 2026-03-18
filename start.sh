@@ -160,6 +160,7 @@ set_hf_cache() {
     export DIFFUSERS_CACHE="$HF_HOME/diffusers"
     export PIP_CACHE_DIR="$HF_HOME/pip"
     export TMPDIR="$HF_HOME/tmp"
+    export HF_HUB_DISABLE_XET=1
     mkdir -p "$HUGGINGFACE_HUB_CACHE" "$TRANSFORMERS_CACHE" "$DIFFUSERS_CACHE"
     log "using HF cache: $HF_HOME"
   fi

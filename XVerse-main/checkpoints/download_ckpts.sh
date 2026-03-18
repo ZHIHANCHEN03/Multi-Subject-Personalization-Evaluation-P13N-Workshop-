@@ -41,17 +41,6 @@ PY
             return 0
         fi
     fi
-    if $PY - <<'PY'
-import importlib.util
-import sys
-ok = importlib.util.find_spec("huggingface_hub.cli") is not None
-sys.exit(0 if ok else 1)
-PY
-    then
-        if $PY -m huggingface_hub.cli download "$repo" --local-dir "$out_dir"; then
-            return 0
-        fi
-    fi
     echo "Failed to download $repo. Ensure huggingface-cli or huggingface_hub CLI is available."
     exit 1
 }
