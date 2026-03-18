@@ -118,11 +118,14 @@ def run_job(args, job):
     return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
 def run_jobs_batch(args):
+    jobs_path = Path(args.jobs)
+    if not jobs_path.is_absolute():
+        jobs_path = PROJECT_ROOT / jobs_path
     cmd = [
         sys.executable,
         str(args.runner_path),
         "--jobs",
-        args.jobs,
+        str(jobs_path),
         "--out_root",
         args.out_root,
     ]
@@ -153,6 +156,8 @@ def main():
     runner_path = Path(args.runner)
     if not runner_path.is_absolute():
         runner_path = Path(args.psr_dir) / runner_path
+    if runner_path.parts[-2:] == ("PSR-main", "psr_infer.py"):
+        runner_path = Path(args.psr_dir) / "psr_infer.py"
     args.runner_path = runner_path
     if args.runner_cwd is None:
         args.runner_cwd = str(Path(args.psr_dir))
