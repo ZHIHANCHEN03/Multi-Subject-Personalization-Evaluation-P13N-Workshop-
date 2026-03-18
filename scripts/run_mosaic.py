@@ -32,6 +32,13 @@ def ensure_repo(repo_dir, repo_url):
         return
     subprocess.run(["git", "clone", "--depth", "1", repo_url, str(repo_path)], check=True)
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+def resolve_image_path(path):
+    p = Path(path)
+    if p.is_absolute():
+        return str(p)
+    return str((PROJECT_ROOT / p).resolve())
 
 def normalize_subjects(images, names, captions):
     images = list(images or [])
@@ -83,13 +90,19 @@ def run_job(args, job, pipe, Condition, generate, process_image):
     subjects = job.get("subjects") or []
     if not subjects:
         raise ValueError(f"missing subjects for job {prompt_id}")
+    normalized_subjects = []
+    for s in subjects:
+        img_path = resolve_image_path(s["image"])
+        normalized = dict(s)
+        normalized["image"] = img_path
+        normalized_subjects.append(normalized)
     seed = int(job.get("seed", args.seed))
     output_path = build_output_path(args.out_root, prompt_id, seed)
     if output_path.exists():
         return {"prompt_id": prompt_id, "seed": seed, "skipped": True, "output_path": str(output_path)}
 
     ref_imgs = []
-    for s in subjects:
+    for s in normalized_subjects:
         img_path = s["image"]
         if os.path.exists(img_path):
             pil_img = process_image(img_path, target_size=args.ref_size, pad_color=(255, 255, 255), scale=args.ref_scale)
@@ -119,7 +132,7 @@ def run_job(args, job, pipe, Condition, generate, process_image):
         raise ValueError(f"empty result for {prompt_id}")
     result_img = result[0]
     result_img.save(str(output_path))
-    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
+    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path), "subjects": normalized_subjects}
 
 
 def main():
@@ -175,7 +188,7 @@ def main():
                 "prompt_id": result["prompt_id"],
                 "seed": result["seed"],
                 "prompt": job.get("prompt"),
-                "subjects": job.get("subjects"),
+                "subjects": result.get("subjects") or job.get("subjects"),
                 "output_path": result["output_path"],
                 "skipped": result["skipped"],
                 "time": int(time.time()),
@@ -187,7 +200,7 @@ def main():
                 "prompt_id": job.get("prompt_id"),
                 "seed": job.get("seed", args.seed),
                 "prompt": job.get("prompt"),
-                "subjects": job.get("subjects"),
+                "subjects": result.get("subjects") if "result" in locals() else job.get("subjects"),
                 "error": str(e),
                 "time": int(time.time()),
             }

@@ -46,6 +46,13 @@ def ensure_repo(repo_dir, repo_url):
         return
     subprocess.run(["git", "clone", "--depth", "1", repo_url, str(repo_path)], check=True)
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+def resolve_image_path(path):
+    p = Path(path)
+    if p.is_absolute():
+        return str(p)
+    return str((PROJECT_ROOT / p).resolve())
 
 def normalize_subjects(images, names, captions, idips):
     images = list(images or [])
@@ -93,9 +100,15 @@ def run_job(args, job):
     subjects = job.get("subjects") or []
     if not subjects:
         raise ValueError(f"missing subjects for job {prompt_id}")
-    images = [s["image"] for s in subjects]
-    captions = [s.get("caption") or s.get("name") or Path(s["image"]).stem for s in subjects]
-    idips = [bool(s.get("idip", True)) for s in subjects]
+    normalized_subjects = []
+    for s in subjects:
+        img_path = resolve_image_path(s["image"])
+        normalized = dict(s)
+        normalized["image"] = img_path
+        normalized_subjects.append(normalized)
+    images = [s["image"] for s in normalized_subjects]
+    captions = [s.get("caption") or s.get("name") or Path(s["image"]).stem for s in normalized_subjects]
+    idips = [bool(s.get("idip", True)) for s in normalized_subjects]
     seed = int(job.get("seed", args.seed))
     output_path = build_output_path(args.out_root, prompt_id, seed)
     if output_path.exists():
@@ -154,7 +167,7 @@ def run_job(args, job):
         env[k] = v
 
     subprocess.run(cmd, cwd=args.xverse_dir, env=env, check=True)
-    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
+    return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path), "subjects": normalized_subjects}
 
 
 def main():
@@ -208,7 +221,7 @@ def main():
                 "prompt_id": result["prompt_id"],
                 "seed": result["seed"],
                 "prompt": job.get("prompt"),
-                "subjects": job.get("subjects"),
+                "subjects": result.get("subjects") or job.get("subjects"),
                 "output_path": result["output_path"],
                 "skipped": result["skipped"],
                 "time": int(time.time()),
