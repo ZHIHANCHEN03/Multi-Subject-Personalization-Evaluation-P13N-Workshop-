@@ -76,10 +76,30 @@ model_dir() {
   esac
 }
 
+requirements_hash() {
+  python - <<'PY' "$1"
+import hashlib
+import sys
+
+path = sys.argv[1]
+with open(path, "rb") as f:
+    data = f.read()
+print(hashlib.sha256(data).hexdigest())
+PY
+}
+
 model_python() {
   local model="$1"
   if [[ "$USE_VENV" -eq 1 ]]; then
     local vdir=".venv_shared"
+    if [[ "${SHARE_VENV:-0}" -ne 1 ]]; then
+      local dir req_hash
+      dir="$(model_dir "$model")"
+      if [[ -n "$dir" && -f "$dir/requirements.txt" ]]; then
+        req_hash="$(requirements_hash "$dir/requirements.txt")"
+        vdir=".venv_req_${req_hash:0:12}"
+      fi
+    fi
     if [[ ! -d "$vdir" ]]; then
       python -m venv "$vdir"
     fi
@@ -164,16 +184,7 @@ install_requirements() {
       local vdir req_hash_file current_hash
       vdir="$(dirname "$(dirname "$py")")"
       req_hash_file="$vdir/.requirements.sha256"
-      current_hash="$("$py" - <<'PY' "$dir/requirements.txt"
-import hashlib
-import sys
-
-path = sys.argv[1]
-with open(path, "rb") as f:
-    data = f.read()
-print(hashlib.sha256(data).hexdigest())
-PY
-)"
+      current_hash="$(requirements_hash "$dir/requirements.txt")"
       if [[ -f "$req_hash_file" ]]; then
         local saved_hash
         saved_hash="$(cat "$req_hash_file")"
