@@ -103,13 +103,13 @@ model_python() {
     fi
     if [[ ! -d "$vdir" ]]; then
       python -m venv "$vdir"
-      "$PWD/$vdir/bin/python" -m ensurepip --upgrade >/dev/null 2>&1 || true
+      ensure_pip "$PWD/$vdir/bin/python" || true
       "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
     else
       if [[ ! -x "$PWD/$vdir/bin/pip" ]]; then
         rm -rf "$vdir"
         python -m venv "$vdir"
-        "$PWD/$vdir/bin/python" -m ensurepip --upgrade >/dev/null 2>&1 || true
+        ensure_pip "$PWD/$vdir/bin/python" || true
         "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
       fi
     fi
@@ -121,6 +121,19 @@ model_python() {
 
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+}
+
+ensure_pip() {
+  local py="$1"
+  "$py" -m ensurepip --upgrade >/dev/null 2>&1 && return 0
+  if command -v curl &> /dev/null; then
+    curl -sSL https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py || return 1
+  elif command -v wget &> /dev/null; then
+    wget -q -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py || return 1
+  else
+    return 1
+  fi
+  "$py" /tmp/get-pip.py >/dev/null 2>&1 || return 1
 }
 
 set_hf_cache() {
