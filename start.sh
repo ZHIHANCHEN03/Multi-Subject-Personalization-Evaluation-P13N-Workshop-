@@ -114,6 +114,17 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
+set_hf_cache() {
+  if [[ -z "${HF_HOME:-}" && -d "/workspace" ]]; then
+    export HF_HOME="/workspace/hf"
+    export HUGGINGFACE_HUB_CACHE="$HF_HOME/hub"
+    export TRANSFORMERS_CACHE="$HF_HOME/transformers"
+    export DIFFUSERS_CACHE="$HF_HOME/diffusers"
+    mkdir -p "$HUGGINGFACE_HUB_CACHE" "$TRANSFORMERS_CACHE" "$DIFFUSERS_CACHE"
+    log "using HF cache: $HF_HOME"
+  fi
+}
+
 sample_jobs() {
   local src="$1"
   local out="$2"
@@ -257,6 +268,8 @@ run_model() {
 }
 
 IFS=',' read -r -a model_arr <<< "$MODELS"
+
+set_hf_cache
 
 if [[ "$INSTALL" -eq 1 && "$MODE" != "eval" ]]; then
   for m in "${model_arr[@]}"; do
