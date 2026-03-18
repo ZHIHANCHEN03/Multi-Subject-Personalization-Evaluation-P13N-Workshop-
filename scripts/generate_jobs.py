@@ -89,8 +89,8 @@ def main():
     seeds = [int(x.strip()) for x in args.seeds.split(",") if x.strip()]
     image_map = build_image_map(args.images_dir)
     alias_map = {
-        "motor(cycle)": image_map.get(normalize_name("motorcycle")),
-        "motorcycle": image_map.get(normalize_name("motorcycle")),
+        "motor(cycle)": image_map.get(normalize_name("motor")),
+        "motorcycle": image_map.get(normalize_name("motor")),
         "stuffed bear": image_map.get(normalize_name("stuff bear")),
         "t-shirt": image_map.get(normalize_name("tshirt")),
         "black woman": image_map.get(normalize_name("black women")),
