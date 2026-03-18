@@ -38,10 +38,6 @@ def inject_subjects(prompt, captions):
         token = f"ENT{i}"
         if token in prompt:
             prompt = prompt.replace(token, cap)
-    if any(f"ENT{i}" in prompt for i in range(1, len(captions) + 1)):
-        return prompt
-    if captions:
-        return f"{prompt}. Subjects: {', '.join(captions)}."
     return prompt
 
 
