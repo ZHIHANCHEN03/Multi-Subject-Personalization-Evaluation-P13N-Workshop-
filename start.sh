@@ -20,6 +20,7 @@ Usage:
   bash start.sh eval --models xverse,mosaic,psr
   bash start.sh all  --jobs jobs.jsonl
   bash start.sh all
+  bash start.sh all5
 
 Options:
   --models         Comma-separated model list (default: xverse,mosaic,psr)
@@ -111,6 +112,34 @@ model_python() {
 
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
+}
+
+sample_jobs() {
+  local src="$1"
+  local out="$2"
+  python - <<'PY' "$src" "$out"
+import json
+import random
+import sys
+
+src = sys.argv[1]
+out = sys.argv[2]
+text = open(src, "r", encoding="utf-8").read().strip()
+if not text:
+    open(out, "w", encoding="utf-8").write("")
+    sys.exit(0)
+if text[0] == "[":
+    jobs = json.loads(text)
+else:
+    jobs = [json.loads(line) for line in text.splitlines() if line.strip()]
+if len(jobs) <= 5:
+    sampled = jobs
+else:
+    sampled = random.sample(jobs, 5)
+with open(out, "w", encoding="utf-8") as f:
+    for job in sampled:
+        f.write(json.dumps(job, ensure_ascii=False) + "\n")
+PY
 }
 
 ensure_xverse_checkpoints() {
@@ -290,6 +319,33 @@ elif [[ "$MODE" == "all" ]]; then
   log "running eval_merge.py"
   "$eval_py" scripts/eval_merge.py --models "$MODELS"
   log "all done"
+elif [[ "$MODE" == "all5" ]]; then
+  log "mode=all5"
+  if [[ " $MODELS " == *"xverse"* ]]; then
+    ensure_xverse_checkpoints
+  fi
+  if [[ -z "$JOBS" ]]; then
+    if [[ -f "jobs.jsonl" ]]; then
+      JOBS="jobs.jsonl"
+    else
+      log "generating jobs.jsonl from val_dataset/prompts_50.txt"
+      python scripts/generate_jobs.py --prompts val_dataset/prompts_50.txt --images_dir val_dataset --out jobs.jsonl
+      JOBS="jobs.jsonl"
+    fi
+  fi
+  log "sampling 5 jobs from $JOBS"
+  sample_jobs "$JOBS" "jobs_all5.jsonl"
+  JOBS="jobs_all5.jsonl"
+  log "using jobs file: $JOBS"
+  for m in "${model_arr[@]}"; do
+    run_model "$m"
+  done
+  eval_py=$(model_python "${model_arr[0]}")
+  log "running eval.py"
+  "$eval_py" scripts/eval.py --models "$MODELS"
+  log "running eval_merge.py"
+  "$eval_py" scripts/eval_merge.py --models "$MODELS"
+  log "all5 done"
 else
   usage
   exit 1

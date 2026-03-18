@@ -699,8 +699,12 @@ def generate_from_test_sample(
                     src_prompt = src_prompts[src_input_index]
                     tar_prompt = prompt
 
-                    src_start, src_end = get_word_index(pipe, src_prompt, src_input_ids[src_input_index], src_word, src_word_count, max_length, verbose=False)
-                    tar_start, tar_end = get_word_index(pipe, tar_prompt, tar_input_ids[0], tar_word, tar_word_count, max_length, verbose=False)
+                    src_span = get_word_index(pipe, src_prompt, src_input_ids[src_input_index], src_word, src_word_count, max_length, verbose=False)
+                    tar_span = get_word_index(pipe, tar_prompt, tar_input_ids[0], tar_word, tar_word_count, max_length, verbose=False)
+                    if src_span is None or tar_span is None:
+                        continue
+                    src_start, src_end = src_span
+                    tar_start, tar_end = tar_span
                     if delta_emb is not None:
                         delta_emb[:, tar_start:tar_end] = src_delta_embs[src_input_index][src_start:src_end] # (B, 512, 3072)
                     if delta_emb_pblock is not None:
