@@ -7,6 +7,7 @@ USE_VENV=1
 JOBS=""
 PSR_RUNNER="psr_infer.py"
 PSR_RUNNER_CWD=""
+VENV_ROOT=""
 
 MODE="${1:-}"
 if [[ -n "$MODE" ]]; then
@@ -29,6 +30,7 @@ Options:
   --psr-runner-cwd Runner working directory
   --no-install     Skip installing requirements
   --no-venv        Use current environment
+  --venv-root      Venv root directory (default: /workspace/venvs if available)
 EOF
 }
 
@@ -45,6 +47,10 @@ while [[ $# -gt 0 ]]; do
     --no-venv)
       USE_VENV=0
       shift 1
+      ;;
+    --venv-root)
+      VENV_ROOT="$2"
+      shift 2
       ;;
     --jobs)
       JOBS="$2"
@@ -101,6 +107,9 @@ model_python() {
         vdir=".venv_req_${req_hash:0:12}"
       fi
     fi
+    if [[ -n "$VENV_ROOT" ]]; then
+      vdir="$VENV_ROOT/$vdir"
+    fi
     if [[ ! -d "$vdir" ]]; then
       python -m venv "$vdir"
       ensure_pip "$PWD/$vdir/bin/python" || true
@@ -113,7 +122,11 @@ model_python() {
         "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
       fi
     fi
-    echo "$PWD/$vdir/bin/python"
+    if [[ "$vdir" == /* ]]; then
+      echo "$vdir/bin/python"
+    else
+      echo "$PWD/$vdir/bin/python"
+    fi
   else
     echo "python"
   fi
@@ -145,6 +158,8 @@ set_hf_cache() {
     export HUGGINGFACE_HUB_CACHE="$HF_HOME/hub"
     export TRANSFORMERS_CACHE="$HF_HOME/transformers"
     export DIFFUSERS_CACHE="$HF_HOME/diffusers"
+    export PIP_CACHE_DIR="$HF_HOME/pip"
+    export TMPDIR="$HF_HOME/tmp"
     mkdir -p "$HUGGINGFACE_HUB_CACHE" "$TRANSFORMERS_CACHE" "$DIFFUSERS_CACHE"
     log "using HF cache: $HF_HOME"
   fi
@@ -295,6 +310,10 @@ run_model() {
 IFS=',' read -r -a model_arr <<< "$MODELS"
 
 set_hf_cache
+if [[ -z "$VENV_ROOT" && -d "/workspace" ]]; then
+  VENV_ROOT="/workspace/venvs"
+  mkdir -p "$VENV_ROOT"
+fi
 
 if [[ "$INSTALL" -eq 1 && "$MODE" != "eval" ]]; then
   for m in "${model_arr[@]}"; do
