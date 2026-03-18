@@ -67,10 +67,19 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+model_dir() {
+  case "$1" in
+    xverse) echo "XVerse-main" ;;
+    mosaic) echo "MOSAIC-main" ;;
+    psr) echo "PSR-main" ;;
+    *) echo "" ;;
+  esac
+}
+
 model_python() {
   local model="$1"
   if [[ "$USE_VENV" -eq 1 ]]; then
-    local vdir=".venv_${model}"
+    local vdir=".venv_shared"
     if [[ ! -d "$vdir" ]]; then
       python -m venv "$vdir"
     fi
@@ -111,29 +120,34 @@ ensure_xverse_checkpoints() {
     (cd "$ckpt_dir" && bash ./download_ckpts.sh)
     unset HUGGINGFACE_PY
   fi
-  if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
-    log "downloading model_ir_se50.pth..."
-    local face_url="https://huggingface.co/lithiumice/insightface/resolve/main/InsightFace_Pytorch%2Bmodel_ir_se50.pth"
-    if command -v wget &> /dev/null; then
-      if [[ -n "${HF_TOKEN:-}" ]]; then
-        wget --header="Authorization: Bearer $HF_TOKEN" -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+  if [[ "${SKIP_FACE_MODEL:-1}" -ne 1 ]]; then
+    if [[ ! -f "$ckpt_dir/model_ir_se50.pth" ]]; then
+      log "downloading model_ir_se50.pth..."
+      local face_url="https://huggingface.co/lithiumice/insightface/resolve/main/InsightFace_Pytorch%2Bmodel_ir_se50.pth"
+      local face_url_alt="https://www.dropbox.com/s/kzo52d9neybjxsb/model_ir_se50.pth?dl=1"
+      if command -v wget &> /dev/null; then
+        if [[ -n "${HF_TOKEN:-}" ]]; then
+          wget --header="Authorization: Bearer $HF_TOKEN" -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url_alt" || { echo "failed to download face model"; exit 1; }
+        else
+          wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url_alt" || { echo "failed to download face model"; exit 1; }
+        fi
+      elif command -v curl &> /dev/null; then
+        if [[ -n "${HF_TOKEN:-}" ]]; then
+          curl -L -H "Authorization: Bearer $HF_TOKEN" "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || curl -L "$face_url_alt" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download face model"; exit 1; }
+        else
+          curl -L "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || curl -L "$face_url_alt" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download face model"; exit 1; }
+        fi
       else
-        wget -O "$ckpt_dir/model_ir_se50.pth" "$face_url" || { echo "failed to download $face_url"; exit 1; }
+        echo "Please install wget or curl to download model_ir_se50.pth"
+        exit 1
       fi
-    elif command -v curl &> /dev/null; then
-      if [[ -n "${HF_TOKEN:-}" ]]; then
-        curl -L -H "Authorization: Bearer $HF_TOKEN" "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
-      else
-        curl -L "$face_url" -o "$ckpt_dir/model_ir_se50.pth" || { echo "failed to download $face_url"; exit 1; }
-      fi
-    else
-      echo "Please install wget or curl to download model_ir_se50.pth"
-      exit 1
     fi
+  else
+    log "skipping model_ir_se50.pth download"
   fi
   if [[ -z "${FLORENCE2_MODEL_PATH:-}" ]]; then export FLORENCE2_MODEL_PATH="$ckpt_dir/Florence-2-large"; fi
   if [[ -z "${SAM2_MODEL_PATH:-}" ]]; then export SAM2_MODEL_PATH="$ckpt_dir/sam2.1_hiera_large.pt"; fi
-  if [[ -z "${FACE_ID_MODEL_PATH:-}" ]]; then export FACE_ID_MODEL_PATH="$ckpt_dir/model_ir_se50.pth"; fi
+  if [[ -z "${FACE_ID_MODEL_PATH:-}" && -f "$ckpt_dir/model_ir_se50.pth" ]]; then export FACE_ID_MODEL_PATH="$ckpt_dir/model_ir_se50.pth"; fi
   if [[ -z "${CLIP_MODEL_PATH:-}" ]]; then export CLIP_MODEL_PATH="$ckpt_dir/clip-vit-large-patch14"; fi
   if [[ -z "${FLUX_MODEL_PATH:-}" ]]; then export FLUX_MODEL_PATH="$ckpt_dir/FLUX.1-dev"; fi
   if [[ -z "${DPG_VQA_MODEL_PATH:-}" ]]; then export DPG_VQA_MODEL_PATH="$ckpt_dir/mplug_visual-question-answering_coco_large_en"; fi
@@ -146,8 +160,34 @@ install_requirements() {
   if [[ -f "$dir/requirements.txt" ]]; then
     local py
     py=$(model_python "$model")
+    if [[ "$USE_VENV" -eq 1 ]]; then
+      local vdir req_hash_file current_hash
+      vdir="$(dirname "$(dirname "$py")")"
+      req_hash_file="$vdir/.requirements.sha256"
+      REQ_FILE="$dir/requirements.txt" current_hash="$("$py" - <<'PY'
+import hashlib
+import os
+
+path = os.environ["REQ_FILE"]
+with open(path, "rb") as f:
+    data = f.read()
+print(hashlib.sha256(data).hexdigest())
+PY
+)"
+      if [[ -f "$req_hash_file" ]]; then
+        local saved_hash
+        saved_hash="$(cat "$req_hash_file")"
+        if [[ "$saved_hash" == "$current_hash" ]]; then
+          log "requirements unchanged for $model, skipping install"
+          return
+        fi
+      fi
+    fi
     log "installing requirements for $model from $dir/requirements.txt"
     "$py" -m pip install -r "$dir/requirements.txt"
+    if [[ "${req_hash_file:-}" != "" ]]; then
+      echo "$current_hash" > "$req_hash_file"
+    fi
   fi
 }
 
@@ -155,7 +195,7 @@ run_model() {
   local model="$1"
   local args=()
   local py
-  py=$(model_python "$model")
+  py=$(model_python "$model" "$(model_dir "$model")")
   log "running model: $model"
   args+=(--jobs "$JOBS")
   if [[ "$model" == "xverse" ]]; then
