@@ -74,7 +74,10 @@ def normalize_subjects(images, names, captions, idips):
 
 
 def build_output_path(out_root, prompt_id, seed):
-    prompt_dir = Path(out_root) / str(prompt_id)
+    out_root = Path(out_root)
+    if not out_root.is_absolute():
+        out_root = PROJECT_ROOT / out_root
+    prompt_dir = out_root / str(prompt_id)
     prompt_dir.mkdir(parents=True, exist_ok=True)
     return prompt_dir / f"{seed}.png"
 
