@@ -164,11 +164,11 @@ install_requirements() {
       local vdir req_hash_file current_hash
       vdir="$(dirname "$(dirname "$py")")"
       req_hash_file="$vdir/.requirements.sha256"
-      REQ_FILE="$dir/requirements.txt" current_hash="$("$py" - <<'PY'
+      current_hash="$("$py" - <<'PY' "$dir/requirements.txt"
 import hashlib
-import os
+import sys
 
-path = os.environ["REQ_FILE"]
+path = sys.argv[1]
 with open(path, "rb") as f:
     data = f.read()
 print(hashlib.sha256(data).hexdigest())
