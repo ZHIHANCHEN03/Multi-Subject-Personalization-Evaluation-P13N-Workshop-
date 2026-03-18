@@ -105,6 +105,11 @@ model_python() {
       python -m venv "$vdir"
       "$PWD/$vdir/bin/python" -m ensurepip --upgrade >/dev/null 2>&1 || true
       "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
+    else
+      if [[ ! -x "$PWD/$vdir/bin/pip" ]]; then
+        "$PWD/$vdir/bin/python" -m ensurepip --upgrade >/dev/null 2>&1 || true
+        "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
+      fi
     fi
     echo "$PWD/$vdir/bin/python"
   else
