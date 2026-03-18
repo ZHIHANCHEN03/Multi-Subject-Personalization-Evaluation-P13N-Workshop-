@@ -16,6 +16,8 @@
 import tempfile
 from PIL import Image
 import subprocess
+import json
+from pathlib import Path
 
 import torch
 import gradio as gr
@@ -38,6 +40,40 @@ import time
 
 config_path = "train/config/XVerse_config_demo.yaml"
 store_attn_map = False
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+def load_jobs(job_path):
+    text = Path(job_path).read_text(encoding="utf-8").strip()
+    if not text:
+        return []
+    if text[0] == "[":
+        return json.loads(text)
+    jobs = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        jobs.append(json.loads(line))
+    return jobs
+
+def update_meta(out_root, prompt_id, record):
+    prompt_dir = Path(out_root) / str(prompt_id)
+    meta_path = prompt_dir / "meta.json"
+    if meta_path.exists():
+        data = json.loads(meta_path.read_text(encoding="utf-8"))
+        if not isinstance(data, list):
+            data = [data]
+    else:
+        data = []
+    data.append(record)
+    meta_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def resolve_image_path(path):
+    p = Path(path)
+    if p.is_absolute():
+        return str(p)
+    return str((Path(PROJECT_ROOT) / p).resolve())
 
 def generate_image(model, prompt, cond_size, target_height, target_width, seed, vae_skip_iter, control_weight_lambda, latent_dblora_scale_str, latent_sblora_scale_str, vae_lora_scale_str,
                    indexs, num_images, device, forward_hook_manager, num_inference_steps, *args):  # 新增 num_images 参数
@@ -167,7 +203,10 @@ def generate_image(model, prompt, cond_size, target_height, target_width, seed, 
 
 def main():
     parser = argparse.ArgumentParser(description='XVerse Inference')
-    parser.add_argument('--prompt', type=str, required=True, help='Prompt for image generation')
+    parser.add_argument('--jobs', type=str)
+    parser.add_argument('--out_root', type=str, default="results/xverse")
+    parser.add_argument('--continue_on_error', action="store_true")
+    parser.add_argument('--prompt', type=str, help='Prompt for image generation')
     parser.add_argument('--seed', type=int, default=42, help='Random seed')
     parser.add_argument('--cond_size', type=int, default=256, help='Condition size')
     parser.add_argument('--target_height', type=int, default=768, help='Generated image height')
@@ -193,11 +232,15 @@ def main():
     # size = 24 * 1024 * 1024 * 1024 // 4     
     # big_tensor = torch.randn(size, dtype=torch.float32, device='cuda')
 
-    # 验证输入参数
-    if args.images and args.captions and len(args.images) != len(args.captions):
-        raise ValueError("Number of images and captions must be the same")
-    if args.images and args.idips and len(args.images) != len(args.idips):
-        raise ValueError("Number of images and ID/IP flags must be the same")
+    if args.jobs:
+        pass
+    else:
+        if not args.prompt:
+            raise ValueError("prompt is required when --jobs is not provided")
+        if args.images and args.captions and len(args.images) != len(args.captions):
+            raise ValueError("Number of images and captions must be the same")
+        if args.images and args.idips and len(args.images) != len(args.idips):
+            raise ValueError("Number of images and ID/IP flags must be the same")
 
     dtype = torch.bfloat16
     if args.use_low_vram or args.use_lower_vram:
@@ -242,8 +285,10 @@ def main():
     latent_dblora_scale_str = f"0-1:{args.latent_lora_scale}"
     vae_lora_scale_str = f"0-1:{args.vae_lora_scale}"
 
-    # 准备 indexs
-    indexs = list(range(len(args.images))) if args.images else []
+    if args.jobs:
+        indexs = []
+    else:
+        indexs = list(range(len(args.images))) if args.images else []
 
     if init_device.type == 'cpu' and (args.use_low_vram or args.use_lower_vram):
         if args.use_lower_vram:
@@ -264,31 +309,108 @@ def main():
         for i in range(len(model.pipe.modulation_adapters)):
             model.pipe.modulation_adapters[i] = model.pipe.modulation_adapters[i].to("cuda")
     
-    image = generate_image(
-        model,
-        args.prompt,
-        args.cond_size,
-        args.target_height,
-        args.target_width,
-        args.seed,
-        vae_skip_iter,
-        control_weight_lambda,
-        args.latent_lora_scale,
-        latent_sblora_scale_str,
-        vae_lora_scale_str,
-        indexs,
-        args.num_images,  # 传递 num_images 参数
-        do_device,
-        forward_hook_manager,
-        args.num_inference_steps,  # 新增参数
-        *args.images,
-        *args.captions,
-        *args.idips
-    )
-
-    # 使用命令行传入的路径保存生成的图像
-    image.save(args.save_path)
-    print(f"Generated image saved to {args.save_path}")
+    if args.jobs:
+        jobs = load_jobs(args.jobs)
+        out_root = Path(args.out_root)
+        if not out_root.is_absolute():
+            out_root = Path(PROJECT_ROOT).parent / out_root
+        out_root.mkdir(parents=True, exist_ok=True)
+        for job in jobs:
+            try:
+                prompt_id = job.get("prompt_id") or job.get("id") or job.get("index") or "unknown"
+                prompt = job.get("prompt")
+                subjects = job.get("subjects") or []
+                if not prompt or not subjects:
+                    raise ValueError(f"missing prompt or subjects for job {prompt_id}")
+                seed = int(job.get("seed", args.seed))
+                output_path = out_root / str(prompt_id) / f"{seed}.png"
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                if output_path.exists():
+                    update_meta(out_root, prompt_id, {
+                        "model": "xverse",
+                        "prompt_id": prompt_id,
+                        "seed": seed,
+                        "prompt": prompt,
+                        "subjects": subjects,
+                        "output_path": str(output_path),
+                        "skipped": True,
+                        "time": int(time.time()),
+                    })
+                    continue
+                images = [resolve_image_path(s["image"]) for s in subjects]
+                captions = [s.get("caption") or s.get("name") or Path(s["image"]).stem for s in subjects]
+                idips = [bool(s.get("idip", True)) for s in subjects]
+                indexs = list(range(len(images)))
+                image = generate_image(
+                    model,
+                    prompt,
+                    args.cond_size,
+                    args.target_height,
+                    args.target_width,
+                    seed,
+                    vae_skip_iter,
+                    control_weight_lambda,
+                    args.latent_lora_scale,
+                    latent_sblora_scale_str,
+                    vae_lora_scale_str,
+                    indexs,
+                    args.num_images,
+                    do_device,
+                    forward_hook_manager,
+                    args.num_inference_steps,
+                    *images,
+                    *captions,
+                    *idips,
+                )
+                image.save(str(output_path))
+                update_meta(out_root, prompt_id, {
+                    "model": "xverse",
+                    "prompt_id": prompt_id,
+                    "seed": seed,
+                    "prompt": prompt,
+                    "subjects": subjects,
+                    "output_path": str(output_path),
+                    "skipped": False,
+                    "time": int(time.time()),
+                })
+                print(f"Generated image saved to {output_path}")
+            except Exception as e:
+                update_meta(out_root, job.get("prompt_id", "unknown"), {
+                    "model": "xverse",
+                    "prompt_id": job.get("prompt_id"),
+                    "seed": job.get("seed", args.seed),
+                    "prompt": job.get("prompt"),
+                    "subjects": job.get("subjects"),
+                    "error": str(e),
+                    "time": int(time.time()),
+                })
+                if not args.continue_on_error:
+                    raise
+    else:
+        image = generate_image(
+            model,
+            args.prompt,
+            args.cond_size,
+            args.target_height,
+            args.target_width,
+            args.seed,
+            vae_skip_iter,
+            control_weight_lambda,
+            args.latent_lora_scale,
+            latent_sblora_scale_str,
+            vae_lora_scale_str,
+            indexs,
+            args.num_images,
+            do_device,
+            forward_hook_manager,
+            args.num_inference_steps,
+            *args.images,
+            *args.captions,
+            *args.idips
+        )
+        Path(args.save_path).parent.mkdir(parents=True, exist_ok=True)
+        image.save(args.save_path)
+        print(f"Generated image saved to {args.save_path}")
 
 if __name__ == "__main__":
     main()

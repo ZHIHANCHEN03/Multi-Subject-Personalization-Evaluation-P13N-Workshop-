@@ -172,6 +172,55 @@ def run_job(args, job):
     subprocess.run(cmd, cwd=args.xverse_dir, env=env, check=True)
     return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
+def run_jobs_batch(args):
+    cmd = [
+        sys.executable,
+        "inference_single_sample.py",
+        "--jobs",
+        args.jobs,
+        "--out_root",
+        args.out_root,
+        "--cond_size",
+        str(args.cond_size),
+        "--target_height",
+        str(args.height),
+        "--target_width",
+        str(args.width),
+        "--weight_id",
+        str(args.weight_id),
+        "--weight_ip",
+        str(args.weight_ip),
+        "--latent_lora_scale",
+        str(args.latent_lora_scale),
+        "--vae_lora_scale",
+        str(args.vae_lora_scale),
+        "--vae_skip_iter_s1",
+        str(args.vae_skip_iter_s1),
+        "--vae_skip_iter_s2",
+        str(args.vae_skip_iter_s2),
+        "--num_inference_steps",
+        str(args.num_inference_steps),
+        "--num_images",
+        "1",
+    ]
+    if args.use_low_vram:
+        cmd += ["--use_low_vram", "True"]
+    if args.use_lower_vram:
+        cmd += ["--use_lower_vram", "True"]
+    if args.dit_quant:
+        cmd += ["--dit_quant", args.dit_quant]
+    if args.continue_on_error:
+        cmd += ["--continue_on_error"]
+
+    env = os.environ.copy()
+    for kv in args.env:
+        if "=" not in kv:
+            raise ValueError(f"invalid env format: {kv}")
+        k, v = kv.split("=", 1)
+        env[k] = v
+
+    subprocess.run(cmd, cwd=args.xverse_dir, env=env, check=True)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -208,7 +257,8 @@ def main():
 
     jobs = []
     if args.jobs:
-        jobs = load_jobs(args.jobs)
+        run_jobs_batch(args)
+        return
     elif args.prompt and args.subjects:
         subjects = normalize_subjects(args.subjects, args.subject_names, args.subject_captions, args.subject_idips)
         jobs = [{"prompt_id": args.prompt_id, "prompt": args.prompt, "subjects": subjects, "seed": args.seed}]

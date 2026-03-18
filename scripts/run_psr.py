@@ -117,6 +117,20 @@ def run_job(args, job):
     subprocess.run(cmd, cwd=args.runner_cwd or None, env=env, check=True)
     return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
 
+def run_jobs_batch(args):
+    cmd = [
+        sys.executable,
+        str(args.runner_path),
+        "--jobs",
+        args.jobs,
+        "--out_root",
+        args.out_root,
+    ]
+    if args.continue_on_error:
+        cmd += ["--continue_on_error"]
+    env = os.environ.copy()
+    subprocess.run(cmd, cwd=args.runner_cwd or None, env=env, check=True)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -145,7 +159,8 @@ def main():
 
     jobs = []
     if args.jobs:
-        jobs = load_jobs(args.jobs)
+        run_jobs_batch(args)
+        return
     elif args.prompt and args.subjects:
         subjects = normalize_subjects(args.subjects, args.subject_names, args.subject_captions)
         jobs = [{"prompt_id": args.prompt_id, "prompt": args.prompt, "subjects": subjects, "seed": args.seed}]
