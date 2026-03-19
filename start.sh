@@ -136,6 +136,23 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
+cache_root() {
+  local base="/"
+  if [[ -w "$base" ]]; then
+    local avail
+    avail=$(df -Pk "$base" | awk 'NR==2 {print $4}')
+    if [[ "${avail:-0}" -ge 52428800 ]]; then
+      echo "$base"
+      return
+    fi
+  fi
+  if [[ -d "/workspace" ]]; then
+    echo "/workspace"
+    return
+  fi
+  echo "/"
+}
+
 ensure_pip() {
   local py="$1"
   local tmp_dir="${HF_HOME:-/workspace}/tmp"
@@ -153,8 +170,10 @@ ensure_pip() {
 }
 
 set_hf_cache() {
-  if [[ -z "${HF_HOME:-}" && -d "/workspace" ]]; then
-    export HF_HOME="/workspace/hf"
+  if [[ -z "${HF_HOME:-}" ]]; then
+    local base
+    base="$(cache_root)"
+    export HF_HOME="$base/hf"
     export HUGGINGFACE_HUB_CACHE="$HF_HOME/hub"
     export TRANSFORMERS_CACHE="$HF_HOME/transformers"
     export DIFFUSERS_CACHE="$HF_HOME/diffusers"
@@ -311,8 +330,9 @@ run_model() {
 IFS=',' read -r -a model_arr <<< "$MODELS"
 
 set_hf_cache
-if [[ -z "$VENV_ROOT" && -d "/workspace" ]]; then
-  VENV_ROOT="/workspace/venvs"
+if [[ -z "$VENV_ROOT" ]]; then
+  base="$(cache_root)"
+  VENV_ROOT="$base/venvs"
   mkdir -p "$VENV_ROOT"
 fi
 
