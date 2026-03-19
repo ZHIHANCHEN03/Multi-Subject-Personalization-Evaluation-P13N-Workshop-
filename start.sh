@@ -99,6 +99,8 @@ model_python() {
   local model="$1"
   if [[ "$USE_VENV" -eq 1 ]]; then
     local vdir=".venv_shared"
+    local py_path
+    local pip_path
     if [[ "${SHARE_VENV:-0}" -ne 1 ]]; then
       local dir req_hash
       dir="$(model_dir "$model")"
@@ -110,23 +112,30 @@ model_python() {
     if [[ -n "$VENV_ROOT" ]]; then
       vdir="$VENV_ROOT/$vdir"
     fi
-    if [[ ! -d "$vdir" ]]; then
-      python -m venv "$vdir"
-      ensure_pip "$PWD/$vdir/bin/python" || true
-      "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
+    if [[ "$vdir" == /* ]]; then
+      py_path="$vdir/bin/python"
+      pip_path="$vdir/bin/pip"
     else
-      if [[ ! -x "$PWD/$vdir/bin/pip" ]]; then
+      py_path="$PWD/$vdir/bin/python"
+      pip_path="$PWD/$vdir/bin/pip"
+    fi
+    if [[ ! -d "$vdir" ]]; then
+      python -m venv --without-pip "$vdir"
+      ensure_pip "$py_path" || true
+      "$py_path" -m pip install -U pip >/dev/null 2>&1 || true
+    else
+      if [[ ! -x "$pip_path" ]]; then
         rm -rf "$vdir"
-        python -m venv "$vdir"
-        ensure_pip "$PWD/$vdir/bin/python" || true
-        "$PWD/$vdir/bin/python" -m pip install -U pip >/dev/null 2>&1 || true
+        python -m venv --without-pip "$vdir"
+        ensure_pip "$py_path" || true
+        "$py_path" -m pip install -U pip >/dev/null 2>&1 || true
       fi
     fi
-    if [[ "$vdir" == /* ]]; then
-      echo "$vdir/bin/python"
-    else
-      echo "$PWD/$vdir/bin/python"
+    if [[ ! -x "$pip_path" ]]; then
+      echo "pip not available in $vdir; install failed"
+      exit 1
     fi
+    echo "$py_path"
   else
     echo "python"
   fi
@@ -175,8 +184,14 @@ ensure_pip() {
 set_hf_cache() {
   if [[ -z "${HF_HOME:-}" ]]; then
     local base
+    local base_trim
     base="$(cache_root)"
-    export HF_HOME="$base/hf"
+    if [[ "$base" == "/" ]]; then
+      base_trim="/"
+    else
+      base_trim="${base%/}"
+    fi
+    export HF_HOME="$base_trim/hf"
     export HUGGINGFACE_HUB_CACHE="$HF_HOME/hub"
     export TRANSFORMERS_CACHE="$HF_HOME/transformers"
     export DIFFUSERS_CACHE="$HF_HOME/diffusers"
@@ -335,7 +350,11 @@ IFS=',' read -r -a model_arr <<< "$MODELS"
 set_hf_cache
 if [[ -z "$VENV_ROOT" ]]; then
   base="$(cache_root)"
-  VENV_ROOT="$base/venvs"
+  if [[ "$base" == "/" ]]; then
+    VENV_ROOT="/venvs"
+  else
+    VENV_ROOT="${base%/}/venvs"
+  fi
   mkdir -p "$VENV_ROOT"
 fi
 
