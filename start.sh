@@ -155,7 +155,10 @@ cache_root() {
 
 ensure_pip() {
   local py="$1"
-  local tmp_dir="${HF_HOME:-/workspace}/tmp"
+  local tmp_dir="${TMPDIR:-}"
+  if [[ -z "$tmp_dir" ]]; then
+    tmp_dir="${HF_HOME:-/workspace}/tmp"
+  fi
   mkdir -p "$tmp_dir"
   local pip_installer="$tmp_dir/get-pip.py"
   "$py" -m ensurepip --upgrade >/dev/null 2>&1 && return 0
@@ -180,7 +183,7 @@ set_hf_cache() {
     export PIP_CACHE_DIR="$HF_HOME/pip"
     export TMPDIR="$HF_HOME/tmp"
     export HF_HUB_DISABLE_XET=1
-    mkdir -p "$HUGGINGFACE_HUB_CACHE" "$TRANSFORMERS_CACHE" "$DIFFUSERS_CACHE"
+    mkdir -p "$HUGGINGFACE_HUB_CACHE" "$TRANSFORMERS_CACHE" "$DIFFUSERS_CACHE" "$PIP_CACHE_DIR" "$TMPDIR"
     log "using HF cache: $HF_HOME"
   fi
 }
