@@ -327,6 +327,9 @@ run_model() {
   py=$(model_python "$model" "$(model_dir "$model")")
   log "running model: $model"
   args+=(--jobs "$JOBS")
+  if [[ -n "${RESULTS_ROOT:-}" ]]; then
+    args+=(--out_root "$RESULTS_ROOT/$model")
+  fi
   if [[ "$model" == "xverse" ]]; then
     "$py" scripts/run_xverse.py "${args[@]}"
   elif [[ "$model" == "mosaic" ]]; then
@@ -348,6 +351,8 @@ run_model() {
 IFS=',' read -r -a model_arr <<< "$MODELS"
 
 set_hf_cache
+RESULTS_ROOT="/results"
+EVAL_OUT_DIR="/eval_outputs"
 if [[ -z "$VENV_ROOT" ]]; then
   base="$(cache_root)"
   if [[ "$base" == "/" ]]; then
@@ -370,7 +375,7 @@ if [[ "$INSTALL" -eq 1 && "$MODE" != "eval" ]]; then
   done
 fi
 
-mkdir -p results eval_outputs
+mkdir -p "$RESULTS_ROOT" "$EVAL_OUT_DIR"
 
 if [[ "$MODE" == "gen" ]]; then
   log "mode=gen"
@@ -394,7 +399,7 @@ elif [[ "$MODE" == "eval" ]]; then
   log "mode=eval"
   eval_py=$(model_python "${model_arr[0]}")
   log "running eval.py"
-  "$eval_py" scripts/eval.py --models "$MODELS"
+  "$eval_py" scripts/eval.py --models "$MODELS" --results_root "$RESULTS_ROOT" --out_dir "$EVAL_OUT_DIR"
 elif [[ "$MODE" == "all" ]]; then
   log "mode=all"
   if [[ " $MODELS " == *"xverse"* ]]; then
@@ -415,7 +420,7 @@ elif [[ "$MODE" == "all" ]]; then
   done
   eval_py=$(model_python "${model_arr[0]}")
   log "running eval.py"
-  "$eval_py" scripts/eval.py --models "$MODELS"
+  "$eval_py" scripts/eval.py --models "$MODELS" --results_root "$RESULTS_ROOT" --out_dir "$EVAL_OUT_DIR"
   log "running eval_merge.py"
   "$eval_py" scripts/eval_merge.py --models "$MODELS"
   log "all done"
@@ -442,7 +447,7 @@ elif [[ "$MODE" == "all5" ]]; then
   done
   eval_py=$(model_python "${model_arr[0]}")
   log "running eval.py"
-  "$eval_py" scripts/eval.py --models "$MODELS"
+  "$eval_py" scripts/eval.py --models "$MODELS" --results_root "$RESULTS_ROOT" --out_dir "$EVAL_OUT_DIR"
   log "running eval_merge.py"
   "$eval_py" scripts/eval_merge.py --models "$MODELS"
   log "all5 done"
