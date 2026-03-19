@@ -79,6 +79,8 @@ def main():
     parser.add_argument("--images_dir", type=str, required=True)
     parser.add_argument("--out", type=str, default="jobs.jsonl")
     parser.add_argument("--seeds", type=str, default="42,43,44")
+    parser.add_argument("--start_id", type=int)
+    parser.add_argument("--end_id", type=int)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
 
@@ -107,6 +109,10 @@ def main():
     }
 
     items = parse_prompts(args.prompts)
+    if args.start_id is not None or args.end_id is not None:
+        start_id = args.start_id if args.start_id is not None else 0
+        end_id = args.end_id if args.end_id is not None else 10**9
+        items = [x for x in items if start_id <= int(x[0]) <= end_id]
     lines = []
     for prompt_id, prompt, subjects, scene_type in items:
         subject_objs = []
