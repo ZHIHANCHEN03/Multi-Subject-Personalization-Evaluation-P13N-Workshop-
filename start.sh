@@ -276,7 +276,7 @@ install_requirements() {
       fi
     fi
     log "installing requirements for $model from $dir/requirements.txt"
-    "$py" -m pip install -r "$dir/requirements.txt"
+    "$py" -m pip install -r "$dir/requirements.txt" --progress-bar on
     if [[ "${req_hash_file:-}" != "" ]]; then
       echo "$current_hash" > "$req_hash_file"
     fi
