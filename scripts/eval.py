@@ -57,7 +57,8 @@ def normalize(x):
 
 
 def encode_text(processor, model, device, text):
-    inputs = processor(text=[text], return_tensors="pt", padding=True)
+    # Truncate text that is too long for CLIP (max 77 tokens)
+    inputs = processor(text=[text], return_tensors="pt", padding=True, truncation=True, max_length=77)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         feats = model.get_text_features(**inputs)
