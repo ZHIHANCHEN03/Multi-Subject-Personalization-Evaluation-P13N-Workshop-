@@ -1,12 +1,14 @@
 import argparse
 import json
 import math
+import os
 from pathlib import Path
 import time
 
 import torch
 from PIL import Image
 from transformers import CLIPModel, CLIPProcessor
+import torchvision.transforms as T
 
 
 def load_meta_records(results_root, model_name):
@@ -56,13 +58,48 @@ def encode_image(processor, model, device, image):
     return normalize(feats)
 
 
+def encode_dino_image(model, device, image):
+    # DINO requires standard ImageNet normalization
+    transform = T.Compose([
+        T.Resize(256, interpolation=T.InterpolationMode.BICUBIC),
+        T.CenterCrop(224),
+        T.ToTensor(),
+        T.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+    ])
+    img_t = transform(image).unsqueeze(0).to(device)
+    with torch.no_grad():
+        feats = model(img_t)
+    return normalize(feats)
+
+
 def cosine(a, b):
     return float((a * b).sum(dim=-1).mean().item())
 
 
-def evaluate_record(processor, model, device, rec, thresholds):
+def get_scene_type(prompt_id_str):
+    """
+    Inference scene type from prompt_id.
+    1-5, 16-20, 31-35, 46-50, 61-65: neutral (No interaction)
+    6-10, 21-25, 36-40, 51-55, 66-70: occlusion
+    11-15, 26-30, 41-45, 56-60, 71-75: interaction
+    """
+    try:
+        pid = int(prompt_id_str)
+        mod = (pid - 1) % 15
+        if mod < 5:
+            return "neutral"
+        elif mod < 10:
+            return "occlusion"
+        else:
+            return "interaction"
+    except (ValueError, TypeError):
+        return "unknown"
+
+
+def evaluate_record(processor, model, dino_model, device, rec, thresholds):
     prompt = rec.get("prompt")
     output_path = rec.get("output_path")
+    prompt_id = rec.get("prompt_id") or rec.get("id") or rec.get("index")
     subjects = rec.get("subjects") or []
     if not prompt or not output_path or not subjects:
         return None
@@ -72,30 +109,51 @@ def evaluate_record(processor, model, device, rec, thresholds):
     gen_feat = encode_image(processor, model, device, gen_img)
     text_feat = encode_text(processor, model, device, prompt)
     clip_score = cosine(gen_feat, text_feat)
+    
+    if dino_model is not None:
+        gen_dino_feat = encode_dino_image(dino_model, device, gen_img)
+    else:
+        gen_dino_feat = None
 
     subject_feats = []
+    subject_dino_feats = []
     for s in subjects:
         img = load_image(s.get("image"))
         if img is None:
             continue
         subject_feats.append(encode_image(processor, model, device, img))
+        if dino_model is not None:
+            subject_dino_feats.append(encode_dino_image(dino_model, device, img))
+            
     if not subject_feats:
         nido = None
+        nido_dino = None
         scr = {t: None for t in thresholds}
     else:
         sims = [cosine(gen_feat, sf) for sf in subject_feats]
         nido = float(sum(sims) / len(sims))
+        
+        if dino_model is not None and subject_dino_feats:
+            dino_sims = [cosine(gen_dino_feat, sf) for sf in subject_dino_feats]
+            nido_dino = float(sum(dino_sims) / len(dino_sims))
+        else:
+            nido_dino = None
+            
         scr = {}
         for t in thresholds:
             collapsed = sum(1 for s in sims if s < t)
             scr[t] = collapsed / len(sims)
 
+    scene_type = get_scene_type(prompt_id)
+
     result = {
-        "prompt_id": rec.get("prompt_id") or rec.get("id") or rec.get("index"),
+        "prompt_id": prompt_id,
         "seed": rec.get("seed"),
         "subject_count": len(subjects),
+        "scene_type": scene_type,
         "clip": clip_score,
         "nido": nido,
+        "nido_dino": nido_dino,
         "scr": scr,
         "prompt": prompt,
         "output_path": output_path,
@@ -111,27 +169,66 @@ def mean(values):
 
 
 def aggregate(results, thresholds):
+    # Base aggregation by subject count
     by_level = {}
+    # Aggregation by subject count + scene type
+    by_level_scene = {}
+    
     for r in results:
         lvl = r["subject_count"]
+        scene = r["scene_type"]
         by_level.setdefault(lvl, []).append(r)
+        
+        scene_key = f"{lvl}_{scene}"
+        by_level_scene.setdefault(scene_key, []).append(r)
+        
     summary = []
+    
+    # Process overall subject count
     for lvl in sorted(by_level.keys()):
         items = by_level[lvl]
         clip_mean = mean([x["clip"] for x in items])
         nido_mean = mean([x["nido"] for x in items])
+        nido_dino_mean = mean([x.get("nido_dino") for x in items if x.get("nido_dino") is not None])
         scr_mean = {}
         for t in thresholds:
             scr_mean[str(t)] = mean([x["scr"].get(t) for x in items if x["scr"].get(t) is not None])
         summary.append(
             {
                 "subject_count": lvl,
+                "scene_type": "all",
                 "clip": clip_mean,
                 "nido": nido_mean,
+                "nido_dino": nido_dino_mean,
                 "scr": scr_mean,
                 "count": len(items),
             }
         )
+        
+    # Process subject count + scene type breakdown
+    for scene_key in sorted(by_level_scene.keys()):
+        items = by_level_scene[scene_key]
+        lvl = items[0]["subject_count"]
+        scene = items[0]["scene_type"]
+        
+        clip_mean = mean([x["clip"] for x in items])
+        nido_mean = mean([x["nido"] for x in items])
+        nido_dino_mean = mean([x.get("nido_dino") for x in items if x.get("nido_dino") is not None])
+        scr_mean = {}
+        for t in thresholds:
+            scr_mean[str(t)] = mean([x["scr"].get(t) for x in items if x["scr"].get(t) is not None])
+        summary.append(
+            {
+                "subject_count": lvl,
+                "scene_type": scene,
+                "clip": clip_mean,
+                "nido": nido_mean,
+                "nido_dino": nido_dino_mean,
+                "scr": scr_mean,
+                "count": len(items),
+            }
+        )
+        
     return summary
 
 
@@ -140,13 +237,15 @@ def write_json(path, data):
 
 
 def write_csv(path, rows, thresholds):
-    header = ["subject_count", "clip", "nido"] + [f"scr@{t}" for t in thresholds] + ["count"]
+    header = ["subject_count", "scene_type", "clip", "nido", "nido_dino"] + [f"scr@{t}" for t in thresholds] + ["count"]
     lines = [",".join(header)]
     for r in rows:
         line = [
             str(r["subject_count"]),
+            r["scene_type"],
             "" if r["clip"] is None else f"{r['clip']:.6f}",
             "" if r["nido"] is None else f"{r['nido']:.6f}",
+            "" if r.get("nido_dino") is None else f"{r['nido_dino']:.6f}",
         ]
         for t in thresholds:
             val = r["scr"].get(str(t))
@@ -175,18 +274,31 @@ def main():
     processor = CLIPProcessor.from_pretrained(args.clip_model)
     model = CLIPModel.from_pretrained(args.clip_model).to(device)
     model.eval()
+    
+    # Load DINO model
+    try:
+        print("Loading DINO model...")
+        dino_model = torch.hub.load('facebookresearch/dino:main', 'dino_vits16', pretrained=True).to(device)
+        dino_model.eval()
+    except Exception as e:
+        print(f"Warning: Failed to load DINO model. DINO evaluation will be skipped. Error: {e}")
+        dino_model = None
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     models = [m.strip() for m in args.models.split(",") if m.strip()]
     for model_name in models:
+        print(f"Evaluating model: {model_name}")
         records = load_meta_records(args.results_root, model_name)
         results = []
         for rec in records[: args.max_records or None]:
-            r = evaluate_record(processor, model, device, rec, thresholds)
+            r = evaluate_record(processor, model, dino_model, device, rec, thresholds)
             if r is not None:
                 results.append(r)
+        if not results:
+            print(f"  No records found for {model_name}")
+            continue
         summary = aggregate(results, thresholds)
         payload = {
             "model": model_name,

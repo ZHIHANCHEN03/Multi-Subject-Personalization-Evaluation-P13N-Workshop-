@@ -25,8 +25,10 @@ def main():
             row = {
                 "model": model,
                 "subject_count": item.get("subject_count"),
+                "scene_type": item.get("scene_type", "all"),
                 "clip": item.get("clip"),
                 "nido": item.get("nido"),
+                "nido_dino": item.get("nido_dino"),
                 "count": item.get("count"),
             }
             scr = item.get("scr", {}) or {}
@@ -37,7 +39,7 @@ def main():
     if not rows:
         return
 
-    fieldnames = ["model", "subject_count", "clip", "nido"]
+    fieldnames = ["model", "subject_count", "scene_type", "clip", "nido", "nido_dino"]
     scr_keys = sorted({k for r in rows for k in r.keys() if k.startswith("scr@")})
     fieldnames += scr_keys + ["count"]
 

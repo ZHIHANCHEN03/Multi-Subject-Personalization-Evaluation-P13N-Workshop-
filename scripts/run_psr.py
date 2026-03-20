@@ -108,11 +108,11 @@ def run_job(args, job):
         str(output_path),
         "--subjects",
         *images,
-        "--subject_names",
-        *names,
-        "--subject_captions",
-        *captions,
     ]
+    if names:
+        cmd.extend(["--subject_names", *names])
+    if captions:
+        cmd.extend(["--subject_captions", *captions])
     env = os.environ.copy()
     subprocess.run(cmd, cwd=args.runner_cwd or None, env=env, check=True)
     return {"prompt_id": prompt_id, "seed": seed, "skipped": False, "output_path": str(output_path)}
