@@ -1,0 +1,3743 @@
+{
+  "model": "psr",
+  "time": 1774048314,
+  "results": [
+    {
+      "prompt_id": "01_no_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.28976720571517944,
+      "nido": 0.6104205548763275,
+      "nido_dino": 0.26928193867206573,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, and a western woman reading a phone beside her.",
+      "output_path": "./results/psr/01_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "01_no_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2880897521972656,
+      "nido": 0.5338693261146545,
+      "nido_dino": 0.18934037536382675,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, and a western woman reading a phone beside her.",
+      "output_path": "./results/psr/01_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "01_no_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.305303692817688,
+      "nido": 0.5256593376398087,
+      "nido_dino": 0.14319460839033127,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, and a western woman reading a phone beside her.",
+      "output_path": "./results/psr/01_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "02_no_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.35446861386299133,
+      "nido": 0.5981976985931396,
+      "nido_dino": 0.2546633332967758,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, and a panda sitting against the wall.",
+      "output_path": "./results/psr/02_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "02_no_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.3396613597869873,
+      "nido": 0.5303795635700226,
+      "nido_dino": 0.2824511155486107,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, and a panda sitting against the wall.",
+      "output_path": "./results/psr/02_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "02_no_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.34075048565864563,
+      "nido": 0.5861068367958069,
+      "nido_dino": 0.19690393656492233,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, and a panda sitting against the wall.",
+      "output_path": "./results/psr/02_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "03_no_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.29427585005760193,
+      "nido": 0.7619764804840088,
+      "nido_dino": 0.6333958804607391,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, and a backpack below it.",
+      "output_path": "./results/psr/03_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "03_no_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2935219407081604,
+      "nido": 0.697442352771759,
+      "nido_dino": 0.4379100799560547,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, and a backpack below it.",
+      "output_path": "./results/psr/03_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "03_no_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2893046438694,
+      "nido": 0.6929625570774078,
+      "nido_dino": 0.6262489259243011,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, and a backpack below it.",
+      "output_path": "./results/psr/03_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "04_no_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.3006665110588074,
+      "nido": 0.6691326797008514,
+      "nido_dino": 0.34745262563228607,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, and a vase beside it.",
+      "output_path": "./results/psr/04_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "04_no_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2740206718444824,
+      "nido": 0.7632267475128174,
+      "nido_dino": 0.37535229325294495,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, and a vase beside it.",
+      "output_path": "./results/psr/04_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "04_no_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.278498113155365,
+      "nido": 0.6733159720897675,
+      "nido_dino": 0.3151661157608032,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, and a vase beside it.",
+      "output_path": "./results/psr/04_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "05_no_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.28460222482681274,
+      "nido": 0.6792324781417847,
+      "nido_dino": 0.16651013121008873,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, and a hamster near the roots.",
+      "output_path": "./results/psr/05_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "05_no_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2842889130115509,
+      "nido": 0.653590977191925,
+      "nido_dino": 0.150535698980093,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, and a hamster near the roots.",
+      "output_path": "./results/psr/05_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "05_no_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.27750304341316223,
+      "nido": 0.6092189848423004,
+      "nido_dino": 0.14356771297752857,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, and a hamster near the roots.",
+      "output_path": "./results/psr/05_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "06_occlusion",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.19210529327392578,
+      "nido": 0.5000939518213272,
+      "nido_dino": 0.5761295557022095,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black man standing partly behind an old man so only his shoulder is visible.",
+      "output_path": "./results/psr/06_occlusion/42.png"
+    },
+    {
+      "prompt_id": "06_occlusion",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.24731525778770447,
+      "nido": 0.5381606221199036,
+      "nido_dino": 0.5170593857765198,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black man standing partly behind an old man so only his shoulder is visible.",
+      "output_path": "./results/psr/06_occlusion/43.png"
+    },
+    {
+      "prompt_id": "06_occlusion",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.24281084537506104,
+      "nido": 0.44864988327026367,
+      "nido_dino": 0.46139517426490784,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black man standing partly behind an old man so only his shoulder is visible.",
+      "output_path": "./results/psr/06_occlusion/44.png"
+    },
+    {
+      "prompt_id": "07_occlusion",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.25610941648483276,
+      "nido": 0.6818469762802124,
+      "nido_dino": 0.4481118619441986,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A motorcycle parked with a middle eastern man crouching behind its front wheel, partly hidden.",
+      "output_path": "./results/psr/07_occlusion/42.png"
+    },
+    {
+      "prompt_id": "07_occlusion",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.25488555431365967,
+      "nido": 0.5817582905292511,
+      "nido_dino": 0.4627748280763626,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A motorcycle parked with a middle eastern man crouching behind its front wheel, partly hidden.",
+      "output_path": "./results/psr/07_occlusion/43.png"
+    },
+    {
+      "prompt_id": "07_occlusion",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.23147407174110413,
+      "nido": 0.6679244637489319,
+      "nido_dino": 0.4647410660982132,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A motorcycle parked with a middle eastern man crouching behind its front wheel, partly hidden.",
+      "output_path": "./results/psr/07_occlusion/44.png"
+    },
+    {
+      "prompt_id": "08_occlusion",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.28065913915634155,
+      "nido": 0.6515436470508575,
+      "nido_dino": 0.47234058380126953,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup partially hidden behind a bowl on a shelf.",
+      "output_path": "./results/psr/08_occlusion/42.png"
+    },
+    {
+      "prompt_id": "08_occlusion",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2568168640136719,
+      "nido": 0.6112252175807953,
+      "nido_dino": 0.45137232542037964,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup partially hidden behind a bowl on a shelf.",
+      "output_path": "./results/psr/08_occlusion/43.png"
+    },
+    {
+      "prompt_id": "08_occlusion",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.24936752021312714,
+      "nido": 0.7025833129882812,
+      "nido_dino": 0.48907651007175446,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup partially hidden behind a bowl on a shelf.",
+      "output_path": "./results/psr/08_occlusion/44.png"
+    },
+    {
+      "prompt_id": "09_occlusion",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.23258595168590546,
+      "nido": 0.6347340643405914,
+      "nido_dino": 0.6251903772354126,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman standing in front of an asian woman so the asian woman is partly hidden.",
+      "output_path": "./results/psr/09_occlusion/42.png"
+    },
+    {
+      "prompt_id": "09_occlusion",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.24678510427474976,
+      "nido": 0.6421384811401367,
+      "nido_dino": 0.5848820805549622,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman standing in front of an asian woman so the asian woman is partly hidden.",
+      "output_path": "./results/psr/09_occlusion/43.png"
+    },
+    {
+      "prompt_id": "09_occlusion",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.21926462650299072,
+      "nido": 0.6017485857009888,
+      "nido_dino": 0.5522139668464661,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman standing in front of an asian woman so the asian woman is partly hidden.",
+      "output_path": "./results/psr/09_occlusion/44.png"
+    },
+    {
+      "prompt_id": "10_occlusion",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2795308530330658,
+      "nido": 0.700731635093689,
+      "nido_dino": 0.3676779568195343,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A leather handbag covering part of a vintage camera.",
+      "output_path": "./results/psr/10_occlusion/42.png"
+    },
+    {
+      "prompt_id": "10_occlusion",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2845972180366516,
+      "nido": 0.6464265286922455,
+      "nido_dino": 0.24747246503829956,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A leather handbag covering part of a vintage camera.",
+      "output_path": "./results/psr/10_occlusion/43.png"
+    },
+    {
+      "prompt_id": "10_occlusion",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.3006519079208374,
+      "nido": 0.6853843331336975,
+      "nido_dino": 0.23271027207374573,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A leather handbag covering part of a vintage camera.",
+      "output_path": "./results/psr/10_occlusion/44.png"
+    },
+    {
+      "prompt_id": "11_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.22658610343933105,
+      "nido": 0.6368638575077057,
+      "nido_dino": 0.3380117118358612,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands.",
+      "output_path": "./results/psr/11_interaction/42.png"
+    },
+    {
+      "prompt_id": "11_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2478920817375183,
+      "nido": 0.6413703560829163,
+      "nido_dino": 0.3928413689136505,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands.",
+      "output_path": "./results/psr/11_interaction/43.png"
+    },
+    {
+      "prompt_id": "11_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.29934465885162354,
+      "nido": 0.5741915106773376,
+      "nido_dino": 0.24307961016893387,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands.",
+      "output_path": "./results/psr/11_interaction/44.png"
+    },
+    {
+      "prompt_id": "12_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.33108603954315186,
+      "nido": 0.6449248194694519,
+      "nido_dino": 0.41924484819173813,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda with its nose.",
+      "output_path": "./results/psr/12_interaction/42.png"
+    },
+    {
+      "prompt_id": "12_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.3232802152633667,
+      "nido": 0.6180896759033203,
+      "nido_dino": 0.3982071876525879,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda with its nose.",
+      "output_path": "./results/psr/12_interaction/43.png"
+    },
+    {
+      "prompt_id": "12_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.3341153860092163,
+      "nido": 0.6335964798927307,
+      "nido_dino": 0.38335560262203217,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda with its nose.",
+      "output_path": "./results/psr/12_interaction/44.png"
+    },
+    {
+      "prompt_id": "13_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.27489185333251953,
+      "nido": 0.8019152879714966,
+      "nido_dino": 0.6628206670284271,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag.",
+      "output_path": "./results/psr/13_interaction/42.png"
+    },
+    {
+      "prompt_id": "13_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.25554701685905457,
+      "nido": 0.8265525102615356,
+      "nido_dino": 0.7119127213954926,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag.",
+      "output_path": "./results/psr/13_interaction/43.png"
+    },
+    {
+      "prompt_id": "13_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2601369321346283,
+      "nido": 0.8196337819099426,
+      "nido_dino": 0.5703163594007492,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag.",
+      "output_path": "./results/psr/13_interaction/44.png"
+    },
+    {
+      "prompt_id": "14_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2392832636833191,
+      "nido": 0.7828638255596161,
+      "nido_dino": 0.5169282332062721,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cactus placed next to a vase, their pots touching.",
+      "output_path": "./results/psr/14_interaction/42.png"
+    },
+    {
+      "prompt_id": "14_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2562084496021271,
+      "nido": 0.736863523721695,
+      "nido_dino": 0.5299699306488037,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cactus placed next to a vase, their pots touching.",
+      "output_path": "./results/psr/14_interaction/43.png"
+    },
+    {
+      "prompt_id": "14_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.254951536655426,
+      "nido": 0.7724125981330872,
+      "nido_dino": 0.49482395499944687,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cactus placed next to a vase, their pots touching.",
+      "output_path": "./results/psr/14_interaction/44.png"
+    },
+    {
+      "prompt_id": "15_interaction",
+      "seed": 42,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2506256103515625,
+      "nido": 0.5750960409641266,
+      "nido_dino": 0.3524581640958786,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle and steadying it with one hand.",
+      "output_path": "./results/psr/15_interaction/42.png"
+    },
+    {
+      "prompt_id": "15_interaction",
+      "seed": 43,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2407025843858719,
+      "nido": 0.6133139133453369,
+      "nido_dino": 0.3537891358137131,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle and steadying it with one hand.",
+      "output_path": "./results/psr/15_interaction/43.png"
+    },
+    {
+      "prompt_id": "15_interaction",
+      "seed": 44,
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2671886086463928,
+      "nido": 0.5600686073303223,
+      "nido_dino": 0.3947698026895523,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle and steadying it with one hand.",
+      "output_path": "./results/psr/15_interaction/44.png"
+    },
+    {
+      "prompt_id": "16_no_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.27753591537475586,
+      "nido": 0.4287068024277687,
+      "nido_dino": 0.07678519375622272,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, and a girl sitting on a step.",
+      "output_path": "./results/psr/16_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "16_no_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.26182109117507935,
+      "nido": 0.43267014622688293,
+      "nido_dino": 0.09566261433064938,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, and a girl sitting on a step.",
+      "output_path": "./results/psr/16_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "16_no_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3063722848892212,
+      "nido": 0.4043826013803482,
+      "nido_dino": 0.08230777084827423,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, and a girl sitting on a step.",
+      "output_path": "./results/psr/16_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "17_no_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.35334742069244385,
+      "nido": 0.5516133904457092,
+      "nido_dino": 0.205386433750391,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, and a Siamese cat stretched on a cushion.",
+      "output_path": "./results/psr/17_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "17_no_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3535274863243103,
+      "nido": 0.5278686657547951,
+      "nido_dino": 0.1726834625005722,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, and a Siamese cat stretched on a cushion.",
+      "output_path": "./results/psr/17_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "17_no_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.328288197517395,
+      "nido": 0.5529312342405319,
+      "nido_dino": 0.1738653313368559,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, and a Siamese cat stretched on a cushion.",
+      "output_path": "./results/psr/17_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "18_no_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3590109944343567,
+      "nido": 0.646188884973526,
+      "nido_dino": 0.30854908749461174,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, and a vintage camera centered.",
+      "output_path": "./results/psr/18_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "18_no_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3701428472995758,
+      "nido": 0.6769872754812241,
+      "nido_dino": 0.3468918465077877,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, and a vintage camera centered.",
+      "output_path": "./results/psr/18_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "18_no_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.31945717334747314,
+      "nido": 0.5954933911561966,
+      "nido_dino": 0.3413032963871956,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, and a vintage camera centered.",
+      "output_path": "./results/psr/18_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "19_no_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2941097319126129,
+      "nido": 0.6132483407855034,
+      "nido_dino": 0.3097739815711975,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, and a cup on a shelf.",
+      "output_path": "./results/psr/19_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "19_no_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.30300962924957275,
+      "nido": 0.639644019305706,
+      "nido_dino": 0.35666437447071075,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, and a cup on a shelf.",
+      "output_path": "./results/psr/19_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "19_no_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3084137737751007,
+      "nido": 0.6702160239219666,
+      "nido_dino": 0.36731424182653427,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, and a cup on a shelf.",
+      "output_path": "./results/psr/19_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "20_no_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2743682861328125,
+      "nido": 0.5666142255067825,
+      "nido_dino": 0.17743954807519913,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, and a dog lying in the grass.",
+      "output_path": "./results/psr/20_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "20_no_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2823598384857178,
+      "nido": 0.5913290679454803,
+      "nido_dino": 0.18699962086975574,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, and a dog lying in the grass.",
+      "output_path": "./results/psr/20_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "20_no_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2733842730522156,
+      "nido": 0.5773853659629822,
+      "nido_dino": 0.18526209890842438,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, and a dog lying in the grass.",
+      "output_path": "./results/psr/20_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "21_occlusion",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2416210174560547,
+      "nido": 0.4933115914463997,
+      "nido_dino": 0.40764065831899643,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, and a western woman peeking from behind the black woman.",
+      "output_path": "./results/psr/21_occlusion/42.png"
+    },
+    {
+      "prompt_id": "21_occlusion",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.24781844019889832,
+      "nido": 0.5645725131034851,
+      "nido_dino": 0.4760030135512352,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, and a western woman peeking from behind the black woman.",
+      "output_path": "./results/psr/21_occlusion/43.png"
+    },
+    {
+      "prompt_id": "21_occlusion",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.186728835105896,
+      "nido": 0.4053526669740677,
+      "nido_dino": 0.3598431348800659,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, and a western woman peeking from behind the black woman.",
+      "output_path": "./results/psr/21_occlusion/44.png"
+    },
+    {
+      "prompt_id": "22_occlusion",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2950766682624817,
+      "nido": 0.5051431879401207,
+      "nido_dino": 0.2692452073097229,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle so only her upper body shows, and a vintage camera partly hidden by the motorcycle seat.",
+      "output_path": "./results/psr/22_occlusion/42.png"
+    },
+    {
+      "prompt_id": "22_occlusion",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3477025032043457,
+      "nido": 0.4810965582728386,
+      "nido_dino": 0.21439841389656067,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle so only her upper body shows, and a vintage camera partly hidden by the motorcycle seat.",
+      "output_path": "./results/psr/22_occlusion/43.png"
+    },
+    {
+      "prompt_id": "22_occlusion",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.23349444568157196,
+      "nido": 0.5089235454797745,
+      "nido_dino": 0.24598228558897972,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle so only her upper body shows, and a vintage camera partly hidden by the motorcycle seat.",
+      "output_path": "./results/psr/22_occlusion/44.png"
+    },
+    {
+      "prompt_id": "23_occlusion",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.30858302116394043,
+      "nido": 0.5606412515044212,
+      "nido_dino": 0.33404673635959625,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, and a vase behind the can.",
+      "output_path": "./results/psr/23_occlusion/42.png"
+    },
+    {
+      "prompt_id": "23_occlusion",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2811642289161682,
+      "nido": 0.5365309193730354,
+      "nido_dino": 0.27905166149139404,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, and a vase behind the can.",
+      "output_path": "./results/psr/23_occlusion/43.png"
+    },
+    {
+      "prompt_id": "23_occlusion",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.30531513690948486,
+      "nido": 0.539013609290123,
+      "nido_dino": 0.3013295494019985,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, and a vase behind the can.",
+      "output_path": "./results/psr/23_occlusion/44.png"
+    },
+    {
+      "prompt_id": "24_occlusion",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.29166853427886963,
+      "nido": 0.5021507292985916,
+      "nido_dino": 0.24151256680488586,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, and the old man leaning behind the girl.",
+      "output_path": "./results/psr/24_occlusion/42.png"
+    },
+    {
+      "prompt_id": "24_occlusion",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2652738094329834,
+      "nido": 0.3924286365509033,
+      "nido_dino": 0.13011764362454414,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, and the old man leaning behind the girl.",
+      "output_path": "./results/psr/24_occlusion/43.png"
+    },
+    {
+      "prompt_id": "24_occlusion",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.23997819423675537,
+      "nido": 0.3716687634587288,
+      "nido_dino": 0.1537222284823656,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, and the old man leaning behind the girl.",
+      "output_path": "./results/psr/24_occlusion/44.png"
+    },
+    {
+      "prompt_id": "25_occlusion",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.29282599687576294,
+      "nido": 0.6619888097047806,
+      "nido_dino": 0.2889319770038128,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a leather handbag partly covering a vintage camera, and a clock partly hidden behind a guitar.",
+      "output_path": "./results/psr/25_occlusion/42.png"
+    },
+    {
+      "prompt_id": "25_occlusion",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2990238070487976,
+      "nido": 0.6853616088628769,
+      "nido_dino": 0.27240122854709625,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a leather handbag partly covering a vintage camera, and a clock partly hidden behind a guitar.",
+      "output_path": "./results/psr/25_occlusion/43.png"
+    },
+    {
+      "prompt_id": "25_occlusion",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.293538361787796,
+      "nido": 0.7037797570228577,
+      "nido_dino": 0.297026839107275,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a leather handbag partly covering a vintage camera, and a clock partly hidden behind a guitar.",
+      "output_path": "./results/psr/25_occlusion/44.png"
+    },
+    {
+      "prompt_id": "26_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2602132558822632,
+      "nido": 0.5127325430512428,
+      "nido_dino": 0.3516455739736557,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl.",
+      "output_path": "./results/psr/26_interaction/42.png"
+    },
+    {
+      "prompt_id": "26_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.26326367259025574,
+      "nido": 0.5351184383034706,
+      "nido_dino": 0.37686100602149963,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl.",
+      "output_path": "./results/psr/26_interaction/43.png"
+    },
+    {
+      "prompt_id": "26_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.25522440671920776,
+      "nido": 0.5450381711125374,
+      "nido_dino": 0.3607381582260132,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl.",
+      "output_path": "./results/psr/26_interaction/44.png"
+    },
+    {
+      "prompt_id": "27_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3172558546066284,
+      "nido": 0.6025715172290802,
+      "nido_dino": 0.2841346263885498,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping on a beam, and a Siamese cat sniffing near the panda.",
+      "output_path": "./results/psr/27_interaction/42.png"
+    },
+    {
+      "prompt_id": "27_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.22773131728172302,
+      "nido": 0.6371176987886429,
+      "nido_dino": 0.30994559079408646,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping on a beam, and a Siamese cat sniffing near the panda.",
+      "output_path": "./results/psr/27_interaction/43.png"
+    },
+    {
+      "prompt_id": "27_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2970800995826721,
+      "nido": 0.5877048447728157,
+      "nido_dino": 0.312279611825943,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping on a beam, and a Siamese cat sniffing near the panda.",
+      "output_path": "./results/psr/27_interaction/44.png"
+    },
+    {
+      "prompt_id": "28_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3304818868637085,
+      "nido": 0.7276103645563126,
+      "nido_dino": 0.37955462746322155,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, and a vintage camera tucked into the leather handbag.",
+      "output_path": "./results/psr/28_interaction/42.png"
+    },
+    {
+      "prompt_id": "28_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.32481759786605835,
+      "nido": 0.7085050046443939,
+      "nido_dino": 0.36840662732720375,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, and a vintage camera tucked into the leather handbag.",
+      "output_path": "./results/psr/28_interaction/43.png"
+    },
+    {
+      "prompt_id": "28_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.3295266032218933,
+      "nido": 0.7271426916122437,
+      "nido_dino": 0.3473094068467617,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, and a vintage camera tucked into the leather handbag.",
+      "output_path": "./results/psr/28_interaction/44.png"
+    },
+    {
+      "prompt_id": "29_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2846445143222809,
+      "nido": 0.6934948712587357,
+      "nido_dino": 0.42372293770313263,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, with a cactus placed next to a vase.",
+      "output_path": "./results/psr/29_interaction/42.png"
+    },
+    {
+      "prompt_id": "29_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.310351699590683,
+      "nido": 0.6615283042192459,
+      "nido_dino": 0.4401662275195122,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, with a cactus placed next to a vase.",
+      "output_path": "./results/psr/29_interaction/43.png"
+    },
+    {
+      "prompt_id": "29_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.279613733291626,
+      "nido": 0.6892165392637253,
+      "nido_dino": 0.441876158118248,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, with a cactus placed next to a vase.",
+      "output_path": "./results/psr/29_interaction/44.png"
+    },
+    {
+      "prompt_id": "30_interaction",
+      "seed": 42,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2910580337047577,
+      "nido": 0.5232036635279655,
+      "nido_dino": 0.24425241723656654,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man talks beside her, and a dog lying near the motorcycle.",
+      "output_path": "./results/psr/30_interaction/42.png"
+    },
+    {
+      "prompt_id": "30_interaction",
+      "seed": 43,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.28742536902427673,
+      "nido": 0.497344434261322,
+      "nido_dino": 0.23632990941405296,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man talks beside her, and a dog lying near the motorcycle.",
+      "output_path": "./results/psr/30_interaction/43.png"
+    },
+    {
+      "prompt_id": "30_interaction",
+      "seed": 44,
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.28741592168807983,
+      "nido": 0.513932429254055,
+      "nido_dino": 0.23415103740990162,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man talks beside her, and a dog lying near the motorcycle.",
+      "output_path": "./results/psr/30_interaction/44.png"
+    },
+    {
+      "prompt_id": "31_no_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.25520309805870056,
+      "nido": 0.4326254179080327,
+      "nido_dino": 0.05559372032682101,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, and an old man resting on a bench.",
+      "output_path": "./results/psr/31_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "31_no_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.23776498436927795,
+      "nido": 0.4058024634917577,
+      "nido_dino": 0.038075267958144345,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, and an old man resting on a bench.",
+      "output_path": "./results/psr/31_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "31_no_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.27746033668518066,
+      "nido": 0.4194027781486511,
+      "nido_dino": 0.0763353668153286,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, and an old man resting on a bench.",
+      "output_path": "./results/psr/31_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "32_no_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.33583447337150574,
+      "nido": 0.5626677572727203,
+      "nido_dino": 0.16932477429509163,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, and a stuffed bear on a chair.",
+      "output_path": "./results/psr/32_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "32_no_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3224104642868042,
+      "nido": 0.5674005647500356,
+      "nido_dino": 0.17244934663176537,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, and a stuffed bear on a chair.",
+      "output_path": "./results/psr/32_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "32_no_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.31341463327407837,
+      "nido": 0.5346571207046509,
+      "nido_dino": 0.17899093280235925,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, and a stuffed bear on a chair.",
+      "output_path": "./results/psr/32_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "33_no_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3481711745262146,
+      "nido": 0.6426204840342203,
+      "nido_dino": 0.2644723430275917,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, and a guitar against the side.",
+      "output_path": "./results/psr/33_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "33_no_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2978993058204651,
+      "nido": 0.6429056525230408,
+      "nido_dino": 0.29111371623973054,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, and a guitar against the side.",
+      "output_path": "./results/psr/33_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "33_no_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3490614891052246,
+      "nido": 0.6678023835023245,
+      "nido_dino": 0.29191404208540916,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, and a guitar against the side.",
+      "output_path": "./results/psr/33_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "34_no_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3016902804374695,
+      "nido": 0.5464723954598109,
+      "nido_dino": 0.2742386410633723,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, and a clock on the wall.",
+      "output_path": "./results/psr/34_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "34_no_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3210902214050293,
+      "nido": 0.48382575809955597,
+      "nido_dino": 0.28427468488613766,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, and a clock on the wall.",
+      "output_path": "./results/psr/34_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "34_no_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.36295026540756226,
+      "nido": 0.5547700723012289,
+      "nido_dino": 0.3238344689210256,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, and a clock on the wall.",
+      "output_path": "./results/psr/34_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "35_no_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.340035617351532,
+      "nido": 0.5131413638591766,
+      "nido_dino": 0.1723774361113707,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, and a girl standing by the path.",
+      "output_path": "./results/psr/35_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "35_no_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3313080072402954,
+      "nido": 0.5617545445760092,
+      "nido_dino": 0.16964211811621985,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, and a girl standing by the path.",
+      "output_path": "./results/psr/35_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "35_no_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.32813605666160583,
+      "nido": 0.5585203270117441,
+      "nido_dino": 0.17624001080791155,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, and a girl standing by the path.",
+      "output_path": "./results/psr/35_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "36_occlusion",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.26855748891830444,
+      "nido": 0.4733397016922633,
+      "nido_dino": 0.31793886174758273,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, and a girl standing with her lower body hidden.",
+      "output_path": "./results/psr/36_occlusion/42.png"
+    },
+    {
+      "prompt_id": "36_occlusion",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.22239482402801514,
+      "nido": 0.4377359102169673,
+      "nido_dino": 0.1885524479051431,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, and a girl standing with her lower body hidden.",
+      "output_path": "./results/psr/36_occlusion/43.png"
+    },
+    {
+      "prompt_id": "36_occlusion",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.22168967127799988,
+      "nido": 0.3949824422597885,
+      "nido_dino": 0.3066934769352277,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, and a girl standing with her lower body hidden.",
+      "output_path": "./results/psr/36_occlusion/44.png"
+    },
+    {
+      "prompt_id": "37_occlusion",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3435700237751007,
+      "nido": 0.4670783927043279,
+      "nido_dino": 0.21528896441062292,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, and a backpack in front of the guitar.",
+      "output_path": "./results/psr/37_occlusion/42.png"
+    },
+    {
+      "prompt_id": "37_occlusion",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2571997344493866,
+      "nido": 0.5036680748065313,
+      "nido_dino": 0.16780342782537142,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, and a backpack in front of the guitar.",
+      "output_path": "./results/psr/37_occlusion/43.png"
+    },
+    {
+      "prompt_id": "37_occlusion",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.268718421459198,
+      "nido": 0.4974055588245392,
+      "nido_dino": 0.20047729462385178,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, and a backpack in front of the guitar.",
+      "output_path": "./results/psr/37_occlusion/44.png"
+    },
+    {
+      "prompt_id": "38_occlusion",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3248879313468933,
+      "nido": 0.5960530241330465,
+      "nido_dino": 0.3096226764221986,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, and a puzzle cube half tucked behind the clock.",
+      "output_path": "./results/psr/38_occlusion/42.png"
+    },
+    {
+      "prompt_id": "38_occlusion",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.338287889957428,
+      "nido": 0.5415845314661661,
+      "nido_dino": 0.27559397866328555,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, and a puzzle cube half tucked behind the clock.",
+      "output_path": "./results/psr/38_occlusion/43.png"
+    },
+    {
+      "prompt_id": "38_occlusion",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2797422409057617,
+      "nido": 0.5878424942493439,
+      "nido_dino": 0.2752293298641841,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, and a puzzle cube half tucked behind the clock.",
+      "output_path": "./results/psr/38_occlusion/44.png"
+    },
+    {
+      "prompt_id": "39_occlusion",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.26663869619369507,
+      "nido": 0.403875395655632,
+      "nido_dino": 0.11383981133500735,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, and a black man partly hidden behind the old man while a dog stands in front of him.",
+      "output_path": "./results/psr/39_occlusion/42.png"
+    },
+    {
+      "prompt_id": "39_occlusion",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2673167586326599,
+      "nido": 0.4273124436537425,
+      "nido_dino": 0.11445678087572257,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, and a black man partly hidden behind the old man while a dog stands in front of him.",
+      "output_path": "./results/psr/39_occlusion/43.png"
+    },
+    {
+      "prompt_id": "39_occlusion",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3120625615119934,
+      "nido": 0.3955498884121577,
+      "nido_dino": 0.12328961739937465,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, and a black man partly hidden behind the old man while a dog stands in front of him.",
+      "output_path": "./results/psr/39_occlusion/44.png"
+    },
+    {
+      "prompt_id": "40_occlusion",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2940976619720459,
+      "nido": 0.5660476386547089,
+      "nido_dino": 0.2482005332907041,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning against the armchair.",
+      "output_path": "./results/psr/40_occlusion/42.png"
+    },
+    {
+      "prompt_id": "40_occlusion",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.31141388416290283,
+      "nido": 0.5392521818478903,
+      "nido_dino": 0.224586704125007,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning against the armchair.",
+      "output_path": "./results/psr/40_occlusion/43.png"
+    },
+    {
+      "prompt_id": "40_occlusion",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.282057523727417,
+      "nido": 0.5851947665214539,
+      "nido_dino": 0.28228776901960373,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning against the armchair.",
+      "output_path": "./results/psr/40_occlusion/44.png"
+    },
+    {
+      "prompt_id": "41_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3010353744029999,
+      "nido": 0.5267108927170435,
+      "nido_dino": 0.32559337466955185,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, and a middle eastern man talks with the old man.",
+      "output_path": "./results/psr/41_interaction/42.png"
+    },
+    {
+      "prompt_id": "41_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.23332765698432922,
+      "nido": 0.5001727839310964,
+      "nido_dino": 0.43589424590269726,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, and a middle eastern man talks with the old man.",
+      "output_path": "./results/psr/41_interaction/43.png"
+    },
+    {
+      "prompt_id": "41_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3212718367576599,
+      "nido": 0.45573748151461285,
+      "nido_dino": 0.36348333954811096,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, and a middle eastern man talks with the old man.",
+      "output_path": "./results/psr/41_interaction/44.png"
+    },
+    {
+      "prompt_id": "42_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3061685264110565,
+      "nido": 0.6390992204348246,
+      "nido_dino": 0.33281391362349194,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar beam, a Siamese cat sniffing near the panda, and a hamster climbing onto the stuffed bear.",
+      "output_path": "./results/psr/42_interaction/42.png"
+    },
+    {
+      "prompt_id": "42_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.31313496828079224,
+      "nido": 0.6164121230443319,
+      "nido_dino": 0.3267301643888156,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar beam, a Siamese cat sniffing near the panda, and a hamster climbing onto the stuffed bear.",
+      "output_path": "./results/psr/42_interaction/43.png"
+    },
+    {
+      "prompt_id": "42_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.29728204011917114,
+      "nido": 0.6458611090977987,
+      "nido_dino": 0.33381635944048565,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar beam, a Siamese cat sniffing near the panda, and a hamster climbing onto the stuffed bear.",
+      "output_path": "./results/psr/42_interaction/44.png"
+    },
+    {
+      "prompt_id": "43_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.33778902888298035,
+      "nido": 0.6769597133000692,
+      "nido_dino": 0.340629979968071,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, and a guitar propped against the backpack.",
+      "output_path": "./results/psr/43_interaction/42.png"
+    },
+    {
+      "prompt_id": "43_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3347841203212738,
+      "nido": 0.6783199508984884,
+      "nido_dino": 0.34130750348170596,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, and a guitar propped against the backpack.",
+      "output_path": "./results/psr/43_interaction/43.png"
+    },
+    {
+      "prompt_id": "43_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.33558401465415955,
+      "nido": 0.6952434182167053,
+      "nido_dino": 0.31670740991830826,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, and a guitar propped against the backpack.",
+      "output_path": "./results/psr/43_interaction/44.png"
+    },
+    {
+      "prompt_id": "44_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3055073618888855,
+      "nido": 0.607596089442571,
+      "nido_dino": 0.34642234196265537,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, and a clock propped against the bowl.",
+      "output_path": "./results/psr/44_interaction/42.png"
+    },
+    {
+      "prompt_id": "44_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3170890212059021,
+      "nido": 0.6092320481936137,
+      "nido_dino": 0.38170324514309567,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, and a clock propped against the bowl.",
+      "output_path": "./results/psr/44_interaction/43.png"
+    },
+    {
+      "prompt_id": "44_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.28772449493408203,
+      "nido": 0.56365138789018,
+      "nido_dino": 0.37954102953275043,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, and a clock propped against the bowl.",
+      "output_path": "./results/psr/44_interaction/44.png"
+    },
+    {
+      "prompt_id": "45_interaction",
+      "seed": 42,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.32016420364379883,
+      "nido": 0.4698638617992401,
+      "nido_dino": 0.22528007626533508,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle, a Siamese cat rubbing against the dog, and a guitar leaning against the motorcycle.",
+      "output_path": "./results/psr/45_interaction/42.png"
+    },
+    {
+      "prompt_id": "45_interaction",
+      "seed": 43,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3000566363334656,
+      "nido": 0.41208574175834656,
+      "nido_dino": 0.20679866212109724,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle, a Siamese cat rubbing against the dog, and a guitar leaning against the motorcycle.",
+      "output_path": "./results/psr/45_interaction/43.png"
+    },
+    {
+      "prompt_id": "45_interaction",
+      "seed": 44,
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.2907741963863373,
+      "nido": 0.5434448619683584,
+      "nido_dino": 0.1996731050312519,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle, a Siamese cat rubbing against the dog, and a guitar leaning against the motorcycle.",
+      "output_path": "./results/psr/45_interaction/44.png"
+    },
+    {
+      "prompt_id": "46_no_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2595646381378174,
+      "nido": 0.4202071614563465,
+      "nido_dino": 0.0664887500461191,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, and a dog lying on the warm stones.",
+      "output_path": "./results/psr/46_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "46_no_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25190454721450806,
+      "nido": 0.42036087065935135,
+      "nido_dino": 0.06436756602488458,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, and a dog lying on the warm stones.",
+      "output_path": "./results/psr/46_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "46_no_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25378531217575073,
+      "nido": 0.4390529878437519,
+      "nido_dino": 0.06815614458173513,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, and a dog lying on the warm stones.",
+      "output_path": "./results/psr/46_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "47_no_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.31277531385421753,
+      "nido": 0.5824031010270119,
+      "nido_dino": 0.1352392416447401,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, and a vintage camera on a shelf.",
+      "output_path": "./results/psr/47_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "47_no_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.32187336683273315,
+      "nido": 0.5484549552202225,
+      "nido_dino": 0.15836658142507076,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, and a vintage camera on a shelf.",
+      "output_path": "./results/psr/47_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "47_no_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3036127984523773,
+      "nido": 0.5893855020403862,
+      "nido_dino": 0.12385062500834465,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, and a vintage camera on a shelf.",
+      "output_path": "./results/psr/47_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "48_no_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2952169179916382,
+      "nido": 0.577122401446104,
+      "nido_dino": 0.22510695410892367,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, and a vase on a stand.",
+      "output_path": "./results/psr/48_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "48_no_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3100382089614868,
+      "nido": 0.58195910602808,
+      "nido_dino": 0.259725721552968,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, and a vase on a stand.",
+      "output_path": "./results/psr/48_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "48_no_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.33429086208343506,
+      "nido": 0.6070049852132797,
+      "nido_dino": 0.27761444449424744,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, and a vase on a stand.",
+      "output_path": "./results/psr/48_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "49_no_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.35308653116226196,
+      "nido": 0.524700365960598,
+      "nido_dino": 0.2380648385733366,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, and a painting mounted behind.",
+      "output_path": "./results/psr/49_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "49_no_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.39907872676849365,
+      "nido": 0.4626349061727524,
+      "nido_dino": 0.2790545206516981,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.125
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, and a painting mounted behind.",
+      "output_path": "./results/psr/49_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "49_no_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3627513647079468,
+      "nido": 0.5155647471547127,
+      "nido_dino": 0.28873253241181374,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, and a painting mounted behind.",
+      "output_path": "./results/psr/49_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "50_no_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3636009097099304,
+      "nido": 0.4579474776983261,
+      "nido_dino": 0.1636745799332857,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, and a western woman standing beside him.",
+      "output_path": "./results/psr/50_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "50_no_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.33338913321495056,
+      "nido": 0.4998263120651245,
+      "nido_dino": 0.15025710593909025,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, and a western woman standing beside him.",
+      "output_path": "./results/psr/50_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "50_no_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.35211843252182007,
+      "nido": 0.5491225197911263,
+      "nido_dino": 0.16383043490350246,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, and a western woman standing beside him.",
+      "output_path": "./results/psr/50_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "51_occlusion",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.27302685379981995,
+      "nido": 0.45154833793640137,
+      "nido_dino": 0.15987754333764315,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, a girl standing with her lower body hidden, a dog lying with its body mostly hidden, and a Siamese cat peeking from behind a leg.",
+      "output_path": "./results/psr/51_occlusion/42.png"
+    },
+    {
+      "prompt_id": "51_occlusion",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.29290589690208435,
+      "nido": 0.4519314877688885,
+      "nido_dino": 0.13335784571245313,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, a girl standing with her lower body hidden, a dog lying with its body mostly hidden, and a Siamese cat peeking from behind a leg.",
+      "output_path": "./results/psr/51_occlusion/43.png"
+    },
+    {
+      "prompt_id": "51_occlusion",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2807431221008301,
+      "nido": 0.45888350158929825,
+      "nido_dino": 0.1495455177500844,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man standing partly behind an old man, a black woman half-hidden behind the old man, a western woman peeking from behind the black woman, an asian woman partly blocked behind them, a girl standing with her lower body hidden, a dog lying with its body mostly hidden, and a Siamese cat peeking from behind a leg.",
+      "output_path": "./results/psr/51_occlusion/44.png"
+    },
+    {
+      "prompt_id": "52_occlusion",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3117756247520447,
+      "nido": 0.47510456666350365,
+      "nido_dino": 0.20680724922567606,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, a backpack in front of the guitar, a leather handbag partially covered by the backpack, and a Siamese cat peeking from behind the motorcycle wheel.",
+      "output_path": "./results/psr/52_occlusion/42.png"
+    },
+    {
+      "prompt_id": "52_occlusion",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3063929080963135,
+      "nido": 0.47390830889344215,
+      "nido_dino": 0.19740166049450636,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, a backpack in front of the guitar, a leather handbag partially covered by the backpack, and a Siamese cat peeking from behind the motorcycle wheel.",
+      "output_path": "./results/psr/52_occlusion/43.png"
+    },
+    {
+      "prompt_id": "52_occlusion",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3006719648838043,
+      "nido": 0.4840342476963997,
+      "nido_dino": 0.19632431026548147,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked with a middle eastern man crouching behind it, a western woman standing behind the motorcycle, a vintage camera partly hidden by the motorcycle seat, a guitar leaning with its lower half hidden behind a backpack, a backpack in front of the guitar, a leather handbag partially covered by the backpack, and a Siamese cat peeking from behind the motorcycle wheel.",
+      "output_path": "./results/psr/52_occlusion/44.png"
+    },
+    {
+      "prompt_id": "53_occlusion",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2614075243473053,
+      "nido": 0.5383439175784588,
+      "nido_dino": 0.23817715048789978,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube half tucked behind the clock, a painting leaning behind the shelf items with only the top visible, and a t-shirt draped so it covers part of the painting.",
+      "output_path": "./results/psr/53_occlusion/42.png"
+    },
+    {
+      "prompt_id": "53_occlusion",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25923439860343933,
+      "nido": 0.5390793196856976,
+      "nido_dino": 0.2422852236777544,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube half tucked behind the clock, a painting leaning behind the shelf items with only the top visible, and a t-shirt draped so it covers part of the painting.",
+      "output_path": "./results/psr/53_occlusion/43.png"
+    },
+    {
+      "prompt_id": "53_occlusion",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2480543851852417,
+      "nido": 0.5272971875965595,
+      "nido_dino": 0.21563774161040783,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup partially hidden behind a bowl, a can half covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube half tucked behind the clock, a painting leaning behind the shelf items with only the top visible, and a t-shirt draped so it covers part of the painting.",
+      "output_path": "./results/psr/53_occlusion/44.png"
+    },
+    {
+      "prompt_id": "54_occlusion",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3685161769390106,
+      "nido": 0.38465407863259315,
+      "nido_dino": 0.17014846857637167,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.125
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, a black man partly hidden behind the old man, a dog standing in front of a panda so the panda is partly obscured, and a hamster peeking from behind the dog.",
+      "output_path": "./results/psr/54_occlusion/42.png"
+    },
+    {
+      "prompt_id": "54_occlusion",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3237477242946625,
+      "nido": 0.40714120492339134,
+      "nido_dino": 0.170063778758049,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, a black man partly hidden behind the old man, a dog standing in front of a panda so the panda is partly obscured, and a hamster peeking from behind the dog.",
+      "output_path": "./results/psr/54_occlusion/43.png"
+    },
+    {
+      "prompt_id": "54_occlusion",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3409407138824463,
+      "nido": 0.4006725586950779,
+      "nido_dino": 0.12971708178520203,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman standing in front of an asian woman, a girl in front of the old man, the old man leaning behind the girl, a black man partly hidden behind the old man, a dog standing in front of a panda so the panda is partly obscured, and a hamster peeking from behind the dog.",
+      "output_path": "./results/psr/54_occlusion/44.png"
+    },
+    {
+      "prompt_id": "55_occlusion",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25002139806747437,
+      "nido": 0.5190610364079475,
+      "nido_dino": 0.2561607342213392,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair so the armchair blocks the lower half of a middle eastern man standing behind her, a black woman standing behind the armchair so only her shoulders are visible, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning with its lower half obscured by the armchair.",
+      "output_path": "./results/psr/55_occlusion/42.png"
+    },
+    {
+      "prompt_id": "55_occlusion",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3011329174041748,
+      "nido": 0.5005486942827702,
+      "nido_dino": 0.19200663547962904,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair so the armchair blocks the lower half of a middle eastern man standing behind her, a black woman standing behind the armchair so only her shoulders are visible, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning with its lower half obscured by the armchair.",
+      "output_path": "./results/psr/55_occlusion/43.png"
+    },
+    {
+      "prompt_id": "55_occlusion",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25815242528915405,
+      "nido": 0.5047107040882111,
+      "nido_dino": 0.22068105544894934,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair so the armchair blocks the lower half of a middle eastern man standing behind her, a black woman standing behind the armchair so only her shoulders are visible, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, and a guitar leaning with its lower half obscured by the armchair.",
+      "output_path": "./results/psr/55_occlusion/44.png"
+    },
+    {
+      "prompt_id": "56_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.27210772037506104,
+      "nido": 0.49217329174280167,
+      "nido_dino": 0.2440662458539009,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, a middle eastern man talks with the old man, and a black man pats the dog.",
+      "output_path": "./results/psr/56_interaction/42.png"
+    },
+    {
+      "prompt_id": "56_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.26851585507392883,
+      "nido": 0.5044942796230316,
+      "nido_dino": 0.25123470835387707,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, a middle eastern man talks with the old man, and a black man pats the dog.",
+      "output_path": "./results/psr/56_interaction/43.png"
+    },
+    {
+      "prompt_id": "56_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.31357133388519287,
+      "nido": 0.5052726529538631,
+      "nido_dino": 0.15411853976547718,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A black woman and a western woman shaking hands while an asian woman hands a note to the girl, a middle eastern man talks with the old man, and a black man pats the dog.",
+      "output_path": "./results/psr/56_interaction/44.png"
+    },
+    {
+      "prompt_id": "57_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3291211724281311,
+      "nido": 0.6053920388221741,
+      "nido_dino": 0.2601601528003812,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing near the panda, a hamster climbing onto the stuffed bear, and a vintage camera aimed toward the dog and panda.",
+      "output_path": "./results/psr/57_interaction/42.png"
+    },
+    {
+      "prompt_id": "57_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.33996737003326416,
+      "nido": 0.6050670892000198,
+      "nido_dino": 0.26487258821725845,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing near the panda, a hamster climbing onto the stuffed bear, and a vintage camera aimed toward the dog and panda.",
+      "output_path": "./results/psr/57_interaction/43.png"
+    },
+    {
+      "prompt_id": "57_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.30407223105430603,
+      "nido": 0.6291289031505585,
+      "nido_dino": 0.2781695928424597,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing near the panda, a hamster climbing onto the stuffed bear, and a vintage camera aimed toward the dog and panda.",
+      "output_path": "./results/psr/57_interaction/44.png"
+    },
+    {
+      "prompt_id": "58_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.31972259283065796,
+      "nido": 0.6429136022925377,
+      "nido_dino": 0.2385167977772653,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed near a vase, and a vase touching the can.",
+      "output_path": "./results/psr/58_interaction/42.png"
+    },
+    {
+      "prompt_id": "58_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3148036599159241,
+      "nido": 0.6221896260976791,
+      "nido_dino": 0.28003707341849804,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed near a vase, and a vase touching the can.",
+      "output_path": "./results/psr/58_interaction/43.png"
+    },
+    {
+      "prompt_id": "58_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3240030109882355,
+      "nido": 0.6255418211221695,
+      "nido_dino": 0.2819138141348958,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed near a vase, and a vase touching the can.",
+      "output_path": "./results/psr/58_interaction/44.png"
+    },
+    {
+      "prompt_id": "59_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.24897287786006927,
+      "nido": 0.5981116220355034,
+      "nido_dino": 0.3432389236986637,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a puzzle cube balanced against the painting.",
+      "output_path": "./results/psr/59_interaction/42.png"
+    },
+    {
+      "prompt_id": "59_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.25987890362739563,
+      "nido": 0.5727972164750099,
+      "nido_dino": 0.31970382295548916,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a puzzle cube balanced against the painting.",
+      "output_path": "./results/psr/59_interaction/43.png"
+    },
+    {
+      "prompt_id": "59_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.27825093269348145,
+      "nido": 0.6076393127441406,
+      "nido_dino": 0.2844179649837315,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A cup resting inside a bowl, a can leaning against the cup, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a puzzle cube balanced against the painting.",
+      "output_path": "./results/psr/59_interaction/44.png"
+    },
+    {
+      "prompt_id": "60_interaction",
+      "seed": 42,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.30170267820358276,
+      "nido": 0.41774237528443336,
+      "nido_dino": 0.20879861060529947,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, and a backpack and a leather handbag touching each other on the ground.",
+      "output_path": "./results/psr/60_interaction/42.png"
+    },
+    {
+      "prompt_id": "60_interaction",
+      "seed": 43,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.312666118144989,
+      "nido": 0.4693288803100586,
+      "nido_dino": 0.2279115729033947,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, and a backpack and a leather handbag touching each other on the ground.",
+      "output_path": "./results/psr/60_interaction/43.png"
+    },
+    {
+      "prompt_id": "60_interaction",
+      "seed": 44,
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.2899821996688843,
+      "nido": 0.47148799896240234,
+      "nido_dino": 0.21749289706349373,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A western woman sitting on a motorcycle while an old man speaks to her, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, and a backpack and a leather handbag touching each other on the ground.",
+      "output_path": "./results/psr/60_interaction/44.png"
+    },
+    {
+      "prompt_id": "61_no_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.24226835370063782,
+      "nido": 0.43271335363388064,
+      "nido_dino": 0.062096365913748744,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, a dog lying on the warm stones, a Siamese cat sitting on a low wall, and a panda standing near the entrance.",
+      "output_path": "./results/psr/61_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "61_no_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2361615002155304,
+      "nido": 0.4508459746837616,
+      "nido_dino": 0.07292944155633449,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, a dog lying on the warm stones, a Siamese cat sitting on a low wall, and a panda standing near the entrance.",
+      "output_path": "./results/psr/61_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "61_no_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.23043638467788696,
+      "nido": 0.4432027131319046,
+      "nido_dino": 0.06928959293290973,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An open plaza at noon: a black woman standing near a fountain, a western woman reading a phone beside her, an asian woman leaning on a railing, a girl sitting on a step, a middle eastern man standing by a signpost, an old man resting on a bench, a black man standing at the corner, a dog lying on the warm stones, a Siamese cat sitting on a low wall, and a panda standing near the entrance.",
+      "output_path": "./results/psr/61_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "62_no_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2956722378730774,
+      "nido": 0.535496175289154,
+      "nido_dino": 0.14242208525538444,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, a vintage camera on a shelf, a leather handbag on the floor, and a cactus on the windowsill.",
+      "output_path": "./results/psr/62_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "62_no_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2582027316093445,
+      "nido": 0.5352119386196137,
+      "nido_dino": 0.15574469193816184,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, a vintage camera on a shelf, a leather handbag on the floor, and a cactus on the windowsill.",
+      "output_path": "./results/psr/62_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "62_no_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.30747973918914795,
+      "nido": 0.5912291288375855,
+      "nido_dino": 0.14649960547685623,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A quiet loft: a dog lying near the window, a panda sitting against the wall, a woodpecker perched on a beam, a Siamese cat stretched on a cushion, a hamster near the baseboard, a stuffed bear on a chair, a guitar leaning on the wall, a vintage camera on a shelf, a leather handbag on the floor, and a cactus on the windowsill.",
+      "output_path": "./results/psr/62_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "63_no_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3485507071018219,
+      "nido": 0.5885904222726822,
+      "nido_dino": 0.2556344479322433,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, a vase on a stand, a bowl beside the vase, and a puzzle cube at the front edge.",
+      "output_path": "./results/psr/63_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "63_no_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3245013952255249,
+      "nido": 0.5496324837207794,
+      "nido_dino": 0.24041344970464706,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, a vase on a stand, a bowl beside the vase, and a puzzle cube at the front edge.",
+      "output_path": "./results/psr/63_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "63_no_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3230002522468567,
+      "nido": 0.5930307775735855,
+      "nido_dino": 0.26121705695986747,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A clean display shelf: a leather handbag on the left, a backpack below it, a hat on a hook above, a vintage camera centered, a clock to the right, a guitar against the side, a can near the base, a vase on a stand, a bowl beside the vase, and a puzzle cube at the front edge.",
+      "output_path": "./results/psr/63_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "64_no_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.34554946422576904,
+      "nido": 0.42464102804660797,
+      "nido_dino": 0.21734360009431838,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.1
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, a painting mounted behind, a stuffed bear on a chair, and a t-shirt pinned flat on a board.",
+      "output_path": "./results/psr/64_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "64_no_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3602900207042694,
+      "nido": 0.42385415732860565,
+      "nido_dino": 0.24581075832247734,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.1
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, a painting mounted behind, a stuffed bear on a chair, and a t-shirt pinned flat on a board.",
+      "output_path": "./results/psr/64_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "64_no_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.38741880655288696,
+      "nido": 0.4228702187538147,
+      "nido_dino": 0.25122199952602386,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.1
+      },
+      "prompt": "A gallery corner: a cactus in a pot, a vase beside it, a bowl on a low stand, a cup on a shelf, a can on the floor, a clock on the wall, a puzzle cube on a ledge, a painting mounted behind, a stuffed bear on a chair, and a t-shirt pinned flat on a board.",
+      "output_path": "./results/psr/64_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "65_no_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3379512429237366,
+      "nido": 0.47033278048038485,
+      "nido_dino": 0.1607610449194908,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, a western woman standing beside him, a backpack on the ground, and a berry bowl on the bench.",
+      "output_path": "./results/psr/65_no_interaction/42.png"
+    },
+    {
+      "prompt_id": "65_no_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3249646723270416,
+      "nido": 0.4724266052246094,
+      "nido_dino": 0.13776214942336082,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, a western woman standing beside him, a backpack on the ground, and a berry bowl on the bench.",
+      "output_path": "./results/psr/65_no_interaction/43.png"
+    },
+    {
+      "prompt_id": "65_no_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.31745654344558716,
+      "nido": 0.4662247598171234,
+      "nido_dino": 0.1507590413093567,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A park lawn: a woodpecker on a tree trunk, a hamster near the roots, a panda sitting under the tree, a dog lying in the grass, a Siamese cat on a nearby rock, a girl standing by the path, an old man on a bench, a western woman standing beside him, a backpack on the ground, and a berry bowl on the bench.",
+      "output_path": "./results/psr/65_no_interaction/44.png"
+    },
+    {
+      "prompt_id": "66_occlusion",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.25609487295150757,
+      "nido": 0.40628979802131654,
+      "nido_dino": 0.2074066147208214,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man partly behind an armchair, an old man seated in it, a black woman half-hidden behind the old man, a western woman peeking from behind him, an asian woman partly blocked by the armchair back, a girl with her lower body hidden, a dog mostly hidden behind the armchair, a Siamese cat peeking from the armchair leg, and a hat tucked under the armrest.",
+      "output_path": "./results/psr/66_occlusion/42.png"
+    },
+    {
+      "prompt_id": "66_occlusion",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2607232928276062,
+      "nido": 0.483678537607193,
+      "nido_dino": 0.1787133291363716,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man partly behind an armchair, an old man seated in it, a black woman half-hidden behind the old man, a western woman peeking from behind him, an asian woman partly blocked by the armchair back, a girl with her lower body hidden, a dog mostly hidden behind the armchair, a Siamese cat peeking from the armchair leg, and a hat tucked under the armrest.",
+      "output_path": "./results/psr/66_occlusion/43.png"
+    },
+    {
+      "prompt_id": "66_occlusion",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2664986252784729,
+      "nido": 0.3984190374612808,
+      "nido_dino": 0.20841637663543225,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "An indoor lounge: a black man partly behind an armchair, an old man seated in it, a black woman half-hidden behind the old man, a western woman peeking from behind him, an asian woman partly blocked by the armchair back, a girl with her lower body hidden, a dog mostly hidden behind the armchair, a Siamese cat peeking from the armchair leg, and a hat tucked under the armrest.",
+      "output_path": "./results/psr/66_occlusion/44.png"
+    },
+    {
+      "prompt_id": "67_occlusion",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.33445727825164795,
+      "nido": 0.5406230926513672,
+      "nido_dino": 0.17654145285487174,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked, a middle eastern man crouching behind the front wheel, a western woman standing behind the motorcycle, a vintage camera partly hidden by the seat, a guitar leaning behind a backpack, a leather handbag partly covered by the backpack, a Siamese cat peeking from the wheel, a dog partly hidden behind the motorcycle, and a clock partly obscured by the handbag.",
+      "output_path": "./results/psr/67_occlusion/42.png"
+    },
+    {
+      "prompt_id": "67_occlusion",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.25065603852272034,
+      "nido": 0.47299337685108184,
+      "nido_dino": 0.1452306628227234,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked, a middle eastern man crouching behind the front wheel, a western woman standing behind the motorcycle, a vintage camera partly hidden by the seat, a guitar leaning behind a backpack, a leather handbag partly covered by the backpack, a Siamese cat peeking from the wheel, a dog partly hidden behind the motorcycle, and a clock partly obscured by the handbag.",
+      "output_path": "./results/psr/67_occlusion/43.png"
+    },
+    {
+      "prompt_id": "67_occlusion",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.30807363986968994,
+      "nido": 0.47411936819553374,
+      "nido_dino": 0.16855041012167932,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A garage doorway: a motorcycle parked, a middle eastern man crouching behind the front wheel, a western woman standing behind the motorcycle, a vintage camera partly hidden by the seat, a guitar leaning behind a backpack, a leather handbag partly covered by the backpack, a Siamese cat peeking from the wheel, a dog partly hidden behind the motorcycle, and a clock partly obscured by the handbag.",
+      "output_path": "./results/psr/67_occlusion/44.png"
+    },
+    {
+      "prompt_id": "68_occlusion",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2899738848209381,
+      "nido": 0.5521045595407486,
+      "nido_dino": 0.23458267077803613,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup behind a bowl, a can partly covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube tucked behind the clock, a painting leaning behind the items, a t-shirt draped over the painting, a stuffed bear covering the t-shirt corner, and a cactus partly hidden behind the bear.",
+      "output_path": "./results/psr/68_occlusion/42.png"
+    },
+    {
+      "prompt_id": "68_occlusion",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3390379548072815,
+      "nido": 0.5602802246809006,
+      "nido_dino": 0.2616365194320679,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup behind a bowl, a can partly covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube tucked behind the clock, a painting leaning behind the items, a t-shirt draped over the painting, a stuffed bear covering the t-shirt corner, and a cactus partly hidden behind the bear.",
+      "output_path": "./results/psr/68_occlusion/43.png"
+    },
+    {
+      "prompt_id": "68_occlusion",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2803605794906616,
+      "nido": 0.5437340706586837,
+      "nido_dino": 0.24438003078103065,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A storage shelf: a cup behind a bowl, a can partly covered by the bowl, a vase behind the can, a clock partly blocked by the vase, a puzzle cube tucked behind the clock, a painting leaning behind the items, a t-shirt draped over the painting, a stuffed bear covering the t-shirt corner, and a cactus partly hidden behind the bear.",
+      "output_path": "./results/psr/68_occlusion/44.png"
+    },
+    {
+      "prompt_id": "69_occlusion",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.38615497946739197,
+      "nido": 0.38859868347644805,
+      "nido_dino": 0.12382920421659946,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman in front of a black man, an asian woman behind the black woman, a girl in front of an old man, the old man leaning behind her, a dog in front of a panda, a hamster peeking from behind the dog, a woodpecker on a sign partly hidden, and a hat partly covering the girl's hair.",
+      "output_path": "./results/psr/69_occlusion/42.png"
+    },
+    {
+      "prompt_id": "69_occlusion",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3132149577140808,
+      "nido": 0.3923930823802948,
+      "nido_dino": 0.1598072037100792,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman in front of a black man, an asian woman behind the black woman, a girl in front of an old man, the old man leaning behind her, a dog in front of a panda, a hamster peeking from behind the dog, a woodpecker on a sign partly hidden, and a hat partly covering the girl's hair.",
+      "output_path": "./results/psr/69_occlusion/43.png"
+    },
+    {
+      "prompt_id": "69_occlusion",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.35948359966278076,
+      "nido": 0.37013119161129,
+      "nido_dino": 0.15834560990333557,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A narrow alley: a black woman in front of a black man, an asian woman behind the black woman, a girl in front of an old man, the old man leaning behind her, a dog in front of a panda, a hamster peeking from behind the dog, a woodpecker on a sign partly hidden, and a hat partly covering the girl's hair.",
+      "output_path": "./results/psr/69_occlusion/44.png"
+    },
+    {
+      "prompt_id": "70_occlusion",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2617655098438263,
+      "nido": 0.46977652609348297,
+      "nido_dino": 0.2294398032128811,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair blocking the lower half of a middle eastern man behind her, a black woman behind the armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, a guitar leaning with its lower half obscured by the armchair, a Siamese cat peeking from the armchair leg, and a hamster partly hidden behind the handbag.",
+      "output_path": "./results/psr/70_occlusion/42.png"
+    },
+    {
+      "prompt_id": "70_occlusion",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.25339382886886597,
+      "nido": 0.477392840385437,
+      "nido_dino": 0.19263964295387268,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair blocking the lower half of a middle eastern man behind her, a black woman behind the armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, a guitar leaning with its lower half obscured by the armchair, a Siamese cat peeking from the armchair leg, and a hamster partly hidden behind the handbag.",
+      "output_path": "./results/psr/70_occlusion/43.png"
+    },
+    {
+      "prompt_id": "70_occlusion",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.2983040511608124,
+      "nido": 0.49921552538871766,
+      "nido_dino": 0.21450714468955995,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A dim studio: a western woman seated in an armchair blocking the lower half of a middle eastern man behind her, a black woman behind the armchair, a leather handbag on the armchair arm partly covering a vintage camera, a clock partly hidden behind the guitar, a guitar leaning with its lower half obscured by the armchair, a Siamese cat peeking from the armchair leg, and a hamster partly hidden behind the handbag.",
+      "output_path": "./results/psr/70_occlusion/44.png"
+    },
+    {
+      "prompt_id": "71_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3759869933128357,
+      "nido": 0.40771626830101015,
+      "nido_dino": 0.141438977047801,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A community courtyard: a black woman and a western woman shaking hands, an asian woman handing a note to the girl, a middle eastern man talking with the old man, a black man patting the dog, a Siamese cat rubbing against the dog's leg, and a panda sitting beside the black man watching.",
+      "output_path": "./results/psr/71_interaction/42.png"
+    },
+    {
+      "prompt_id": "71_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.35686546564102173,
+      "nido": 0.36628236770629885,
+      "nido_dino": 0.1434822529554367,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A community courtyard: a black woman and a western woman shaking hands, an asian woman handing a note to the girl, a middle eastern man talking with the old man, a black man patting the dog, a Siamese cat rubbing against the dog's leg, and a panda sitting beside the black man watching.",
+      "output_path": "./results/psr/71_interaction/43.png"
+    },
+    {
+      "prompt_id": "71_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.34882915019989014,
+      "nido": 0.4172567784786224,
+      "nido_dino": 0.1338649161159992,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A community courtyard: a black woman and a western woman shaking hands, an asian woman handing a note to the girl, a middle eastern man talking with the old man, a black man patting the dog, a Siamese cat rubbing against the dog's leg, and a panda sitting beside the black man watching.",
+      "output_path": "./results/psr/71_interaction/44.png"
+    },
+    {
+      "prompt_id": "72_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.34834155440330505,
+      "nido": 0.6639738380908966,
+      "nido_dino": 0.23411581367254258,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A studio set: a dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing the leather handbag, a hamster climbing onto the stuffed bear, a vintage camera aimed toward the dog and panda, and a cactus set between the guitar and the leather handbag.",
+      "output_path": "./results/psr/72_interaction/42.png"
+    },
+    {
+      "prompt_id": "72_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3487921357154846,
+      "nido": 0.6606170356273651,
+      "nido_dino": 0.2090050309896469,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A studio set: a dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing the leather handbag, a hamster climbing onto the stuffed bear, a vintage camera aimed toward the dog and panda, and a cactus set between the guitar and the leather handbag.",
+      "output_path": "./results/psr/72_interaction/43.png"
+    },
+    {
+      "prompt_id": "72_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3618451952934265,
+      "nido": 0.6413849055767059,
+      "nido_dino": 0.23706218600273132,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A studio set: a dog nudging a panda, a woodpecker tapping the guitar, a Siamese cat sniffing the leather handbag, a hamster climbing onto the stuffed bear, a vintage camera aimed toward the dog and panda, and a cactus set between the guitar and the leather handbag.",
+      "output_path": "./results/psr/72_interaction/44.png"
+    },
+    {
+      "prompt_id": "73_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3066454827785492,
+      "nido": 0.6208865165710449,
+      "nido_dino": 0.22698231972754002,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A packing scene: a backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed inside the bowl, a vase touching the bowl, and a puzzle cube balanced on the guitar case.",
+      "output_path": "./results/psr/73_interaction/42.png"
+    },
+    {
+      "prompt_id": "73_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3109963834285736,
+      "nido": 0.6005882143974304,
+      "nido_dino": 0.2406587541103363,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A packing scene: a backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed inside the bowl, a vase touching the bowl, and a puzzle cube balanced on the guitar case.",
+      "output_path": "./results/psr/73_interaction/43.png"
+    },
+    {
+      "prompt_id": "73_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3064325749874115,
+      "nido": 0.6188336312770844,
+      "nido_dino": 0.2578923411667347,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A packing scene: a backpack leaning against a leather handbag, a hat resting on the backpack, a vintage camera tucked into the leather handbag, a clock hanging from the backpack strap, a guitar propped against the backpack, a can placed inside the bowl, a vase touching the bowl, and a puzzle cube balanced on the guitar case.",
+      "output_path": "./results/psr/73_interaction/44.png"
+    },
+    {
+      "prompt_id": "74_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.26690560579299927,
+      "nido": 0.5694380670785903,
+      "nido_dino": 0.2869788438081741,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A craft table: a stuffed bear holding a t-shirt, a cup resting inside the bowl, a can leaning against the cup, a puzzle cube stacked against the can, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a painting leaning against the table edge.",
+      "output_path": "./results/psr/74_interaction/42.png"
+    },
+    {
+      "prompt_id": "74_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.30412757396698,
+      "nido": 0.5273292303085327,
+      "nido_dino": 0.2767707586288452,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A craft table: a stuffed bear holding a t-shirt, a cup resting inside the bowl, a can leaning against the cup, a puzzle cube stacked against the can, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a painting leaning against the table edge.",
+      "output_path": "./results/psr/74_interaction/43.png"
+    },
+    {
+      "prompt_id": "74_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3195842504501343,
+      "nido": 0.519869688153267,
+      "nido_dino": 0.2801889836788177,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A craft table: a stuffed bear holding a t-shirt, a cup resting inside the bowl, a can leaning against the cup, a puzzle cube stacked against the can, a vase touching the bowl, a cactus placed next to the vase, a clock propped against the painting, and a painting leaning against the table edge.",
+      "output_path": "./results/psr/74_interaction/44.png"
+    },
+    {
+      "prompt_id": "75_interaction",
+      "seed": 42,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.28435218334198,
+      "nido": 0.48110112845897673,
+      "nido_dino": 0.17635863535106183,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A roadside stop: a western woman sitting on a motorcycle while an old man hands her a vintage camera, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, a backpack and a leather handbag touching each other on the ground, and a clock hanging from the backpack strap.",
+      "output_path": "./results/psr/75_interaction/42.png"
+    },
+    {
+      "prompt_id": "75_interaction",
+      "seed": 43,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.3037990927696228,
+      "nido": 0.4724109709262848,
+      "nido_dino": 0.18072163090109825,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A roadside stop: a western woman sitting on a motorcycle while an old man hands her a vintage camera, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, a backpack and a leather handbag touching each other on the ground, and a clock hanging from the backpack strap.",
+      "output_path": "./results/psr/75_interaction/43.png"
+    },
+    {
+      "prompt_id": "75_interaction",
+      "seed": 44,
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.26869481801986694,
+      "nido": 0.5051852405071259,
+      "nido_dino": 0.1773373618721962,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "prompt": "A roadside stop: a western woman sitting on a motorcycle while an old man hands her a vintage camera, a dog lying beside the motorcycle with a Siamese cat rubbing against its side, a guitar leaning against the motorcycle, a backpack and a leather handbag touching each other on the ground, and a clock hanging from the backpack strap.",
+      "output_path": "./results/psr/75_interaction/44.png"
+    }
+  ],
+  "summary": [
+    {
+      "subject_count": 2,
+      "scene_type": "all",
+      "clip": 0.2740338441398409,
+      "nido": 0.6470542073249816,
+      "nido_dino": 0.40550338845286105,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 4,
+      "scene_type": "all",
+      "clip": 0.2920236868990792,
+      "nido": 0.5677667799923155,
+      "nido_dino": 0.283767021406028,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 6,
+      "scene_type": "all",
+      "clip": 0.3018390933672587,
+      "nido": 0.5367040491766398,
+      "nido_dino": 0.24798073990063538,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 8,
+      "scene_type": "all",
+      "clip": 0.3035811056693395,
+      "nido": 0.5169321614007155,
+      "nido_dino": 0.20878611874456207,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.005555555555555556
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 10,
+      "scene_type": "all",
+      "clip": 0.30911768012576635,
+      "nido": 0.500065029197269,
+      "nido_dino": 0.19281757362807792,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.006666666666666668
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 10,
+      "scene_type": "unknown",
+      "clip": 0.30911768012576635,
+      "nido": 0.500065029197269,
+      "nido_dino": 0.19281757362807792,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.006666666666666668
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 2,
+      "scene_type": "unknown",
+      "clip": 0.2740338441398409,
+      "nido": 0.6470542073249816,
+      "nido_dino": 0.40550338845286105,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 4,
+      "scene_type": "unknown",
+      "clip": 0.2920236868990792,
+      "nido": 0.5677667799923155,
+      "nido_dino": 0.283767021406028,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 6,
+      "scene_type": "unknown",
+      "clip": 0.3018390933672587,
+      "nido": 0.5367040491766398,
+      "nido_dino": 0.24798073990063538,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.0
+      },
+      "count": 45
+    },
+    {
+      "subject_count": 8,
+      "scene_type": "unknown",
+      "clip": 0.3035811056693395,
+      "nido": 0.5169321614007155,
+      "nido_dino": 0.20878611874456207,
+      "scr": {
+        "0.2": 0.0,
+        "0.25": 0.0,
+        "0.3": 0.005555555555555556
+      },
+      "count": 45
+    }
+  ],
+  "thresholds": [
+    0.2,
+    0.25,
+    0.3
+  ]
+}
