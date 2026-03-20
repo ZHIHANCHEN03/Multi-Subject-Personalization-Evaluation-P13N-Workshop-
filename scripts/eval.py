@@ -125,11 +125,21 @@ def evaluate_record(processor, model, dino_model, device, rec, thresholds):
     output_path = rec.get("output_path")
     prompt_id = rec.get("prompt_id") or rec.get("id") or rec.get("index")
     subjects = rec.get("subjects") or []
+    
+    # Handle absolute paths from different environments
+    if output_path and output_path.startswith("/results/"):
+        output_path = f".{output_path}"
+        
+    # DEBUG PRINT
     if not prompt or not output_path or not subjects:
+        print(f"DEBUG: Skipping {prompt_id} because of missing fields: prompt={bool(prompt)}, output_path={bool(output_path)}, subjects={bool(subjects)}")
         return None
+        
     gen_img = load_image(output_path)
     if gen_img is None:
+        print(f"DEBUG: Skipping {prompt_id} because generated image not found at {output_path}")
         return None
+        
     gen_feat = encode_image(processor, model, device, gen_img)
     text_feat = encode_text(processor, model, device, prompt)
     clip_score = cosine(gen_feat, text_feat)
@@ -142,8 +152,13 @@ def evaluate_record(processor, model, dino_model, device, rec, thresholds):
     subject_feats = []
     subject_dino_feats = []
     for s in subjects:
-        img = load_image(s.get("image"))
+        img_path = s.get("image")
+        if img_path and img_path.startswith("/Multi-Subject-Personalization-Evaluation-P13N-Workshop/"):
+            img_path = f".{img_path.replace('/Multi-Subject-Personalization-Evaluation-P13N-Workshop', '')}"
+            
+        img = load_image(img_path)
         if img is None:
+            print(f"DEBUG: Skipping subject because image not found at {img_path}")
             continue
         subject_feats.append(encode_image(processor, model, device, img))
         if dino_model is not None:
