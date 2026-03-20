@@ -74,6 +74,14 @@ def update_meta(out_root, prompt_id, record):
             data = [data]
     else:
         data = []
+    
+    # avoid duplicates
+    for i, existing in enumerate(data):
+        if existing.get("seed") == record.get("seed") and existing.get("model") == record.get("model"):
+            data[i] = record
+            meta_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            return
+            
     data.append(record)
     meta_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -173,6 +181,23 @@ def main():
     jobs = []
     if args.jobs:
         run_jobs_batch(args)
+        jobs = load_jobs(args.jobs)
+        for job in jobs:
+            prompt_id = job.get("prompt_id") or job.get("id") or job.get("index") or "unknown"
+            seed = int(job.get("seed", args.seed))
+            output_path = build_output_path(args.out_root, prompt_id, seed)
+            if output_path.exists():
+                record = {
+                    "model": "psr",
+                    "prompt_id": prompt_id,
+                    "seed": seed,
+                    "prompt": job.get("prompt"),
+                    "subjects": job.get("subjects"),
+                    "output_path": str(output_path),
+                    "skipped": False,
+                    "time": int(time.time()),
+                }
+                update_meta(args.out_root, prompt_id, record)
         return
     elif args.prompt and args.subjects:
         subjects = normalize_subjects(args.subjects, args.subject_names, args.subject_captions)
