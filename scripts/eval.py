@@ -47,6 +47,9 @@ def encode_text(processor, model, device, text):
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         feats = model.get_text_features(**inputs)
+        # get_text_features directly returns a tensor, but just in case:
+        if not isinstance(feats, torch.Tensor):
+            feats = feats.pooler_output
     return normalize(feats)
 
 
@@ -55,6 +58,9 @@ def encode_image(processor, model, device, image):
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         feats = model.get_image_features(**inputs)
+        # get_image_features directly returns a tensor, but just in case:
+        if not isinstance(feats, torch.Tensor):
+            feats = feats.image_embeds
     return normalize(feats)
 
 
