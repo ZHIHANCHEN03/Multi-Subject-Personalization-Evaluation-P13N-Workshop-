@@ -363,16 +363,23 @@ if [[ -z "$VENV_ROOT" ]]; then
   mkdir -p "$VENV_ROOT"
 fi
 
-if [[ "$INSTALL" -eq 1 && "$MODE" != "eval" ]]; then
-  for m in "${model_arr[@]}"; do
-    if [[ "$m" == "xverse" ]]; then
-      install_requirements "xverse" "XVerse-main"
-    elif [[ "$m" == "mosaic" ]]; then
-      install_requirements "mosaic" "MOSAIC-main"
-    elif [[ "$m" == "psr" ]]; then
-      install_requirements "psr" "PSR-main"
-    fi
-  done
+if [[ "$INSTALL" -eq 1 ]]; then
+  # 哪怕是 eval 模式，也至少需要安装基础的评估依赖
+  if [[ "$MODE" == "eval" ]]; then
+    eval_py=$(model_python "${model_arr[0]}")
+    log "installing evaluation requirements (torch, transformers, etc)..."
+    "$eval_py" -m pip install torch torchvision transformers pillow huggingface_hub timm --progress-bar on
+  else
+    for m in "${model_arr[@]}"; do
+      if [[ "$m" == "xverse" ]]; then
+        install_requirements "xverse" "XVerse-main"
+      elif [[ "$m" == "mosaic" ]]; then
+        install_requirements "mosaic" "MOSAIC-main"
+      elif [[ "$m" == "psr" ]]; then
+        install_requirements "psr" "PSR-main"
+      fi
+    done
+  fi
 fi
 
 mkdir -p "$RESULTS_ROOT" "$EVAL_OUT_DIR"
