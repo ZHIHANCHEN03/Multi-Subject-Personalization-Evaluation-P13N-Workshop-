@@ -12,11 +12,8 @@ import torchvision.transforms as T
 
 
 def load_meta_records(results_root, model_name):
-    # Fix for path joining issue
     base_root = Path(results_root)
-    # If the user passed just "." or "" it might resolve differently
     model_root = base_root / model_name
-    
     print(f"DEBUG: Looking for meta.json files in {model_root.resolve()}")
     if not model_root.exists():
         print(f"DEBUG: Directory {model_root.resolve()} does not exist!")
@@ -57,7 +54,6 @@ def normalize(x):
 
 
 def encode_text(processor, model, device, text):
-    # Truncate text that is too long for CLIP (max 77 tokens)
     inputs = processor(text=[text], return_tensors="pt", padding=True, truncation=True, max_length=77)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
@@ -84,7 +80,6 @@ def encode_image(processor, model, device, image):
 
 
 def encode_dino_image(model, device, image):
-    # DINO requires standard ImageNet normalization
     transform = T.Compose([
         T.Resize(256, interpolation=T.InterpolationMode.BICUBIC),
         T.CenterCrop(224),
@@ -102,12 +97,6 @@ def cosine(a, b):
 
 
 def get_scene_type(prompt_id_str):
-    """
-    Inference scene type from prompt_id.
-    1-5, 16-20, 31-35, 46-50, 61-65: neutral (No interaction)
-    6-10, 21-25, 36-40, 51-55, 66-70: occlusion
-    11-15, 26-30, 41-45, 56-60, 71-75: interaction
-    """
     try:
         pid = int(prompt_id_str)
         mod = (pid - 1) % 15
@@ -121,17 +110,15 @@ def get_scene_type(prompt_id_str):
         return "unknown"
 
 
-def evaluate_record(processor, model, dino_model, device, rec, thresholds):
+def evaluate_record(processor, model, dino_v1_model, dino_v2_model, device, rec, thresholds):
     prompt = rec.get("prompt")
     output_path = rec.get("output_path")
     prompt_id = rec.get("prompt_id") or rec.get("id") or rec.get("index")
     subjects = rec.get("subjects") or []
     
-    # Handle absolute paths from different environments
     if output_path and output_path.startswith("/results/"):
         output_path = f".{output_path}"
         
-    # DEBUG PRINT
     if not prompt or not output_path or not subjects:
         print(f"DEBUG: Skipping {prompt_id} because of missing fields: prompt={bool(prompt)}, output_path={bool(output_path)}, subjects={bool(subjects)}")
         return None
@@ -143,15 +130,15 @@ def evaluate_record(processor, model, dino_model, device, rec, thresholds):
         
     gen_feat = encode_image(processor, model, device, gen_img)
     text_feat = encode_text(processor, model, device, prompt)
-    clip_score = cosine(gen_feat, text_feat)
+    clip_t = cosine(gen_feat, text_feat)
     
-    if dino_model is not None:
-        gen_dino_feat = encode_dino_image(dino_model, device, gen_img)
-    else:
-        gen_dino_feat = None
+    gen_dino_v1_feat = encode_dino_image(dino_v1_model, device, gen_img) if dino_v1_model is not None else None
+    gen_dino_v2_feat = encode_dino_image(dino_v2_model, device, gen_img) if dino_v2_model is not None else None
 
     subject_feats = []
-    subject_dino_feats = []
+    subject_dino_v1_feats = []
+    subject_dino_v2_feats = []
+    
     for s in subjects:
         img_path = s.get("image")
         if img_path and img_path.startswith("/Multi-Subject-Personalization-Evaluation-P13N-Workshop/"):
@@ -161,28 +148,40 @@ def evaluate_record(processor, model, dino_model, device, rec, thresholds):
         if img is None:
             print(f"DEBUG: Skipping subject because image not found at {img_path}")
             continue
+            
         subject_feats.append(encode_image(processor, model, device, img))
-        if dino_model is not None:
-            subject_dino_feats.append(encode_dino_image(dino_model, device, img))
+        if dino_v1_model is not None:
+            subject_dino_v1_feats.append(encode_dino_image(dino_v1_model, device, img))
+        if dino_v2_model is not None:
+            subject_dino_v2_feats.append(encode_dino_image(dino_v2_model, device, img))
             
     if not subject_feats:
-        nido = None
-        nido_dino = None
+        clip_i = None
+        dino = None
+        dinov2 = None
         scr = {t: None for t in thresholds}
     else:
-        sims = [cosine(gen_feat, sf) for sf in subject_feats]
-        nido = float(sum(sims) / len(sims))
+        sims_clip_i = [cosine(gen_feat, sf) for sf in subject_feats]
+        clip_i = float(sum(sims_clip_i) / len(sims_clip_i))
         
-        if dino_model is not None and subject_dino_feats:
-            dino_sims = [cosine(gen_dino_feat, sf) for sf in subject_dino_feats]
-            nido_dino = float(sum(dino_sims) / len(dino_sims))
+        if dino_v1_model is not None and subject_dino_v1_feats:
+            sims_dino_v1 = [cosine(gen_dino_v1_feat, sf) for sf in subject_dino_v1_feats]
+            dino = float(sum(sims_dino_v1) / len(sims_dino_v1))
         else:
-            nido_dino = None
+            dino = None
+            
+        if dino_v2_model is not None and subject_dino_v2_feats:
+            sims_dino_v2 = [cosine(gen_dino_v2_feat, sf) for sf in subject_dino_v2_feats]
+            dinov2 = float(sum(sims_dino_v2) / len(sims_dino_v2))
+            sims_for_scr = sims_dino_v2
+        else:
+            dinov2 = None
+            sims_for_scr = sims_clip_i
             
         scr = {}
         for t in thresholds:
-            collapsed = sum(1 for s in sims if s < t)
-            scr[t] = collapsed / len(sims)
+            collapsed = sum(1 for s in sims_for_scr if s < t)
+            scr[t] = collapsed / len(sims_for_scr)
 
     scene_type = get_scene_type(prompt_id)
 
@@ -191,9 +190,10 @@ def evaluate_record(processor, model, dino_model, device, rec, thresholds):
         "seed": rec.get("seed"),
         "subject_count": len(subjects),
         "scene_type": scene_type,
-        "clip": clip_score,
-        "nido": nido,
-        "nido_dino": nido_dino,
+        "clip_t": clip_t,
+        "clip_i": clip_i,
+        "dino": dino,
+        "dinov2": dinov2,
         "scr": scr,
         "prompt": prompt,
         "output_path": output_path,
@@ -209,9 +209,7 @@ def mean(values):
 
 
 def aggregate(results, thresholds):
-    # Base aggregation by subject count
     by_level = {}
-    # Aggregation by subject count + scene type
     by_level_scene = {}
     
     for r in results:
@@ -224,50 +222,52 @@ def aggregate(results, thresholds):
         
     summary = []
     
-    # Process overall subject count
     for lvl in sorted(by_level.keys()):
         items = by_level[lvl]
-        clip_mean = mean([x["clip"] for x in items])
-        nido_mean = mean([x["nido"] for x in items])
-        nido_dino_mean = mean([x.get("nido_dino") for x in items if x.get("nido_dino") is not None])
+        clip_t_mean = mean([x["clip_t"] for x in items])
+        clip_i_mean = mean([x["clip_i"] for x in items])
+        dino_mean = mean([x.get("dino") for x in items if x.get("dino") is not None])
+        dinov2_mean = mean([x.get("dinov2") for x in items if x.get("dinov2") is not None])
+        
         scr_mean = {}
         for t in thresholds:
             scr_mean[str(t)] = mean([x["scr"].get(t) for x in items if x["scr"].get(t) is not None])
-        summary.append(
-            {
-                "subject_count": lvl,
-                "scene_type": "all",
-                "clip": clip_mean,
-                "nido": nido_mean,
-                "nido_dino": nido_dino_mean,
-                "scr": scr_mean,
-                "count": len(items),
-            }
-        )
+            
+        summary.append({
+            "subject_count": lvl,
+            "scene_type": "all",
+            "clip_t": clip_t_mean,
+            "clip_i": clip_i_mean,
+            "dino": dino_mean,
+            "dinov2": dinov2_mean,
+            "scr": scr_mean,
+            "count": len(items),
+        })
         
-    # Process subject count + scene type breakdown
     for scene_key in sorted(by_level_scene.keys()):
         items = by_level_scene[scene_key]
         lvl = items[0]["subject_count"]
         scene = items[0]["scene_type"]
         
-        clip_mean = mean([x["clip"] for x in items])
-        nido_mean = mean([x["nido"] for x in items])
-        nido_dino_mean = mean([x.get("nido_dino") for x in items if x.get("nido_dino") is not None])
+        clip_t_mean = mean([x["clip_t"] for x in items])
+        clip_i_mean = mean([x["clip_i"] for x in items])
+        dino_mean = mean([x.get("dino") for x in items if x.get("dino") is not None])
+        dinov2_mean = mean([x.get("dinov2") for x in items if x.get("dinov2") is not None])
+        
         scr_mean = {}
         for t in thresholds:
             scr_mean[str(t)] = mean([x["scr"].get(t) for x in items if x["scr"].get(t) is not None])
-        summary.append(
-            {
-                "subject_count": lvl,
-                "scene_type": scene,
-                "clip": clip_mean,
-                "nido": nido_mean,
-                "nido_dino": nido_dino_mean,
-                "scr": scr_mean,
-                "count": len(items),
-            }
-        )
+            
+        summary.append({
+            "subject_count": lvl,
+            "scene_type": scene,
+            "clip_t": clip_t_mean,
+            "clip_i": clip_i_mean,
+            "dino": dino_mean,
+            "dinov2": dinov2_mean,
+            "scr": scr_mean,
+            "count": len(items),
+        })
         
     return summary
 
@@ -277,15 +277,16 @@ def write_json(path, data):
 
 
 def write_csv(path, rows, thresholds):
-    header = ["subject_count", "scene_type", "clip", "nido", "nido_dino"] + [f"scr@{t}" for t in thresholds] + ["count"]
+    header = ["subject_count", "scene_type", "clip_t", "clip_i", "dino", "dinov2"] + [f"scr@{t}" for t in thresholds] + ["count"]
     lines = [",".join(header)]
     for r in rows:
         line = [
             str(r["subject_count"]),
             r["scene_type"],
-            "" if r["clip"] is None else f"{r['clip']:.6f}",
-            "" if r["nido"] is None else f"{r['nido']:.6f}",
-            "" if r.get("nido_dino") is None else f"{r['nido_dino']:.6f}",
+            "" if r["clip_t"] is None else f"{r['clip_t']:.6f}",
+            "" if r["clip_i"] is None else f"{r['clip_i']:.6f}",
+            "" if r.get("dino") is None else f"{r['dino']:.6f}",
+            "" if r.get("dinov2") is None else f"{r['dinov2']:.6f}",
         ]
         for t in thresholds:
             val = r["scr"].get(str(t))
@@ -302,7 +303,7 @@ def main():
     parser.add_argument("--out_dir", type=str, default="./eval_outputs")
     parser.add_argument("--clip_model", type=str, default="openai/clip-vit-large-patch14")
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--thresholds", type=str, default="0.2,0.25,0.3")
+    parser.add_argument("--thresholds", type=str, default="0.4,0.5,0.6")
     parser.add_argument("--max_records", type=int, default=0)
     args = parser.parse_args()
 
@@ -311,29 +312,39 @@ def main():
     if device == "cuda" and not torch.cuda.is_available():
         device = "cpu"
 
+    print("Loading CLIP model...")
     processor = CLIPProcessor.from_pretrained(args.clip_model)
     model = CLIPModel.from_pretrained(args.clip_model).to(device)
     model.eval()
     
-    # Load DINO model
+    # Load DINOv1 model
     try:
-        print("Loading DINO model...")
-        dino_model = torch.hub.load('facebookresearch/dino:main', 'dino_vits16', pretrained=True).to(device)
-        dino_model.eval()
+        print("Loading DINOv1 model...")
+        dino_v1_model = torch.hub.load('facebookresearch/dino:main', 'dino_vits16', pretrained=True).to(device)
+        dino_v1_model.eval()
     except Exception as e:
-        print(f"Warning: Failed to load DINO model. DINO evaluation will be skipped. Error: {e}")
-        dino_model = None
+        print(f"Warning: Failed to load DINOv1 model. Error: {e}")
+        dino_v1_model = None
+
+    # Load DINOv2 model
+    try:
+        print("Loading DINOv2 model...")
+        dino_v2_model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vits14').to(device)
+        dino_v2_model.eval()
+    except Exception as e:
+        print(f"Warning: Failed to load DINOv2 model. Error: {e}")
+        dino_v2_model = None
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     models = [m.strip() for m in args.models.split(",") if m.strip()]
     for model_name in models:
-        print(f"Evaluating model: {model_name}")
+        print(f"\nEvaluating model: {model_name}")
         records = load_meta_records(args.results_root, model_name)
         results = []
         for rec in records[: args.max_records or None]:
-            r = evaluate_record(processor, model, dino_model, device, rec, thresholds)
+            r = evaluate_record(processor, model, dino_v1_model, dino_v2_model, device, rec, thresholds)
             if r is not None:
                 results.append(r)
         if not results:
@@ -350,6 +361,7 @@ def main():
         write_json(out_dir / f"{model_name}_results.json", payload)
         write_json(out_dir / f"{model_name}_summary.json", summary)
         write_csv(out_dir / f"{model_name}_summary.csv", summary, thresholds)
+        print(f"  Saved results for {model_name} to {out_dir}")
 
 
 if __name__ == "__main__":
