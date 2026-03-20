@@ -351,8 +351,8 @@ run_model() {
 IFS=',' read -r -a model_arr <<< "$MODELS"
 
 set_hf_cache
-RESULTS_ROOT="/results"
-EVAL_OUT_DIR="/eval_outputs"
+RESULTS_ROOT="./results"
+EVAL_OUT_DIR="./eval_outputs"
 if [[ -z "$VENV_ROOT" ]]; then
   base="$(cache_root)"
   if [[ "$base" == "/" ]]; then

@@ -258,7 +258,7 @@ def write_csv(path, rows, thresholds):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", type=str, default="xverse,mosaic,psr")
-    parser.add_argument("--results_root", type=str, default="results")
+    parser.add_argument("--results_root", type=str, default="./results")
     parser.add_argument("--out_dir", type=str, default="eval_outputs")
     parser.add_argument("--clip_model", type=str, default="openai/clip-vit-large-patch14")
     parser.add_argument("--device", type=str, default="cuda")
