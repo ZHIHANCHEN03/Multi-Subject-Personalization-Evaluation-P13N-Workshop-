@@ -12,20 +12,34 @@ import torchvision.transforms as T
 
 
 def load_meta_records(results_root, model_name):
-    model_root = Path(results_root) / model_name
+    # Fix for path joining issue
+    base_root = Path(results_root)
+    # If the user passed just "." or "" it might resolve differently
+    model_root = base_root / model_name
+    
+    print(f"DEBUG: Looking for meta.json files in {model_root.resolve()}")
     if not model_root.exists():
+        print(f"DEBUG: Directory {model_root.resolve()} does not exist!")
         return []
+        
     records = []
+    found_count = 0
     for meta_path in model_root.rglob("meta.json"):
+        found_count += 1
         try:
             data = json.loads(meta_path.read_text(encoding="utf-8"))
-        except Exception:
+        except Exception as e:
+            print(f"DEBUG: Error reading {meta_path}: {e}")
             continue
+            
         if isinstance(data, dict):
             data = [data]
+            
         for rec in data:
             rec["_meta_path"] = str(meta_path)
             records.append(rec)
+            
+    print(f"DEBUG: Found {found_count} meta.json files containing {len(records)} records")
     return records
 
 
