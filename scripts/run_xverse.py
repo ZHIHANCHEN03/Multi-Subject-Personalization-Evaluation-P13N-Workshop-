@@ -83,7 +83,11 @@ def build_output_path(out_root, prompt_id, seed):
 
 
 def update_meta(out_root, prompt_id, record):
-    prompt_dir = Path(out_root) / str(prompt_id)
+    out_root = Path(out_root)
+    if not out_root.is_absolute():
+        out_root = PROJECT_ROOT / out_root
+    prompt_dir = out_root / str(prompt_id)
+    prompt_dir.mkdir(parents=True, exist_ok=True)
     meta_path = prompt_dir / "meta.json"
     if meta_path.exists():
         data = json.loads(meta_path.read_text(encoding="utf-8"))
