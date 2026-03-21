@@ -1,0 +1,26 @@
+## 4. Evaluation Metrics
+
+A central contribution of our benchmark is identifying the limitations of standard personalization metrics when applied to multi-subject composition. Existing protocols heavily rely on global CLIP embeddings. However, global embeddings are highly tolerant of local structural distortions and identity bleeding, rendering them inadequate for measuring severe identity entanglement. To provide a rigorous and comprehensive assessment, we introduce a multi-tiered evaluation framework.
+
+### 4.1. Text-Image Alignment (CLIP-T)
+To measure how well the generated image aligns with the semantic intent of the text prompt, we compute the cosine similarity between the CLIP text embedding of the prompt and the CLIP image embedding of the generated output. 
+
+While CLIP-T is a standard metric for semantic fidelity, we observe a critical caveat in multi-subject scenarios: models may achieve high CLIP-T scores by generating a generic group of people that matches the macro-semantics of the prompt (e.g., "a group of people"), while completely failing to preserve the specific identities requested. Therefore, CLIP-T must be analyzed in conjunction with fine-grained identity metrics.
+
+### 4.2. Identity Preservation: From CLIP to DINOv2
+Traditionally, identity preservation is measured by computing the cosine similarity between the CLIP image embedding of the generated subject and the reference image (denoted as **CLIP-I**). However, our experiments reveal that CLIP-I scores remain artificially high even when subjects undergo severe identity bleeding or facial distortion.
+
+To capture these local structural failures, we shift our primary identity evaluation to **DINOv2**, a self-supervised vision transformer known for its exceptional sensitivity to local features, part-level correspondence, and structural geometry. For each generated image $I_{gen}$ containing $N$ subjects, we compute the DINOv2 image embedding and calculate the average cosine similarity against the embeddings of all $N$ reference images $\{I_{ref}^1, I_{ref}^2, ..., I_{ref}^N\}$:
+
+$$ \text{DINOv2 Score} = \frac{1}{N} \sum_{i=1}^{N} \cos(\text{DINOv2}(I_{gen}), \text{DINOv2}(I_{ref}^i)) $$
+
+This metric effectively penalizes models that suffer from attention leakage, as DINOv2 strictly requires structural and identity consistency rather than mere stylistic or global semantic resemblance.
+
+### 4.3. Subject Collapse Rate (SCR)
+Average similarity scores can obscure catastrophic failures of individual subjects within a complex scene. For instance, in an 8-subject image, if 7 subjects are perfectly generated but 1 subject is completely missing or morphed into another identity, the mean DINOv2 score might still appear acceptable. 
+
+To explicitly quantify these localized failures, we propose the **Subject Collapse Rate (SCR)**. We define a subject as "collapsed" if its DINOv2 cosine similarity with the reference image falls below a predefined threshold $\tau$. The SCR for a given generated image is defined as the ratio of collapsed subjects to the total number of subjects:
+
+$$ \text{SCR}_{@\tau} = \frac{\sum_{i=1}^{N} \mathbb{1}[\cos(\text{DINOv2}(I_{gen}), \text{DINOv2}(I_{ref}^i)) < \tau]}{N} $$
+
+where $\mathbb{1}[\cdot]$ is the indicator function. Because DINOv2 similarities typically occupy a lower and more discriminative numerical range than CLIP, we employ strict thresholds $\tau \in \{0.4, 0.5, 0.6\}$. A lower SCR indicates better multi-subject preservation, while an SCR approaching 1.0 signifies a complete collapse of personalization.
