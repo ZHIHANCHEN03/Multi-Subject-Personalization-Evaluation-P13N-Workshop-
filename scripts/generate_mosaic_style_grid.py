@@ -83,15 +83,15 @@ def create_mosaic_style_grid():
                 
                 if model == 'mosaic':
                     # Add a checkmark or indicator
-                    draw.text((x_offset + 10, top_margin + 10), "✓ Success", font=text_font, fill='green')
+                    draw.text((x_offset + 10, top_margin + 10), "[Success]", font=text_font, fill='green')
                 else:
-                    draw.text((x_offset + 10, top_margin + 10), "✗ Bleeding", font=text_font, fill='red')
+                    draw.text((x_offset + 10, top_margin + 10), "[Bleeding]", font=text_font, fill='red')
                     
         except Exception as e:
             print(f"Error loading {img_path}: {e}")
             
     # Add prompt at the bottom
-    prompt_text = "Prompt: A photo of Subject A hugging Subject B, high quality, highly detailed."
+    prompt_text = "Prompt: A black woman and a western woman shaking hands."
     draw.text((20, top_margin + img_h + 30), prompt_text, font=prompt_font, fill='#333333')
             
     output_path = os.path.join(output_dir, 'fig_case_analysis.png')

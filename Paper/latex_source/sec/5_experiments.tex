@@ -67,7 +67,7 @@ To better understand \textit{how} these models fail, we perform a qualitative vi
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/qualitative_failures.png}
-  \caption{\textbf{Qualitative Failure Analysis.} Comparison between 2-subject generation (left column) and 8-subject generation (right column). In dense scenes, models exhibit severe (1) Identity Bleeding, where features merge; (2) Homogenization, generating clones of a single dominant identity; and (3) Amodal Collapse, resulting in malformed geometry under occlusion.}
+  \caption{\textbf{Qualitative Failure Analysis.} Comparison between 2-subject generation (left column) and 4-subject generation (right column) across different models. In denser scenes (4+ subjects) or complex interactions, models exhibit severe (1) Identity Bleeding, where features merge; (2) Homogenization, generating clones of a single dominant identity; and (3) Amodal Collapse, resulting in malformed geometry under occlusion.}
   \label{fig:qualitative_failures}
 \end{figure*}
 
@@ -75,7 +75,7 @@ To better understand \textit{how} these models fail, we perform a qualitative vi
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig_case_analysis.png}
-  \caption{\textbf{Detailed Case Analysis of Identity Bleeding.} (Left) Reference images of two distinct subjects. (Right) Generation results for a complex interaction prompt ("Subject A hugging Subject B"). While our MOSAIC baseline successfully maintains identity boundaries (marked with green check), XVerse and PSR suffer from severe identity bleeding, where the features of Subject A contaminate the spatial region of Subject B (marked with red cross).}
+  \caption{\textbf{Detailed Case Analysis of Identity Bleeding.} (Left) Reference images of two distinct subjects. (Right) Generation results for a complex interaction prompt ("A black woman and a western woman shaking hands"). While our MOSAIC baseline successfully maintains identity boundaries (marked with green check), XVerse and PSR suffer from severe identity bleeding, where the features of Subject A contaminate the spatial region of Subject B (marked with red cross).}
   \label{fig:case_analysis}
 \end{figure*}
 
