@@ -44,7 +44,14 @@ The most striking finding from our benchmark is the catastrophic collapse of ide
 This failure is further magnified when examining the Subject Collapse Rate (SCR). At the most lenient threshold ($\tau=0.4$), MOSAIC exhibits a 48.9\% collapse rate even with just 2 subjects. When pushed to 8 subjects, the SCR skyrockets to 94.7\% for MOSAIC, 94.4\% for XVerse, and 95.0\% for PSR. At 10 subjects, the SCR for all models exceeds 96\%, indicating that nearly every generated subject has lost its intended identity. This quantitative evidence strongly supports our hypothesis: current attention-routing mechanisms are fundamentally inadequate for resolving dense physical entanglement.
 
 \paragraph{Model Comparison}
-While all models fail at extreme subject counts, \textbf{MOSAIC} demonstrates a noticeably stronger baseline in low-complexity scenarios. At 2 subjects, MOSAIC achieves the highest DINOv2 score (0.425) and the lowest SCR (48.9\%), outperforming XVerse (0.355 / 58.9\%) and PSR (0.325 / 63.3\%). This suggests that MOSAIC's representation-centric disentanglement provides a more robust defense against attention leakage when the scene is relatively sparse. However, this advantage quickly dissipates as the subject count reaches 6 and beyond, underscoring the universal scalability bottleneck in current DiT/FLUX architectures~\cite{peebles2023scalable,flux2024}.
+While all models fail at extreme subject counts, \textbf{MOSAIC} demonstrates a noticeably stronger baseline in low-complexity scenarios. At 2 subjects, MOSAIC achieves the highest DINOv2 score (0.425) and the lowest SCR (48.9\%), outperforming XVerse (0.355 / 58.9\%) and PSR (0.325 / 63.3\%). This multifaceted performance profile is further detailed in \textbf{Figure \ref{fig:radar_plot}}, which compares the semantic, style, structure, and identity metrics simultaneously. This suggests that MOSAIC's representation-centric disentanglement provides a more robust defense against attention leakage when the scene is relatively sparse. However, this advantage quickly dissipates as the subject count reaches 6 and beyond, underscoring the universal scalability bottleneck in current DiT/FLUX architectures~\cite{peebles2023scalable,flux2024}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.85\linewidth]{figures/fig_radar_metrics.pdf}
+  \caption{\textbf{Comprehensive Metric Radar (2 Subjects).} A multi-dimensional comparison of MOSAIC, XVerse, and PSR. While all models maintain high semantic alignment (CLIP-T), MOSAIC shows a distinct advantage in structural (DINO) and fine-grained identity (DINOv2) preservation.}
+  \label{fig:radar_plot}
+\end{figure}
 
 \subsection{The Trade-off: Semantic vs. Physical Disentanglement}
 
@@ -64,6 +71,13 @@ To better understand \textit{how} these models fail, we perform a qualitative vi
   \label{fig:qualitative_failures}
 \end{figure*}
 
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_case_analysis.png}
+  \caption{\textbf{Detailed Case Analysis of Identity Bleeding.} (Left) Reference images of two distinct subjects. (Right) Generation results for a complex interaction prompt ("Subject A hugging Subject B"). While our MOSAIC baseline successfully maintains identity boundaries (marked with green check), XVerse and PSR suffer from severe identity bleeding, where the features of Subject A contaminate the spatial region of Subject B (marked with red cross).}
+  \label{fig:case_analysis}
+\end{figure*}
 
 Visual inspection corroborates our quantitative findings and reveals three primary failure modes during multi-subject interaction:
 \begin{enumerate}
