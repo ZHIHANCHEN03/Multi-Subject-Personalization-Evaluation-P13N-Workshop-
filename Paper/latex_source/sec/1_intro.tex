@@ -1,10 +1,11 @@
  
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/teaser.png}
+  \includegraphics[width=\textwidth]{figures/teaser.pdf}
   \caption{\textbf{Catastrophic Identity Collapse in Multi-Subject Personalization.} 
-  (Left) State-of-the-art models like MOSAIC~\cite{mosaic2024} succeed in sparse scenes with 2 subjects. 
-  (Right) When evaluated on our proposed stress-test benchmark with 8 interacting subjects, models experience severe attention leakage, identity blending, and homogenization. Our novel Subject Collapse Rate (SCR) metric effectively captures this degradation, revealing a critical gap in current generative systems.}
+  (Left) Our quantitative analysis reveals the illusion of scalability: as the number of interacting subjects ($N$) increases, the fine-grained identity fidelity (DINOv2) plummets, and the Subject Collapse Rate (SCR) skyrockets to $>95\%$. 
+  (Middle) At $N=2$, state-of-the-art models (e.g., MOSAIC~\cite{mosaic2024}) successfully maintain distinct identities and structural integrity. 
+  (Right) When evaluated on our proposed stress-test benchmark at $N=8$, models experience severe attention leakage, resulting in identity bleeding and homogenization (generating clones of a single dominant identity).}
   \label{fig:teaser}
 \end{figure*}
 
