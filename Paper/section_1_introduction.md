@@ -2,7 +2,7 @@
 ![**Catastrophic Identity Collapse in Multi-Subject Personalization.** 
   (Left) Our quantitative analysis reveals the illusion of scalability: as the number of interacting subjects ($N$) increases, the fine-grained identity fidelity (DINOv2) plummets, and the Subject Collapse Rate (SCR) skyrockets to $>95\%$. 
   (Middle) At $N=2$, state-of-the-art models (e.g., MOSAIC~[mosaic2024]) successfully maintain distinct identities and structural integrity. 
-  (Right) When evaluated on our proposed stress-test benchmark at $N=8$, models experience severe attention leakage, resulting in identity bleeding and homogenization (generating clones of a single dominant identity).](images/teaser.pdf)
+  (Right) When evaluated on our proposed stress-test benchmark at $N=8$, models experience severe attention leakage, resulting in identity bleeding and homogenization (generating clones of a single dominant identity).](images/teaser.png)
 ***Catastrophic Identity Collapse in Multi-Subject Personalization.** 
   (Left) Our quantitative analysis reveals the illusion of scalability: as the number of interacting subjects ($N$) increases, the fine-grained identity fidelity (DINOv2) plummets, and the Subject Collapse Rate (SCR) skyrockets to $>95\%$. 
   (Middle) At $N=2$, state-of-the-art models (e.g., MOSAIC~[mosaic2024]) successfully maintain distinct identities and structural integrity. 

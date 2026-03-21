@@ -25,7 +25,7 @@ This metric effectively penalizes models that suffer from attention leakage, as 
 Average similarity scores can obscure catastrophic failures of individual subjects within a complex scene. For instance, in an 8-subject image, if 7 subjects are perfectly generated but 1 subject is completely missing or morphed into another identity, the mean DINOv2 score might still appear acceptable. 
 
  
-![**Subject Collapse Rate (SCR).** Unlike average similarity scores which mask individual failures, SCR explicitly counts the proportion of subjects whose DINOv2 identity similarity falls below a strict threshold $\tau$. This provides a more realistic measure of multi-subject entanglement.](images/scr_illustration.pdf)
+![**Subject Collapse Rate (SCR).** Unlike average similarity scores which mask individual failures, SCR explicitly counts the proportion of subjects whose DINOv2 identity similarity falls below a strict threshold $\tau$. This provides a more realistic measure of multi-subject entanglement.](images/scr_illustration.png)
 ***Subject Collapse Rate (SCR).** Unlike average similarity scores which mask individual failures, SCR explicitly counts the proportion of subjects whose DINOv2 identity similarity falls below a strict threshold $\tau$. This provides a more realistic measure of multi-subject entanglement.*
 
 To explicitly quantify these localized failures, we propose the **Subject Collapse Rate (SCR)**, conceptually illustrated in **Figure fig:scr_illustration**. We define a subject as "collapsed" if its DINOv2 cosine similarity with the reference image falls below a predefined threshold $\tau$. The SCR for a given generated image is defined as the ratio of collapsed subjects to the total number of subjects:

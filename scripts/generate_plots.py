@@ -31,7 +31,7 @@ def plot_metrics_vs_subject_count(df, output_dir):
     metrics = {
         'clip_t': ('CLIP-T (Semantic Alignment)', 'higher'),
         'dinov2': ('DINOv2 (Subject Fidelity)', 'higher'),
-        'scr@0.5': ('SCR@0.5 (Subject Collapse Rate)', 'lower')
+        'scr@0.4': ('SCR@0.4 (Subject Collapse Rate)', 'lower')
     }
     
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
@@ -68,8 +68,8 @@ def plot_metrics_vs_subject_count(df, output_dir):
             
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.25)
-    plt.savefig(os.path.join(output_dir, 'fig_metrics_vs_subject_count.pdf'), dpi=300, bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, 'fig_metrics_vs_subject_count.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'trend_charts.pdf'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'trend_charts.png'), dpi=300, bbox_inches='tight')
     print(f"Saved metrics vs subject count plot to {output_dir}")
 
 def plot_radar_chart(df, output_dir):

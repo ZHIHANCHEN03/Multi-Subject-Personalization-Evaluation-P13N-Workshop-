@@ -25,7 +25,7 @@ Our benchmark is constructed by sampling from a unified subject pool and inserti
 *   **Occlusion**: Subjects partially block one another, testing amodal completion.
 *   **Interaction**: Subjects are physically engaged (e.g., hugging, shaking hands), testing severe attention entanglement.
 
-![Benchmark Design](Paper/images/benchmark_design.pdf)
+![Benchmark Design](Paper/images/benchmark_design.png)
 
 ---
 
@@ -62,8 +62,8 @@ $$ \text{SCR}_{@\tau} = \frac{\sum_{i=1}^{N} \mathbf{1}[\cos(\text{DINOv2}(I_{ge
 
 You can find all our generated analytical charts in `Paper/images/`:
 
-1.  **Quantitative Collapse**: `fig1_metrics_vs_subject_count.pdf` demonstrates the sharp decline in DINOv2 and the rise of SCR as subject counts increase.
-2.  **Scene Complexity**: `fig2_metrics_vs_scene_type.pdf` compares model performance across Neutral, Occlusion, and Interaction scenarios.
+1.  **Quantitative Collapse**: `fig1_metrics_vs_subject_count.png` demonstrates the sharp decline in DINOv2 and the rise of SCR as subject counts increase.
+2.  **Scene Complexity**: `fig2_metrics_vs_scene_type.png` compares model performance across Neutral, Occlusion, and Interaction scenarios.
 3.  **Case Analysis**: `fig_case_analysis.png` provides a detailed look at Identity Bleeding during physical interaction.
 
 ![Case Analysis](Paper/images/fig_case_analysis.png)

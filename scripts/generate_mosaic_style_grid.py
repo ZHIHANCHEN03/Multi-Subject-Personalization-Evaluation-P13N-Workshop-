@@ -12,7 +12,7 @@ def create_mosaic_style_grid():
     seed = 42
     
     models = ['mosaic', 'xverse', 'psr']
-    model_titles = ['MOSAIC (Ours)', 'XVerse', 'PSR']
+    model_titles = ['MOSAIC', 'XVerse', 'PSR']
     
     # Load one generated image to get dimensions
     first_img_path = os.path.join(base_dir, f'results/mosaic/{case_prompt_id}/{seed}.png')
@@ -64,7 +64,7 @@ def create_mosaic_style_grid():
         bbox = draw.textbbox((0, 0), title, font=title_font)
         text_w = bbox[2] - bbox[0]
         text_h = bbox[3] - bbox[1]
-        color = '#d62728' if 'Ours' in title else 'black'
+        color = '#d62728' if title == 'MOSAIC' else 'black'
         draw.text((x - text_w // 2, y - text_h // 2), title, font=title_font, fill=color)
         
     # Draw generated images

@@ -71,6 +71,8 @@ def sync_latex_to_md():
             
             # Fix figure paths for MD
             md_content = md_content.replace('figures/', 'images/')
+            md_content = md_content.replace('.pdf)', '.png)')
+            md_content = md_content.replace('.pdf\n', '.png\n')
             
             with open(md_path, 'w') as f:
                 f.write(md_content)
