@@ -1,16 +1,16 @@
 \section{Evaluation Metrics}
 
-A central contribution of our benchmark is identifying the limitations of standard personalization metrics when applied to multi-subject composition. Existing protocols heavily rely on global CLIP embeddings \cite{radford2021learning}. However, global embeddings are highly tolerant of local structural distortions and identity bleeding, rendering them inadequate for measuring severe identity entanglement. To provide a rigorous and comprehensive assessment that aligns with the P13N workshop's call for advanced evaluation metrics for personalization quality, we introduce a multi-tiered evaluation framework.
+A central contribution of our benchmark is identifying the limitations of standard personalization metrics when applied to multi-subject composition. Existing protocols heavily rely on global CLIP embeddings~\cite{radford2021learning}. However, global embeddings are highly tolerant of local structural distortions and identity bleeding, rendering them inadequate for measuring severe identity entanglement. To provide a rigorous and comprehensive assessment that aligns with the P13N workshop's call for advanced evaluation metrics for personalization quality, we introduce a multi-tiered evaluation framework.
 
 \subsection{Text-Image Alignment (CLIP-T)}
-To measure how well the generated image aligns with the semantic intent of the text prompt, we compute the cosine similarity between the CLIP \cite{radford2021learning} text embedding of the prompt and the CLIP image embedding of the generated output. 
+To measure how well the generated image aligns with the semantic intent of the text prompt, we compute the cosine similarity between the CLIP~\cite{radford2021learning} text embedding of the prompt and the CLIP image embedding of the generated output. 
 
 While CLIP-T is a standard metric for semantic fidelity, we observe a critical caveat in multi-subject scenarios: models may achieve high CLIP-T scores by generating a generic group of people that matches the macro-semantics of the prompt (e.g., "a group of people"), while completely failing to preserve the specific identities requested. Therefore, CLIP-T must be analyzed in conjunction with fine-grained identity metrics.
 
 \subsection{Identity Preservation: From CLIP to DINOv2}
 Traditionally, identity preservation is measured by computing the cosine similarity between the CLIP image embedding of the generated subject and the reference image (denoted as \textbf{CLIP-I}). However, our experiments reveal that CLIP-I scores remain artificially high even when subjects undergo severe identity bleeding or facial distortion.
 
-To capture these local structural failures, we shift our primary identity evaluation to \textbf{DINOv2} \cite{oquab2023dinov2}, a self-supervised vision transformer known for its exceptional sensitivity to local features, part-level correspondence, and structural geometry. For each generated image $I_{gen}$ containing $N$ subjects, we compute the DINOv2 image embedding and calculate the average cosine similarity against the embeddings of all $N$ reference images $\{I_{ref}^1, I_{ref}^2, ..., I_{ref}^N\}$:
+To capture these local structural failures, we shift our primary identity evaluation to \textbf{DINOv2}~\cite{oquab2023dinov2}, a self-supervised vision transformer known for its exceptional sensitivity to local features, part-level correspondence, and structural geometry. For each generated image $I_{gen}$ containing $N$ subjects, we compute the DINOv2 image embedding and calculate the average cosine similarity against the embeddings of all $N$ reference images $\{I_{ref}^1, I_{ref}^2, ..., I_{ref}^N\}$:
 
 \begin{equation}
 \text{DINOv2 Score} = \frac{1}{N} \sum_{i=1}^{N} \cos(\text{DINOv2}(I_{gen}), \text{DINOv2}(I_{ref}^i))
@@ -30,7 +30,7 @@ Average similarity scores can obscure catastrophic failures of individual subjec
 \end{figure}
 
 
-To explicitly quantify these localized failures, we propose the \textbf{Subject Collapse Rate (SCR)}. We define a subject as "collapsed" if its DINOv2 cosine similarity with the reference image falls below a predefined threshold $\tau$. The SCR for a given generated image is defined as the ratio of collapsed subjects to the total number of subjects:
+To explicitly quantify these localized failures, we propose the \textbf{Subject Collapse Rate (SCR)}, conceptually illustrated in \textbf{Figure \ref{fig:scr_illustration}}. We define a subject as "collapsed" if its DINOv2 cosine similarity with the reference image falls below a predefined threshold $\tau$. The SCR for a given generated image is defined as the ratio of collapsed subjects to the total number of subjects:
 
 \begin{equation}
 \text{SCR}_{@\tau} = \frac{\sum_{i=1}^{N} \mathbf{1}[\cos(\text{DINOv2}(I_{gen}), \text{DINOv2}(I_{ref}^i)) < \tau]}{N}

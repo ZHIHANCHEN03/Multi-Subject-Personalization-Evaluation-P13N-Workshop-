@@ -1,10 +1,10 @@
 \section{Experiments}
 
-In this section, we present the quantitative and qualitative results of our evaluation. We benchmark three state-of-the-art multi-subject personalization models: \textbf{MOSAIC} \cite{mosaic2024}, \textbf{XVerse} \cite{xverse2024}, and \textbf{PSR} \cite{psr2024}, across five difficulty levels ranging from 2 to 10 interacting subjects.
+In this section, we present the quantitative and qualitative results of our evaluation. We benchmark three state-of-the-art multi-subject personalization models: \textbf{MOSAIC}~\cite{mosaic2024}, \textbf{XVerse}~\cite{xverse2024}, and \textbf{PSR}~\cite{psr2024}, across five difficulty levels ranging from 2 to 10 interacting subjects.
 
 \subsection{Quantitative Results: The Limits of Personalization}
 
-To rigorously assess model performance, we first examine the overall trend of identity preservation as the subject count increases. The quantitative results, averaged across all scene types, are summarized in \textbf{Table 1} and visualized in \textbf{Figure 2}.
+To rigorously assess model performance, we first examine the overall trend of identity preservation as the subject count increases. The quantitative results, averaged across all scene types, are summarized in \textbf{Table \ref{tab:main_results}} and visualized in \textbf{Figure \ref{fig:trend_charts}}.
 
  
 \begin{table*}[t]
@@ -18,11 +18,11 @@ To rigorously assess model performance, we first examine the overall trend of id
 \cmidrule(lr){2-5} \cmidrule(lr){6-9} \cmidrule(lr){10-13}
  & CLIP-T $\uparrow$ & CLIP-I $\uparrow$ & DINOv2 $\uparrow$ & SCR $\downarrow$ & CLIP-T $\uparrow$ & CLIP-I $\uparrow$ & DINOv2 $\uparrow$ & SCR $\downarrow$ & CLIP-T $\uparrow$ & CLIP-I $\uparrow$ & DINOv2 $\uparrow$ & SCR $\downarrow$ \\
 \midrule
-2 & 0.261 & 0.730 & 0.424 & 48.8\% & 0.265 & 0.690 & 0.355 & 58.8\% & 0.274 & 0.670 & 0.324 & 63.3\% \\
-4 & - & - & - & - & - & - & - & - & - & - & - & - \\
-6 & - & - & - & - & - & - & - & - & - & - & - & - \\
-8 & - & - & - & 94.7\% & - & - & - & 94.4\% & - & - & - & 95.0\% \\
-10 & 0.299 & - & 0.110 & >96\% & - & - & \sim0.10 & >96\% & 0.309 & - & \sim0.10 & >96\% \\
+2 & 0.261 & 0.695 & 0.425 & 48.9\% & 0.268 & 0.646 & 0.355 & 58.9\% & 0.274 & 0.647 & 0.325 & 63.3\% \\
+4 & 0.289 & 0.586 & 0.235 & 81.7\% & 0.279 & 0.593 & 0.211 & 80.0\% & 0.292 & 0.568 & 0.189 & 85.6\% \\
+6 & 0.297 & 0.535 & 0.164 & 90.7\% & 0.275 & 0.550 & 0.142 & 93.0\% & 0.302 & 0.537 & 0.136 & 94.1\% \\
+8 & 0.302 & 0.517 & 0.126 & 94.7\% & 0.276 & 0.532 & 0.123 & 94.4\% & 0.304 & 0.517 & 0.117 & 95.0\% \\
+10 & 0.300 & 0.504 & 0.110 & 96.0\% & 0.283 & 0.524 & 0.104 & 96.4\% & 0.309 & 0.500 & 0.101 & 97.8\% \\
 \bottomrule
 \end{tabular}
 }
@@ -39,16 +39,16 @@ To rigorously assess model performance, we first examine the overall trend of id
 
 
 \paragraph{Catastrophic Identity Forgetting}
-The most striking finding from our benchmark is the catastrophic collapse of identity fidelity when scaling beyond 4 subjects. As shown in the DINOv2 scores, all models experience a precipitous drop. For instance, MOSAIC \cite{mosaic2024}, which performs best at the 2-subject level with a DINOv2 score of 0.424, plummets to 0.110 at 10 subjects. XVerse \cite{xverse2024} and PSR \cite{psr2024} follow a nearly identical trajectory, dropping from 0.355 and 0.324 to ~0.10, respectively. 
+The most striking finding from our benchmark is the catastrophic collapse of identity fidelity when scaling beyond 4 subjects. As shown in the DINOv2 scores, all models experience a precipitous drop. For instance, MOSAIC~\cite{mosaic2024}, which performs best at the 2-subject level with a DINOv2 score of 0.425, plummets to 0.110 at 10 subjects. XVerse~\cite{xverse2024} and PSR~\cite{psr2024} follow a nearly identical trajectory, dropping from 0.355 and 0.325 to ~0.10, respectively. 
 
-This failure is further magnified when examining the Subject Collapse Rate (SCR). At the most lenient threshold ($\tau=0.4$), MOSAIC exhibits a 48.8% collapse rate even with just 2 subjects. When pushed to 8 subjects, the SCR skyrockets to 94.7% for MOSAIC, 94.4% for XVerse, and 95.0% for PSR. At 10 subjects, the SCR for all models exceeds 96%, indicating that nearly every generated subject has lost its intended identity. This quantitative evidence strongly supports our hypothesis: current attention-routing mechanisms are fundamentally inadequate for resolving dense physical entanglement.
+This failure is further magnified when examining the Subject Collapse Rate (SCR). At the most lenient threshold ($\tau=0.4$), MOSAIC exhibits a 48.9\% collapse rate even with just 2 subjects. When pushed to 8 subjects, the SCR skyrockets to 94.7\% for MOSAIC, 94.4\% for XVerse, and 95.0\% for PSR. At 10 subjects, the SCR for all models exceeds 96\%, indicating that nearly every generated subject has lost its intended identity. This quantitative evidence strongly supports our hypothesis: current attention-routing mechanisms are fundamentally inadequate for resolving dense physical entanglement.
 
 \paragraph{Model Comparison}
-While all models fail at extreme subject counts, \textbf{MOSAIC} demonstrates a noticeably stronger baseline in low-complexity scenarios. At 2 subjects, MOSAIC achieves the highest DINOv2 score (0.424) and the lowest SCR (48.8%), outperforming XVerse (0.355 / 58.8%) and PSR (0.324 / 63.3%). This suggests that MOSAIC's representation-centric disentanglement provides a more robust defense against attention leakage when the scene is relatively sparse. However, this advantage quickly dissipates as the subject count reaches 6 and beyond, underscoring the universal scalability bottleneck in current DiT/FLUX architectures \cite{peebles2023scalable,flux2024}.
+While all models fail at extreme subject counts, \textbf{MOSAIC} demonstrates a noticeably stronger baseline in low-complexity scenarios. At 2 subjects, MOSAIC achieves the highest DINOv2 score (0.425) and the lowest SCR (48.9\%), outperforming XVerse (0.355 / 58.9\%) and PSR (0.325 / 63.3\%). This suggests that MOSAIC's representation-centric disentanglement provides a more robust defense against attention leakage when the scene is relatively sparse. However, this advantage quickly dissipates as the subject count reaches 6 and beyond, underscoring the universal scalability bottleneck in current DiT/FLUX architectures~\cite{peebles2023scalable,flux2024}.
 
 \subsection{The Trade-off: Semantic vs. Physical Disentanglement}
 
-A counter-intuitive phenomenon emerges when we analyze the Text-Image Alignment (CLIP-T) \cite{radford2021learning} scores alongside the identity metrics. While DINOv2 \cite{oquab2023dinov2} scores plummet as the subject count increases, the CLIP-T scores for all models actually exhibit a slight upward trend. For example, PSR's CLIP-T score rises from 0.274 (2 subjects) to 0.309 (10 subjects), and MOSAIC rises from 0.261 to 0.299.
+A counter-intuitive phenomenon emerges when we analyze the Text-Image Alignment (CLIP-T)~\cite{radford2021learning} scores alongside the identity metrics. While DINOv2~\cite{oquab2023dinov2} scores plummet as the subject count increases, the CLIP-T scores for all models actually exhibit a slight upward trend. For example, PSR's CLIP-T score rises from 0.274 (2 subjects) to 0.309 (10 subjects), and MOSAIC rises from 0.261 to 0.300.
 
 This exposes a critical trade-off mechanism inherent in current diffusion models. When faced with the overwhelming complexity of generating 8 or 10 distinct, interacting individuals, the models actively "take a shortcut." Instead of attempting to faithfully reconstruct each specific identity—which would require precise, uncorrupted attention routing—the models revert to generating a generic "group of people" that satisfies the macro-level semantic constraints of the prompt. Consequently, the global CLIP-T score improves, but at the total expense of personalized identity.
 
