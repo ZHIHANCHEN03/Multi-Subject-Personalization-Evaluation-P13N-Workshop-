@@ -8,27 +8,27 @@
 
 [4] M. Oquab, T. Darcet, T. Moutakanni, H. Vo, M. Szafraniec, V. Khalidov, P. Fernandez, D. Haziza, F. Massa, A. El-Nouby, et al., "DINOv2: Learning Robust Visual Features without Supervision," *Transactions on Machine Learning Research (TMLR)*, 2024.
 
-[5] Bytedance-Fanqie-AI, "MOSAIC: A Representation-Centric Approach for Multi-Subject Generation," *arXiv preprint*, 2024.
+[5] D. She, S. Fu, M. Liu, Q. Jin, H. Wang, M. Liu, and J. Jiang, "MOSAIC: Multi-Subject Personalized Generation via Correspondence-Aware Alignment and Disentanglement," *arXiv preprint arXiv:2509.01977*, 2025.
 
-[6] Bytedance, "XVerse: Text-Stream Modulation for Multi-Subject Controllability," *arXiv preprint*, 2024.
+[6] B. Chen, M. Zhao, H. Sun, L. Chen, X. Wang, K. Du, and X. Wu, "XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation," *arXiv preprint arXiv:2506.21416*, 2025.
 
-[7] S. Wang et al., "PSR: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[7] S. Wang, L. Wei, X. He, J. Ouyang, H. Lu, Z. Zhao, and Q. Tian, "PSR: Scaling Multi-Subject Personalized Image Generation with Pairwise Subject-Consistency Rewards," *arXiv preprint arXiv:2512.01236*, 2025.
 
 [8] R. Gal, Y. Alaluf, Y. Atzmon, O. Patashnik, A. H. Bermano, G. Chechik, and D. Cohen-Or, "An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion," in *International Conference on Learning Representations (ICLR)*, 2023.
 
-[9] "ContextGen: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[9] R. Xu, D. Zhou, F. Ma, and Y. Yang, "ContextGen: Contextual Layout Anchoring for Identity-Consistent Multi-Instance Generation," *arXiv preprint arXiv:2510.11000*, 2025.
 
-[10] "AnyMS: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[10] B. Yu, Z. Wang, K. Li, Y. Yuan, W. Zhang, L. Chen, J. Li, X. Jun, and Y. Zhuang, "AnyMS: Bottom-up Attention Decoupling for Layout-guided and Training-free Multi-subject Customization," *arXiv preprint arXiv:2512.23537*, 2025.
 
 [11] W. Peebles and S. Xie, "Scalable Diffusion Models with Transformers," in *Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)*, 2023, pp. 4199-4209.
 
-[12] Black Forest Labs, "FLUX.1 [Model Placeholder]," 2024.
+[12] Black Forest Labs, "FLUX.1," 2024. [Online]. Available: https://blackforestlabs.ai/
 
-[13] "3DIS-FLUX: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[13] D. Zhou, J. Xie, Z. Yang, and Y. Yang, "3DIS-FLUX: simple and efficient multi-instance generation with DiT rendering," *arXiv preprint arXiv:2501.05131*, 2025.
 
-[14] "SeeThrough3D: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[14] V. Agrawal, R. Parihar, P. S. Bhat, R. K. Sarvadevabhatla, and R. V. Babu, "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation," *arXiv preprint arXiv:2602.23359*, 2026.
 
-[15] "LayerBind: [Paper Title Placeholder]," *arXiv preprint*, 2024.
+[15] Anonymous, "LayerBind: Coarse-to-fine Layered Initialization for Multi-Subject Generation," *Under Review*, 2025.
 
 <!-- 
 For LaTeX compilation, please use the following BibTeX entries in your .bib file and use \bibliographystyle{ieeenat_fullname}:
@@ -66,24 +66,24 @@ For LaTeX compilation, please use the following BibTeX entries in your .bib file
 }
 
 @article{mosaic2024,
-  title={MOSAIC: [Paper Title Placeholder]},
-  author={Bytedance-Fanqie-AI and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={MOSAIC: Multi-Subject Personalized Generation via Correspondence-Aware Alignment and Disentanglement},
+  author={She, Dong and Fu, Siming and Liu, Mushui and Jin, Qiaoqiao and Wang, Hualiang and Liu, Mu and Jiang, Jidong},
+  journal={arXiv preprint arXiv:2509.01977},
+  year={2025}
 }
 
 @article{xverse2024,
-  title={XVerse: [Paper Title Placeholder]},
-  author={Bytedance and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={XVerse: Consistent Multi-Subject Control of Identity and Semantic Attributes via DiT Modulation},
+  author={Chen, Bowen and Zhao, Mengyi and Sun, Haomiao and Chen, Li and Wang, Xu and Du, Kang and Wu, Xinglong},
+  journal={arXiv preprint arXiv:2506.21416},
+  year={2025}
 }
 
 @article{psr2024,
-  title={PSR: [Paper Title Placeholder]},
-  author={Wang, Shulei and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={PSR: Scaling Multi-Subject Personalized Image Generation with Pairwise Subject-Consistency Rewards},
+  author={Wang, Shulei and Wei, Longhui and He, Xin and Ouyang, Jianbo and Lu, Hui and Zhao, Zhou and Tian, Qi},
+  journal={arXiv preprint arXiv:2512.01236},
+  year={2025}
 }
 
 @inproceedings{gal2022image,
@@ -94,17 +94,17 @@ For LaTeX compilation, please use the following BibTeX entries in your .bib file
 }
 
 @article{contextgen2024,
-  title={ContextGen: [Paper Title Placeholder]},
-  author={Author, A and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={ContextGen: Contextual Layout Anchoring for Identity-Consistent Multi-Instance Generation},
+  author={Xu, Ruihang and Zhou, Dewei and Ma, Fan and Yang, Yi},
+  journal={arXiv preprint arXiv:2510.11000},
+  year={2025}
 }
 
 @article{anyms2024,
-  title={AnyMS: [Paper Title Placeholder]},
-  author={Author, B and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={AnyMS: Bottom-up Attention Decoupling for Layout-guided and Training-free Multi-subject Customization},
+  author={Yu, Binhe and Wang, Zhen and Li, Kexin and Yuan, Yuqian and Zhang, WenQiao and Chen, Long and Li, Juncheng and Jun, Xiao and Zhuang, Yueting},
+  journal={arXiv preprint arXiv:2512.23537},
+  year={2025}
 }
 
 @inproceedings{peebles2023scalable,
@@ -116,29 +116,30 @@ For LaTeX compilation, please use the following BibTeX entries in your .bib file
 }
 
 @misc{flux2024,
-  title={FLUX.1 [Model Placeholder]},
+  title={FLUX.1},
   author={Black Forest Labs},
-  year={2024}
+  year={2024},
+  howpublished={\url{https://blackforestlabs.ai/}}
 }
 
 @article{3disflux2024,
-  title={3DIS-FLUX: [Paper Title Placeholder]},
-  author={Author, C and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={3DIS-FLUX: simple and efficient multi-instance generation with DiT rendering},
+  author={Zhou, Dewei and Xie, Ji and Yang, Zongxin and Yang, Yi},
+  journal={arXiv preprint arXiv:2501.05131},
+  year={2025}
 }
 
 @article{seethrough3d2024,
-  title={SeeThrough3D: [Paper Title Placeholder]},
-  author={Author, D and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation},
+  author={Agrawal, Vaibhav and Parihar, Rishubh and Bhat, Pradhaan S and Sarvadevabhatla, Ravi Kiran and Babu, R Venkatesh},
+  journal={arXiv preprint arXiv:2602.23359},
+  year={2026}
 }
 
 @article{layerbind2024,
-  title={LayerBind: [Paper Title Placeholder]},
-  author={Author, E and others},
-  journal={arXiv preprint},
-  year={2024}
+  title={LayerBind: Coarse-to-fine Layered Initialization for Multi-Subject Generation},
+  author={Anonymous},
+  journal={Under Review},
+  year={2025}
 }
 -->
